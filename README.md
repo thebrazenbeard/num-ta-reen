@@ -72,6 +72,17 @@ remains untranslated.
 
 The system deliberately does **not** invent canonical words or translate true-name chord notation into pronounceable names. Accent marks and glottal stops matter: `nûm` and `num` are not interchangeable.
 
+### Source-attested pronunciation lookup (experimental teaching aid)
+
+For an existing **whole corpus utterance** or an individual dictionary headword, retrieve the author-supplied IPA and provenance. It does not create pronunciations for new sentences or assign acoustic frequencies:
+
+```powershell
+py -3 -m numtareen.phonetic_bridge --repo-root . "Nûm ta=en ech."
+py -3 -m numtareen.phonetic_bridge --repo-root . "veyl"
+```
+
+The input source snapshot is content-pinned to the current Wreckforge extracts; altered or spoofed files are refused. The E26 true-name notation is withheld from phonetic rendering. See the [noncanonical phonetic bridge proposal](proposals/PHONETIC_BRIDGE_V0.md) for its explicit source discrepancies and human-teaching boundaries.
+
 ## Repository contents
 
 | Path | Purpose |
