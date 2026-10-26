@@ -1,0 +1,4 @@
+# Source-bound JSON files must have identical bytes on Windows and Linux.
+# Their SHA-256 digests are part of the reference-adapter provenance gate.
+data/corpus.json text eol=lf
+data/lexicon.json text eol=lf

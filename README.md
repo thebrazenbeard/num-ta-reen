@@ -68,6 +68,21 @@ See `proposals/` for the first extension tranche and the open linguistic design 
 
 ## Development
 
+### Governed Universal Translator reference bridge
+
+The opt-in `python -m numtareen.interop` command accepts UTF-8 JSONL requests
+and returns source-bound reference records for the public UNVTRSLR validator.
+For example, submit `{"direction":"nt-en","text":"Nûm ta=en ech."}` as one
+line on stdin. The result is **author-provided reference evidence**, not a
+learned semantic association; it is always ineligible for grounding
+qualification and withheld true-name chord material is never synthesized.
+
+The source texts and corpus stay private. See
+[`docs/UNVTRSLR_INTEROP_V1.md`](docs/UNVTRSLR_INTEROP_V1.md) for the JSONL
+protocol, provenance boundaries, PowerShell encoding requirements, and
+`docs/UNVTRSLR_INTEROP_GUIDE.md` for the workflow. The test matrix pins the
+public validator to an exact commit for cross-repository verification.
+
 ```powershell
 py -3 -m unittest discover -s tests -v
 ```
