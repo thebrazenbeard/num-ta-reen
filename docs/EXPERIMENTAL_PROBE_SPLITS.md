@@ -46,12 +46,21 @@ public_holdout = private.holdout.observations
 # Do not deliver any other private.* fields to learners.
 ```
 
-The helper checks all arm ranges, rejects duplicates and cross-split arm
-overlap, bounds aggregate samples to 1,048,576, uses independent noise seeds,
-and rejects exact waveform replay across train/holdout. Each state occurs
+The helper checks all arm ranges, rejects duplicate phase-periodic nuisance
+arms and cross-split arm overlap, bounds aggregate samples to 1,048,576, uses
+independent noise seeds, and rejects exact waveform replay **within each split**
+as well as across train/holdout. This matters because two arbitrary hidden
+state IDs can produce identical samples under different pitch settings, making
+their labels impossible to distinguish from the public signal. Each state occurs
 **once per nuisance arm** in each split. Thus the finite nuisance-arm schedule
 is exactly balanced by state, and sample rate/duration are uniform; different
 gain/pitch/noise/phase combinations are held out.
+
+Exact duplicate rejection is only a minimal validity guard. It does **not**
+reject near-identical or statistically ambiguous signals; noisy cross-class
+collisions and independent captures remain unresolved. No perfect held-out
+classification result should be interpreted as semantics without checking
+observability and those collision risks.
 
 An optional evaluator-only `holdout_codebook` permutation is a negative-control
 probe of frequency-codebook memorization. Even without this ablation, a trivial
