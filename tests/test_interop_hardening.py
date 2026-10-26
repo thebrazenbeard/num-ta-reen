@@ -7,12 +7,29 @@ import subprocess
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+
+from numtareen.engine import AmbiguityOverflowError, Translator
+from numtareen.interop import handle_request
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class InteropJsonlRecoveryTests(unittest.TestCase):
+    def test_ambiguity_limit_is_not_reported_as_invalid_text_and_recovers(self):
+        translator = Translator()
+        request = {"request_id": "overflow", "direction": "nt-en", "text": "nûm=en"}
+        with patch("numtareen.interop.to_reference_record",
+                   side_effect=AmbiguityOverflowError("segmentation analysis limit exceeded")):
+            response = handle_request(translator, request)
+        self.assertFalse(response["ok"])
+        self.assertEqual(response["error"]["code"], "AMBIGUITY_LIMIT")
+        self.assertEqual(response["request_id"], "overflow")
+        recovered = handle_request(translator, {"direction": "nt-en", "text": "Nûm ta=en ech."})
+        self.assertTrue(recovered["ok"])
+        self.assertEqual(recovered["record"]["evidence_class"], "AUTHOR_ATTESTED_CORPUS")
+
     def test_deep_nesting_duplicate_members_and_nan_do_not_kill_session(self):
         # All four frames are comfortably below the 65,536-byte request cap.
         malicious = [

@@ -10,6 +10,7 @@ import json
 import re
 import unicodedata
 from collections import defaultdict
+from itertools import product
 from pathlib import Path
 
 
@@ -18,6 +19,8 @@ _APOSTROPHE_TRANSLATION = str.maketrans({"'": "’", "‘": "’", "ʼ": "’"})
 _WHITESPACE = re.compile(r"\s+")
 _WORD_EDGES = " \t\r\n.,!?;:\"“”«»()[]{}"
 _SIMPLE_ALTERNATIVES = re.compile(r"^[^\s/.,;:()]+(?:/[^\s/.,;:()]+)+\.?$")
+MAX_SEGMENTED_PIECES = 16
+MAX_SEGMENTATION_ANALYSES = 64
 
 
 class DataError(ValueError):
@@ -26,6 +29,10 @@ class DataError(ValueError):
 
 class UnknownTermError(ValueError):
     """The requested phrase cannot be translated under strict unknown policy."""
+
+
+class AmbiguityOverflowError(ValueError):
+    """Bounded lexical segmentation would omit valid dictionary analyses."""
 
 
 def normalize(value: str) -> str:
@@ -124,14 +131,21 @@ class Translator:
         # the dictionary remains unknown; no grammatical reading is inferred.
         if "=" in token and not token.startswith("="):
             pieces = token.split("=")
+            if len(pieces) > MAX_SEGMENTED_PIECES:
+                raise AmbiguityOverflowError("segmentation depth limit exceeded")
             if any(not piece for piece in pieces):
                 return []
             stem = self.words.get(normalize(pieces[0]), [])
             clitics = [self.words.get(normalize("=" + piece), []) for piece in pieces[1:]]
             if stem and all(clitics):
-                return [{"segmentation": [self._candidate(e) for e in stem]
-                         + [self._candidate(e) for choices in clitics for e in choices],
-                         "note": "Lexical segmentation only; not a grammatical parse"}]
+                candidate_count = len(stem)
+                for choices in clitics:
+                    if candidate_count > MAX_SEGMENTATION_ANALYSES // len(choices):
+                        raise AmbiguityOverflowError("segmentation analysis limit exceeded")
+                    candidate_count *= len(choices)
+                return [{"segmentation": [self._candidate(e) for e in analysis],
+                         "note": "Lexical segmentation only; not a grammatical parse"}
+                        for analysis in product(stem, *clitics)]
         return []
 
     def translate(self, text: str, direction: str = "nt-en", unknown: str = "mark") -> dict:

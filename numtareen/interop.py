@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .engine import DATA_DIR, DataError, Translator, UnknownTermError
+from .engine import AmbiguityOverflowError, DATA_DIR, DataError, Translator, UnknownTermError
 
 
 SCHEMA = "unvtrslr-reference-evidence-v1"
@@ -241,6 +241,8 @@ def handle_request(translator: Translator, request: Any) -> dict[str, Any]:
         response = to_reference_record(translator, phrase, direction=direction, unknown=unknown)
     except UnknownTermError:
         return _error("UNKNOWN_SEGMENT", "Unknown segment with strict unknown policy", request_id)
+    except AmbiguityOverflowError:
+        return _error("AMBIGUITY_LIMIT", "Lexical segmentation exceeds safe analysis limits", request_id)
     except (DataError, OSError, KeyError):
         return _error("SOURCE_DATA_ERROR", "Pinned reference data could not be verified", request_id)
     except ValueError:

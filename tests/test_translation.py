@@ -113,6 +113,52 @@ class TranslationTests(unittest.TestCase):
             self.assertEqual(result["status"], "ambiguous")
             self.assertEqual(len(result["parts"][0]["matches"]), 2)
 
+    def test_segmented_stem_and_clitic_analyses_preserve_ambiguity(self):
+        translator = Translator()
+        stem = translator.words["nûm"][0]
+        clitic = translator.words["=en"][0]
+        translator.words["nûm"].append({**stem, "gloss": "synthetic alternate stem"})
+        translator.words["=en"].extend([
+            {**clitic, "gloss": "synthetic clitic option 2"},
+            {**clitic, "gloss": "synthetic clitic option 3"},
+        ])
+        result = translator.translate("nûm=en")
+        self.assertEqual(result["status"], "ambiguous")
+        self.assertEqual(result["ambiguous_count"], 1)
+        matches = result["parts"][0]["matches"]
+        self.assertEqual(len(matches), 6)
+        self.assertTrue(all(len(m["segmentation"]) == 2 for m in matches))
+        self.assertEqual(len({tuple(x["gloss"] for x in m["segmentation"]) for m in matches}), 6)
+
+    def test_unique_clitic_segmentation_remains_one_lexical_analysis(self):
+        result = Translator().translate("nûm=en")
+        self.assertEqual(result["status"], "lexical")
+        self.assertEqual(result["ambiguous_count"], 0)
+        self.assertEqual(len(result["parts"][0]["matches"]), 1)
+        self.assertEqual(len(result["parts"][0]["matches"][0]["segmentation"]), 2)
+
+    def test_segmentation_rejects_combinatorial_overflow_explicitly(self):
+        translator = Translator()
+        entry = translator.words["nûm"][0]
+        translator.words["nûm"].extend({**entry, "gloss": f"synthetic-{index}"}
+                                         for index in range(64))
+        with self.assertRaisesRegex(ValueError, "segmentation.*limit"):
+            translator.translate("nûm=en")
+
+    def test_segmentation_allows_exact_bounded_candidate_count(self):
+        translator = Translator()
+        entry = translator.words["nûm"][0]
+        translator.words["nûm"].extend({**entry, "gloss": f"synthetic-{index}"}
+                                         for index in range(63))
+        result = translator.translate("nûm=en")
+        self.assertEqual(result["status"], "ambiguous")
+        self.assertEqual(result["ambiguous_count"], 1)
+        self.assertEqual(len(result["parts"][0]["matches"]), 64)
+
+    def test_segmentation_rejects_excessive_clitic_depth_explicitly(self):
+        with self.assertRaisesRegex(ValueError, "segmentation.*limit"):
+            Translator().translate("nûm" + "=en" * 16)
+
     def test_malformed_fixture_fails_closed(self):
         with tempfile.TemporaryDirectory() as folder:
             (Path(folder) / "lexicon.json").write_text("{oops", encoding="utf-8")
