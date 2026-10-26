@@ -196,7 +196,9 @@ def main() -> int:
     args = parser.parse_args()
     guide = AttestedPronunciationGuide(args.repo_root)
     result = guide.lookup(args.text)
-    print(json.dumps(result.as_dict(), ensure_ascii=False, sort_keys=True))
+    # JSON escapes preserve exact IPA after decoding while remaining safe on
+    # legacy Windows console code pages (including cp1252 in PowerShell 5.1).
+    print(json.dumps(result.as_dict(), ensure_ascii=True, sort_keys=True))
     return 0 if result.status.startswith("ATTESTED") else 2
 
 

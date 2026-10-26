@@ -144,6 +144,18 @@ class AttestedPronunciationGuideTests(unittest.TestCase):
         self.assertEqual(result["evidence_class"], "AUTHOR_ATTESTED_CORPUS")
         self.assertEqual(result["source_locator"], "E01")
 
+    def test_cli_preserves_ipa_with_legacy_windows_codepage(self):
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "cp1252"
+        complete = subprocess.run(
+            [sys.executable, "-m", "numtareen.phonetic_bridge", "--repo-root",
+             str(REPO_ROOT), "Nûm ta=en ech."],
+            env=env, capture_output=True, encoding="cp1252", check=False,
+        )
+        self.assertEqual(0, complete.returncode, complete.stderr)
+        self.assertTrue(complete.stdout.isascii())
+        self.assertEqual("/ˈnuːm tɑʔˈɛn ɛt͡ʃ/", json.loads(complete.stdout)["ipa"])
+
 
 if __name__ == "__main__":
     unittest.main()
