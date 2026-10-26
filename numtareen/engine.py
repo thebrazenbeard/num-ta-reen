@@ -83,6 +83,7 @@ class Translator:
 
     def __init__(self, data_dir: Path | None = None):
         directory = Path(data_dir) if data_dir is not None else DATA_DIR
+        self.data_dir = directory
         self.lexicon = _load_document(directory, "lexicon.json", "entries", "entry_count")
         self.corpus = _load_document(directory, "corpus.json", "records", "record_count")
         self.words: dict[str, list[dict]] = defaultdict(list)

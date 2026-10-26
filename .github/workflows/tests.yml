@@ -14,11 +14,29 @@ jobs:
         python-version: ['3.10', '3.11', '3.13']
     steps:
       - uses: actions/checkout@v4
+      - name: Checkout exact public reference-validator subject
+        uses: actions/checkout@v4
+        with:
+          repository: thebrazenbeard/unvtrslr
+          ref: 769d8f8a1b7cb4e8b68189e6279222d48269df8f
+          path: .unvtrslr_peer
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Verify source and translation behavior
+        env:
+          NUMTAREEN_ROOT: ${{ github.workspace }}
+          UNVTRSLR_ROOT: ${{ github.workspace }}/.unvtrslr_peer
         run: python -m unittest discover -s tests -v
+      - name: Verify reference adapter on PowerShell 7
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./tests/Test-NumtareenInterop.ps1
+      - name: Verify reference adapter on Windows PowerShell 5.1
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: ./tests/Test-NumtareenInterop.ps1
       - name: Verify PowerShell entrypoint and Unicode roundtrip
         shell: pwsh
         run: |
