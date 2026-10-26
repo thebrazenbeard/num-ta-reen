@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: thebrazenbeard/unvtrslr
-          ref: c05db16f62942804955c4f283a14fd1bf326c3f8
+          # Immutable public main after reference-contract hygiene; also
+          # includes the blind acoustic observation module under test.
+          ref: 353bef5c2005d82edcee30157d821397dfb78604
           path: .unvtrslr_peer
           persist-credentials: false
       - uses: actions/setup-python@v5
