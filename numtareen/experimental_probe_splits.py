@@ -10,7 +10,7 @@ learners must execute in an isolated process without this module or ledger.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import pi
+from math import pi, remainder
 from random import Random
 
 from numtareen.experimental_resonance import (
@@ -25,6 +25,9 @@ from numtareen.experimental_resonance import (
 
 
 MAX_ARMS_PER_SPLIT = 8
+# Floating arithmetic around a complete 2*pi turn can leave ~1e-15 rad
+# residue. This tolerance is numerical, not a perceptual similarity metric.
+PHASE_PERIODIC_TOLERANCE_RAD = 1e-12
 
 
 @dataclass(frozen=True)
@@ -54,6 +57,17 @@ class PrivateProbeExperiment:
     holdout: PrivateProbeSplit
 
 
+def _same_acoustic_arm(left: NuisanceArm, right: NuisanceArm) -> bool:
+    """Phase rotations of whole turns are the same synthetic nuisance arm."""
+    return (
+        left.gain == right.gain
+        and left.pitch_scale == right.pitch_scale
+        and left.noise_level == right.noise_level
+        and abs(remainder(left.phase_shift_rad - right.phase_shift_rad, 2 * pi))
+        <= PHASE_PERIODIC_TOLERANCE_RAD
+    )
+
+
 def _validate_arms(name: str, arms: object) -> tuple[NuisanceArm, ...]:
     if not isinstance(arms, tuple) or not 1 <= len(arms) <= MAX_ARMS_PER_SPLIT:
         raise ValueError(f"{name} arm count must be in [1, {MAX_ARMS_PER_SPLIT}]")
@@ -69,7 +83,8 @@ def _validate_arms(name: str, arms: object) -> tuple[NuisanceArm, ...]:
                 phase_shift_rad=_real("phase_shift_rad", arm.phase_shift_rad, -2 * pi, 2 * pi),
             )
         )
-    if len(set(result)) != len(result):
+    if any(_same_acoustic_arm(left, right)
+           for index, left in enumerate(result) for right in result[index + 1:]):
         raise ValueError(f"{name} contains duplicate nuisance arms")
     return tuple(result)
 
@@ -109,7 +124,7 @@ def render_private_balanced_probe_splits(
     samples_per_state = _integer("samples_per_state", samples_per_state, 128, 12_000)
     train_arms = _validate_arms("train", train_arms)
     holdout_arms = _validate_arms("holdout", holdout_arms)
-    if set(train_arms) & set(holdout_arms):
+    if any(_same_acoustic_arm(a, b) for a in train_arms for b in holdout_arms):
         raise ValueError("training and holdout nuisance arms must be disjoint")
     evaluator_codebook = _validate_codebook("evaluator_codebook", evaluator_codebook)
     if holdout_codebook is None:
@@ -150,6 +165,16 @@ def render_private_balanced_probe_splits(
 
     train = render_split(train_arms, evaluator_codebook)
     holdout = render_split(holdout_arms, holdout_codebook)
-    if {obs.samples for obs in train.observations} & {obs.samples for obs in holdout.observations}:
+    # Exact public waveforms are not independent examples even if their
+    # evaluator-private labels or nuisance-arm IDs differ.  Cross-class
+    # carrier aliases can occur *inside* a split, not just across splits.
+    # The aggregate sample cap above bounds these temporary sets.
+    train_waveforms = {obs.samples for obs in train.observations}
+    holdout_waveforms = {obs.samples for obs in holdout.observations}
+    if len(train_waveforms) != len(train.observations):
+        raise ValueError("identical public waveform replay within training split")
+    if len(holdout_waveforms) != len(holdout.observations):
+        raise ValueError("identical public waveform replay within holdout split")
+    if train_waveforms & holdout_waveforms:
         raise ValueError("identical public waveform replay across train and holdout")
     return PrivateProbeExperiment(train, holdout)

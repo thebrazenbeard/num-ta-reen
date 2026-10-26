@@ -2,6 +2,7 @@
 
 from collections import Counter
 from dataclasses import fields
+from math import pi
 import unittest
 
 from numtareen.experimental_probe_splits import (
@@ -77,6 +78,30 @@ class ProbeSplitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate"):
             self.build(train_arms=(TRAIN[0], TRAIN[0]))
 
+    def test_periodic_phase_aliases_cannot_fake_nuisance_holdout(self):
+        # The phase of a sinusoid is circular: 0 and +/-2*pi are the same
+        # acoustic condition, although their dataclass floats differ.
+        for alias in (-2 * pi, 2 * pi):
+            with self.subTest(alias=alias), self.assertRaisesRegex(ValueError, "disjoint"):
+                self.build(
+                    train_arms=(NuisanceArm(phase_shift_rad=0.0),),
+                    holdout_arms=(NuisanceArm(phase_shift_rad=alias),),
+                )
+        with self.assertRaisesRegex(ValueError, "duplicate"):
+            self.build(train_arms=(NuisanceArm(phase_shift_rad=0.0),
+                                  NuisanceArm(phase_shift_rad=2 * pi)))
+        with self.assertRaisesRegex(ValueError, "disjoint"):
+            self.build(train_arms=(NuisanceArm(phase_shift_rad=0.7),),
+                       holdout_arms=(NuisanceArm(phase_shift_rad=0.7 - 2 * pi),))
+        with self.assertRaisesRegex(ValueError, "disjoint"):
+            self.build(train_arms=(NuisanceArm(phase_shift_rad=pi),),
+                       holdout_arms=(NuisanceArm(phase_shift_rad=-pi),))
+        # A genuinely nonperiodic phase difference remains a valid (albeit
+        # scientifically tiny) separate arm; this patch is not a JND policy.
+        valid = self.build(train_arms=(NuisanceArm(phase_shift_rad=0.0),),
+                           holdout_arms=(NuisanceArm(phase_shift_rad=1e-8),))
+        self.assertEqual(len(valid.train.observations), 8)
+
     def test_input_bounds_and_aggregate_cap(self):
         for invalid in (True, -1, 2**32):
             with self.subTest(invalid=invalid), self.assertRaisesRegex(ValueError, "batch_seed"):
@@ -98,6 +123,32 @@ class ProbeSplitTests(unittest.TestCase):
             {x.samples for x in split.train.observations}
             & {x.samples for x in split.holdout.observations}
         )
+
+    def test_cross_class_alias_inside_training_is_rejected(self):
+        # Synthetic states 2 and 3 use carriers 434 and 526 Hz respectively.
+        # The two nuisance arms below align the carriers exactly. Distinct
+        # hidden labels therefore have bit-identical public waveforms.
+        colliding = (
+            NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=0.0),
+            NuisanceArm(gain=0.4, pitch_scale=434 / 526, noise_level=0.0),
+        )
+        with self.assertRaisesRegex(ValueError, "within training"):
+            self.build(train_arms=colliding, holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=1.1),))
+
+    def test_noncolliding_training_arms_remain_valid(self):
+        split = self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=0.95),
+                                       NuisanceArm(gain=0.4, pitch_scale=1.05)),
+                           holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=1.1),))
+        self.assertEqual(len(split.train.observations), 16)
+        self.assertEqual(len({obs.samples for obs in split.train.observations}), 16)
+
+    def test_cross_class_alias_inside_holdout_is_rejected(self):
+        colliding = (
+            NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=0.0),
+            NuisanceArm(gain=0.4, pitch_scale=434 / 526, noise_level=0.0),
+        )
+        with self.assertRaisesRegex(ValueError, "within holdout"):
+            self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.1),), holdout_arms=colliding)
 
 
 if __name__ == "__main__":
