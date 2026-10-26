@@ -4,7 +4,7 @@
 
 This repository turns Patrick A. Sims’s existing worldbuilding documents into a versioned language reference, a 500-entry digital dictionary, a 30-utterance attested bilingual corpus, and a **PowerShell-friendly, offline Num’ta’reen ⇄ English interface**.
 
-The original OneDrive folder and documents remain untouched. The repository is private and contains text extracts, searchable data, and code—not the manuscript. The two `UPDATED_lphoneme` sources take precedence over older drafts.
+The original OneDrive folder and documents remain untouched. This repository is **public** and contains text extracts, searchable data, and code—not the manuscript. Public visibility does not grant a license to reuse the fictional language or source documents. The two `UPDATED_lphoneme` sources take precedence over older drafts.
 
 ## Translate from PowerShell
 
@@ -82,6 +82,7 @@ The system deliberately does **not** invent canonical words or translate true-na
 | `numtareen/` | Python standard-library-only translator and terminal interface |
 | `scripts/` | PowerShell launcher |
 | `docs/LANGUAGE_OVERVIEW.md` | Grammar summary, linguistic constraints and examples |
+| `docs/LANGUAGE_EVIDENCE_AND_CONTRADICTIONS_20261026.md` | Evidence audit and unresolved phonological, syntactic, and semantic source conflicts |
 | `docs/SOURCE_PARSE_REPORT.md` | Source extraction checks and unresolved internal inconsistencies |
 | `proposals/` | Proposed extensions for Patrick’s editorial approval; **not** canon by default |
 | `tests/` | Offline source, translation and safety regressions |
@@ -93,7 +94,7 @@ The supplied dictionary is substantial but does not fully define everyday commun
 1. **Proposal** — identify an unmet semantic domain, describe native state/resonance distinctions, propose forms and example usages, and check against the existing dictionary and phonology.
 2. **Canonization** — Patrick reviews/changes/accepts proposals. Only explicitly accepted entries move into canonical datasets. Proposed meanings remain excluded from default translation.
 
-See `proposals/` for the first extension tranche and the open linguistic design questions. We do not overwrite or silently reinterpret the supplied documents.
+The [30-slot everyday communication coverage proposal](proposals/EVERYDAY_SEMANTIC_COVERAGE_V1.md) distinguishes attested utterances, dictionary-only vocabulary, and missing structures. The [source contradiction audit](docs/LANGUAGE_EVIDENCE_AND_CONTRADICTIONS_20261026.md) documents unresolved phoneme inventory, phonotactic, relativizer, restorative/concessive, and echo-operator questions. Neither file is canon; author review and contrastive examples are still required. We do not overwrite or silently reinterpret the supplied documents.
 
 ## Development
 
@@ -106,7 +107,7 @@ line on stdin. The result is **author-provided reference evidence**, not a
 learned semantic association; it is always ineligible for grounding
 qualification and withheld true-name chord material is never synthesized.
 
-The source texts and corpus stay private. See
+The source texts and corpus are visible in this public repository. See
 [`docs/UNVTRSLR_INTEROP_V1.md`](docs/UNVTRSLR_INTEROP_V1.md) for the JSONL
 protocol, provenance boundaries, and PowerShell encoding requirements. The
 [`historical integration design guide`](docs/UNVTRSLR_INTEROP_GUIDE.md) records
@@ -123,4 +124,4 @@ The current implementation performs source-attested sentence lookup and approxim
 
 ## Provenance and rights
 
-The language reference originates with the supplied *Wreckforge Chronicles* documents, not machine inference. See [`sources/SOURCES.md`](sources/SOURCES.md) for document identities, hashes, and amendment priority. This is a private working copy of original creative material; no open-source licensing of the worldbuilding or larger manuscript is implied.
+The language reference originates with the supplied *Wreckforge Chronicles* documents, not machine inference. See [`sources/SOURCES.md`](sources/SOURCES.md) for document identities, hashes, and amendment priority. Public GitHub visibility does not imply open-source licensing of the worldbuilding, underlying creative material, or larger manuscript.
