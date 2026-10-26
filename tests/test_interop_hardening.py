@@ -10,13 +10,49 @@ from pathlib import Path
 from unittest.mock import patch
 
 from numtareen.engine import AmbiguityOverflowError, Translator
-from numtareen.interop import handle_request
+from numtareen.interop import _lexical_alternatives, handle_request, to_reference_record
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class InteropJsonlRecoveryTests(unittest.TestCase):
+    def test_total_budget_counts_every_analysis_across_segmented_tokens(self):
+        # The engine's Cartesian expansion may return six distinct analyses
+        # for each token. The wire budget applies to their sum, not each token.
+        matches = [{"segmentation": [{"headword": f"synthetic-stem-{s}"},
+                                     {"headword": f"=synthetic-clitic-{c}"}]}
+                   for s in range(2) for c in range(3)]
+        lexical_part = {"kind": "lexical", "token": "synthetic", "matches": matches}
+        in_budget = {"parts": [lexical_part] * 10}
+        over_budget = {"parts": [lexical_part] * 11}
+        self.assertEqual(len(_lexical_alternatives(in_budget, "nt-en")), 60)
+        with self.assertRaises(AmbiguityOverflowError):
+            _lexical_alternatives(over_budget, "nt-en")
+
+    def test_total_reference_alternative_budget_is_bounded_across_tokens(self):
+        translator = Translator()
+        at_limit = " ".join(["nûm=en"] * 64)
+        over_limit = " ".join(["nûm=en"] * 65)
+
+        allowed = to_reference_record(translator, at_limit, direction="nt-en")
+        self.assertEqual(len(allowed["alternatives"]), 64)
+        self.assertFalse(allowed["qualification_eligible"])
+        self.assertTrue(all(candidate["kind"] == "lexical_segmentation"
+                            for candidate in allowed["alternatives"]))
+
+        with self.assertRaises(AmbiguityOverflowError):
+            to_reference_record(translator, over_limit, direction="nt-en")
+
+        request = {"request_id": "total-limit", "direction": "nt-en", "text": over_limit}
+        response = handle_request(translator, request)
+        self.assertFalse(response["ok"])
+        self.assertEqual(response["request_id"], "total-limit")
+        self.assertEqual(response["error"]["code"], "AMBIGUITY_LIMIT")
+        recovered = handle_request(translator, {"direction": "nt-en", "text": at_limit})
+        self.assertTrue(recovered["ok"])
+        self.assertEqual(len(recovered["record"]["alternatives"]), 64)
+
     def test_ambiguity_limit_is_not_reported_as_invalid_text_and_recovers(self):
         translator = Translator()
         request = {"request_id": "overflow", "direction": "nt-en", "text": "nûm=en"}

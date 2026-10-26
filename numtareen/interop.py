@@ -29,6 +29,9 @@ ORIGIN_REPO = "thebrazenbeard/num-ta-reen"
 MAX_REQUEST_BYTES = 65536
 MAX_TEXT_BYTES = 16384
 MAX_BASE64_CHARS = 4 * ((MAX_TEXT_BYTES + 2) // 3)
+# The public reference-evidence schema accepts no more than 64 alternatives
+# across an entire request, not 64 for each segmented token.
+MAX_REFERENCE_ALTERNATIVES = 64
 DATA_SHA256 = {
     "corpus.json": "5bc4c939e728e9e5bce1875eafcba9e71609570281bebb87dc7e64e2e9a6d229",
     "lexicon.json": "208d5daa5953383cccbac6a145df795531691ec60248256dc2e18a5651c6ba08",
@@ -89,6 +92,8 @@ def _lexical_alternatives(result: dict[str, Any], direction: str) -> list[dict[s
         if part["kind"] != "lexical":
             continue
         for match in part["matches"]:
+            if len(candidates) >= MAX_REFERENCE_ALTERNATIVES:
+                raise AmbiguityOverflowError("total reference alternative limit exceeded")
             if "segmentation" in match:
                 # A clitic segmentation is a dictionary lookup, not a phrase
                 # translation. Preserve its constituent provenance verbatim.
@@ -150,6 +155,8 @@ def to_reference_record(
             record_id = matches[0]["id"]
             target = matches[0]["translation"]
         else:
+            if len(matches) > MAX_REFERENCE_ALTERNATIVES:
+                raise AmbiguityOverflowError("total reference alternative limit exceeded")
             alternatives = [
                 {"kind": "corpus", "record_id": m["id"], "value": m["translation"]}
                 for m in matches
