@@ -45,19 +45,34 @@ function Invoke-ReferenceAdapter {
     $start.RedirectStandardError = $true
     $proc = [System.Diagnostics.Process]::Start($start)
     try {
-        $proc.StandardInput.WriteLine($payload)
-        $proc.StandardInput.Close()
+        # The payload is already entirely ASCII (non-ASCII characters are JSON
+        # \u escapes). Write exact bytes to bypass Windows PowerShell 5.1's
+        # .NET Framework StreamWriter encoding/preamble behavior. One LF ends
+        # the frame; closing the underlying stream signals EOF to Python.
+        $bytes = [System.Text.Encoding]::ASCII.GetBytes($payload + "`n")
+        $stdin = $proc.StandardInput.BaseStream
+        $stdin.Write($bytes, 0, $bytes.Length)
+        $stdin.Flush()
+        $stdin.Close()
         $output = $proc.StandardOutput.ReadToEnd()
         $errors = $proc.StandardError.ReadToEnd()
         $proc.WaitForExit()
-        if ($proc.ExitCode -ne 0 -or -not $output.Trim()) {
+        if ($proc.ExitCode -ne 0) {
             # Never dump stderr/stdout because the private translation can be
             # present there. Report only a bounded diagnostic category.
-            throw 'Adapter process failed or produced empty output'
+            throw 'Adapter process exited nonzero'
+        }
+        if (-not $output.Trim()) {
+            throw 'Adapter process produced empty output'
         }
         $result = $output.Trim() | ConvertFrom-Json
-        if (-not $result.ok -or $null -eq $result.record) {
-            throw 'Adapter returned an error or an incomplete success envelope'
+        if (-not $result.ok) {
+            $code = [string]$result.error.code
+            if ($code -notmatch '^[A-Z_]{1,40}$') { $code = 'UNCLASSIFIED' }
+            throw "Adapter rejected request: $code"
+        }
+        if ($null -eq $result.record) {
+            throw 'Adapter returned incomplete success envelope'
         }
         $record = $result.record
         if ($record.qualification_eligible -ne $false -or
@@ -80,6 +95,7 @@ if ($attested.evidence_class -ne 'AUTHOR_ATTESTED_CORPUS' -or
     $attested.target_text -cne $first.english) {
     throw 'Source-attested private reference roundtrip failed'
 }
+Write-Output 'Private adapter attested smoke passed'
 
 $nonBmp = [char]::ConvertFromUtf32(0x1F680)
 $probe = 'unattested "quoted" ' + $nonBmp + ' nûm'
@@ -87,6 +103,7 @@ $unknown = Invoke-ReferenceAdapter -Direction 'nt-en' -Text $probe
 if ($unknown.source_text -cne $probe -or $unknown.target_text -ne $null) {
     throw 'Unicode, quotation, or unknown-text handling failed'
 }
+Write-Output 'Private adapter unknown Unicode smoke passed'
 
 $trueName = $corpus.records | Where-Object { $_.id -eq 'E26' } | Select-Object -First 1
 if ($null -eq $trueName) { throw 'Missing true-name source record' }

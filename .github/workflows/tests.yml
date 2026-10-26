@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: thebrazenbeard/unvtrslr
-          ref: 769d8f8a1b7cb4e8b68189e6279222d48269df8f
+          ref: c05db16f62942804955c4f283a14fd1bf326c3f8
           path: .unvtrslr_peer
           persist-credentials: false
       - uses: actions/setup-python@v5
