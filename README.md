@@ -117,6 +117,8 @@ For the mathematical layer, [`proposals/RESONANCE_PACKET_MATH_V0.md`](proposals/
 
 The separate [semantic composition proposal](proposals/SEMANTIC_COMPOSITION_V4.md) analyzes **source-verified author interlinear glosses** into tentative, typed roles, evidentiality, consent loci and partial scope trees. Its `research/semantic_ir_proposal.py` implementation abstains on conflicting sources, unlicensed operator stacks, and protected notation; it rejects spoofed string subclasses at its public parsing boundaries. It does not parse novel Num’ta’reen text or prove productive language; test it with `py -3 -m unittest discover -s tests -p test_semantic_ir_proposal.py -v`.
 
+The [semantic/acoustic alignment falsification audit](docs/SEMANTIC_ACOUSTIC_ALIGNMENT_AUDIT.md) quantifies what the original 3,072-state synthetic packet **loses**: 27 accepted authored source observations project to only 16 packet values, including collisions in predicate identity, question, focus, and consent scope. The `research/alignment_projection.py` reference projection is explicitly lossy and refuses any lossless-qualification claim. Run `py -3 -m unittest discover -s tests -p test_alignment_projection.py -v`; `py -3 -m research.census_alignment` reproduces the counts. This is a negative control, not canonical native encoding.
+
 ## Development
 
 ### Governed Universal Translator reference bridge
