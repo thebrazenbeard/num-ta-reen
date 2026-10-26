@@ -79,8 +79,9 @@ qualification and withheld true-name chord material is never synthesized.
 
 The source texts and corpus stay private. See
 [`docs/UNVTRSLR_INTEROP_V1.md`](docs/UNVTRSLR_INTEROP_V1.md) for the JSONL
-protocol, provenance boundaries, PowerShell encoding requirements, and
-`docs/UNVTRSLR_INTEROP_GUIDE.md` for the workflow. The test matrix pins the
+protocol, provenance boundaries, and PowerShell encoding requirements. The
+[`historical integration design guide`](docs/UNVTRSLR_INTEROP_GUIDE.md) records
+the original proposal; it is not the implemented protocol. The test matrix pins the
 public validator to an exact commit for cross-repository verification.
 
 ```powershell

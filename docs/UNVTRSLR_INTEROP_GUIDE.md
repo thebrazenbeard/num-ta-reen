@@ -1,6 +1,8 @@
 # Nûm’ta’reen and UNVTRSLR: private integration guide
 
-**Status:** engineering proposal, not an installed cross-repository interface and not a change to language canon.
+**Status:** historical **pre-implementation engineering proposal**. The governed offline JSONL reference interface is now implemented; this document preserves the design rationale and is **not** the current protocol specification or a change to language canon.
+
+**Implemented interface:** See [`UNVTRSLR_INTEROP_V1.md`](UNVTRSLR_INTEROP_V1.md) for the actual private reference provider, source pins, invocation, PowerShell 5.1/7 encoding, and evidence restrictions. Its public validator is described in `thebrazenbeard/unvtrslr` at `docs/REFERENCE_EVIDENCE_INTEROP_V1.md`. The first integration was merged into private `num-ta-reen` main at `bb3c008402b3e0d1580344087eb39a45a6afa1cf` and public `unvtrslr` main at `7ef62c1fda617401efdffc762750b6f591fda180` (2026-10-26 readback). Later main heads may advance.
 
 **Visibility:** Keep this guide in the **private** `thebrazenbeard/num-ta-reen` repository. Its examples refer to private Wreckforge language material; do not publish them in the public `thebrazenbeard/unvtrslr` repository, CI logs, artifacts, screenshots, or issue discussions.
 
@@ -44,7 +46,7 @@ The documented UNVTRSLR stages are:
 
 These command names describe the existing upstream research flow, **not** commands that operate on Nûm’ta’reen utterances today. Dependencies may need installation in advance; offline execution is not the same as offline first-time installation.
 
-## Proposed boundary for the first adapter
+## Original proposed boundary for the first adapter
 
 The first integration should be a **reference / evaluation adapter**, not a waveform synthesizer or a claim of independent semantic discovery:
 
@@ -55,7 +57,7 @@ The first integration should be a **reference / evaluation adapter**, not a wave
 - Require distinct rights/visibility checks before a private fixture or model trained on private language data is exported, uploaded, or committed to UNVTRSLR.
 - For later resonance experiments, preserve channels (timing, relative frequency, phase, modulation, roles, consent, echo/evidence, provenance) only as explicitly **hypothetical** schema fields until Patrick defines the actual fictional encoding. No arbitrary hertz assignment becomes canon.
 
-## Acceptance checks for that adapter
+## Original proposed acceptance checks for that adapter
 
 1. Private offline smoke: exact attested forward and reverse lookups retain their provenance; ambiguous/unseen inputs fail closed.
 2. Unicode: NFC-equivalent spellings may normalize, but contrastive accents and glottal/apostrophe semantics do not collapse; PowerShell round-trips quotes and non-BMP characters.
@@ -64,9 +66,9 @@ The first integration should be a **reference / evaluation adapter**, not a wave
 5. Experimental validity: a bridge given answer-key labels cannot claim to have inferred them independently; query batches cannot recalibrate their own source profiles.
 6. Loss ledger: `attested`, `approximate`, `unresolved`, `omitted`, and `added` must remain separate from any fluent UI rendering.
 
-## Source bindings for this proposal
+## Historical source bindings for this proposal
 
 - Private `num-ta-reen` main: `cdfbea09cc8b4a1648cde733953986c7d694d496` (README, PowerShell wrapper, sources/proposals).
 - Public `unvtrslr` main: `8be8e6f701b44660bf48d53a2a395faa2012956d` (`README.md`, `pyproject.toml`, `docs/REFERENCE_TRANSLATOR_V2.md`, `docs/SEMANTIC_CONSERVATION.md`).
 
-Revalidate both exact heads before implementing or publishing any adapter. The guide is a route to integration, not proof that the two CLIs are already interconnected.
+Those heads identify the historical proposal's evidence, **not** the currently merged interface. The author-reference JSONL interface and public reference validator are now implemented; follow [`UNVTRSLR_INTEROP_V1.md`](UNVTRSLR_INTEROP_V1.md) and the version-pinned cross-repository CI for current behavior. The separate UNVTRSLR acoustic training CLI is still not a drop-in consumer of Num’ta’reen text, and the reference adapter is not proof of learned semantic grounding.
