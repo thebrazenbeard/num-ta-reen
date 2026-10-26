@@ -150,6 +150,49 @@ class ProbeSplitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "within holdout"):
             self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.1),), holdout_arms=colliding)
 
+    def test_noisy_structural_carrier_alias_within_training_is_rejected(self):
+        # Independent nonzero noise masks exact sample equality, not the
+        # identical class-conditional deterministic carrier and tone envelope.
+        with self.assertRaisesRegex(ValueError, "ambiguous.*training"):
+            self.build(train_arms=(
+                NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=1e-6),
+                NuisanceArm(gain=0.4, pitch_scale=434 / 526, noise_level=1e-6),
+            ), holdout_arms=(NuisanceArm(gain=0.5, pitch_scale=1.1, noise_level=0.01),))
+
+    def test_noisy_cross_split_carrier_alias_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "ambiguous.*across"):
+            self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=1e-6),),
+                       holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=434 / 526,
+                                                noise_level=1e-6),))
+
+    def test_noisy_structural_alias_inside_holdout_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "ambiguous.*holdout"):
+            self.build(train_arms=(NuisanceArm(gain=0.5, pitch_scale=1.1, noise_level=0.01),),
+                       holdout_arms=(
+                           NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=1e-6),
+                           NuisanceArm(gain=0.4, pitch_scale=434 / 526, noise_level=1e-6),
+                       ))
+
+    def test_distinct_phase_or_intentional_permutation_still_allowed(self):
+        valid = self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=1e-6),),
+                           holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=434 / 526,
+                                                    phase_shift_rad=0.3, noise_level=1e-6),))
+        self.assertEqual(len(valid.train.observations), 8)
+        # An explicit alternative holdout codebook is a negative control,
+        # never a positive causal-semantic score; it remains constructible.
+        ablated = self.build(train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=1e-6),),
+                             holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=434 / 526,
+                                                      noise_level=1e-6),),
+                             holdout_codebook=tuple(reversed(range(8))))
+        self.assertEqual(len(ablated.holdout.observations), 8)
+        # A same-state carrier observed again under a new noise regime is a
+        # legitimate noise-generalization question, not a cross-class alias.
+        shifted_noise = self.build(
+            train_arms=(NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=0.001),),
+            holdout_arms=(NuisanceArm(gain=0.4, pitch_scale=1.0, noise_level=0.01),),
+        )
+        self.assertEqual(len(shifted_noise.holdout.observations), 8)
+
 
 if __name__ == "__main__":
     unittest.main()
