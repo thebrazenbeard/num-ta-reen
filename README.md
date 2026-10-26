@@ -96,6 +96,8 @@ The supplied dictionary is substantial but does not fully define everyday commun
 
 The [30-slot everyday communication coverage proposal](proposals/EVERYDAY_SEMANTIC_COVERAGE_V1.md) distinguishes attested utterances, dictionary-only vocabulary, and missing structures. The [source contradiction audit](docs/LANGUAGE_EVIDENCE_AND_CONTRADICTIONS_20261026.md) documents unresolved phoneme inventory, phonotactic, relativizer, restorative/concessive, and echo-operator questions. Neither file is canon; author review and contrastive examples are still required. We do not overwrite or silently reinterpret the supplied documents.
 
+For the mathematical layer, [`proposals/RESONANCE_PACKET_MATH_V0.md`](proposals/RESONANCE_PACKET_MATH_V0.md) describes a **noncanonical synthetic structural codec**. It distinguishes 3,072 assigned feature combinations and passes bounded waveform round trips, but its frequencies are arbitrary; it does not decode native Ech’ta’reen signals, authenticate adversarial audio, or establish semantic grounding. Run `py -3 -m unittest discover -s tests -p test_experimental_resonance_packet.py -v` to test it.
+
 ## Development
 
 ### Governed Universal Translator reference bridge
