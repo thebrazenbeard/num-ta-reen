@@ -1,0 +1,588 @@
+Complete Nûm’ta’reen Dictionary v2.0 
+Language of: Ech’ta’reen
+Language name: Nûm’ta’reen (resonance state-sharing)
+Home-realm: Tha’veyl’ruun
+Aligned reference: Ech’ta’reen Reference Grammar v1.0 (Parts I–V)
+Changelog
+v2.0 (2025-12-31): Clean-pass rebuild of Dictionary v2.0 content to ensure strict compliance with the reference grammar’s phoneme inventory and morphology; replaces earlier draft blocks containing non-inventory consonants and contact-transparent artifacts.
+Method & assumptions
+This is a xenolinguist-grade analytical lexicon. Native entries obey the grammar’s constraints: - ’ = /ʔ/ phonemic boundary stop. - No tense; echo-status and evidentiality are grammaticalized. - Baseline lexicon avoids ship metaphors and transparent Common roots. - Anchor creole/contact items are permitted only when tagged {AC} (CONTACT/DEPRECATED).
+Entry format
+NNN. headword /IPA/ [CAT] {REG} (TABOO) — gloss. Der: related forms. Ex: E##.
+CAT: STATE, ACT, ENTITY, ECHO, PART, CLITIC, DERIV
+REG: CF, FC, RT, AC
+TABOO: NONE, RT-ONLY, CLP-ADJ, TRUE-NAME, DEAD-NAME, CONTACT, DEPRECATED
+Abbreviations key (IGT cross-reference)
+AGT agent; PAT patient; SRC source; GOAL goal; INST instrument; CONS consent/permission; EVID evidential; WIT witnessed; VRF verified; LOOP loop/recurrence; RET return-pattern; CLP collapse adjacency; INV inverse/misaligned; TOP topic; FOC focus; Q interrogative; COMP complementizer; REL relativizer; NEG negation particle; PROH prohibition/alarm.
+PART VI — Dictionary v2.0 (normalized)
+VI.1 Functionals (clitics, particles, derivation)
+=ka /kɑ/ [CLITIC] {CF/FC} (NONE) — agent role. Der: =ka=uth. Ex: E02.
+=en /ɛn/ [CLITIC] {CF/FC} (NONE) — patient role. Der: =en=uth. Ex: E01.
+=ru /ru/ [CLITIC] {CF/FC} (NONE) — source/origin role. Der: =ru=uth. Ex: E20.
+=va /vɑ/ [CLITIC] {CF/FC} (NONE) — goal/target role. Der: veyl=va. Ex: E20.
+=shi /ʃi/ [CLITIC] {CF/FC} (NONE) — instrument/means. Der: —. Ex: E23.
+=uth /ʔʊθ/ [CLITIC] {CF/FC} (NONE) — consent/permission marker. Der: predicate=uth; participant=uth. Ex: E18.
+=tra /tɾɑ/ [CLITIC] {CF} (NONE) — topic marker. Der: =tra=uth. Ex: E04.
+=sha /ʃɑ/ [CLITIC] {CF} (NONE) — contrastive focus. Der: predicate=sha; vu=sha. Ex: E05.
+ech /ɛt͡ʃ/ [ECHO] {CF/FC} (NONE) — witnessed evidential. Der: ech- compounds. Ex: E01.
+reen /riːn/ [ECHO] {CF} (NONE) — verified across echoes. Der: -reen layer. Ex: E06.
+qir /qir/ [ECHO] {CF/FC/RT} (NONE) — loop operator. Der: qir- clause op. Ex: E15.
+ruun /ruːn/ [ECHO] {CF/FC} (NONE) — return-pattern operator. Der: ruun- clause op. Ex: E16.
+na’vyr /naʔˈvyr/ [ECHO] {RT} (CLP-ADJ) — collapse adjacency marker. Der: na’- restricted. Ex: E25.
+hë /hɛː/ [PART] {CF} (NONE) — polar interrogative. Der: /hɛ/ in FC. Ex: E08.
+ke /kɛ/ [PART] {CF} (NONE) — complementizer. Der: ke- linker. Ex: E12.
+së /sɛn/ [PART] {CF} (NONE) — relativizer/manner linker. Der: overlaps WH.MANNER in FC. Ex: E13.
+vu /vu/ [PART] {CF/FC} (NONE) — clausal negation particle. Der: vu=sha. Ex: E19.
+ta’qesh /tɑʔˈqɛʃ/ [PART] {FC} (NONE) — prohibition/alarm packet. Der: chaining. Ex: E17.
+vael- /ˈvɑ.ɛl/ [DERIV] {CF/FC} (NONE) — inverse/misaligned prefix. Der: vael’nûm. Ex: E10.
+uth’- /ʔʊθ/ [DERIV] {CF/FC} (NONE) — consent-priming/softening prefix. Der: uth’nûm. Ex: E14.
+sa’- /saʔ/ [DERIV] {CF} (NONE) — comfort/low-force prefix. Der: sa’ren. Ex: E27.
+na’- /naʔ/ [DERIV] {RT} (CLP-ADJ) — collapse/absence adjacency prefix. Der: na’vyr. Ex: E25.
+-een /iːn/ [DERIV] {CF} (NONE) — collective/coherent-set suffix. Der: ech’ta’reen. Ex: E01.
+-ren /rɛn/ [DERIV] {CF} (NONE) — single-instance suffix. Der: ta’ren. Ex: E20.
+-vahl /vɑl/ [DERIV] {CF/FC} (NONE) — latched/stabilized state suffix. Der: threnn’vahl. Ex: E06.
+-sekh /sɛx/ [DERIV] {CF/FC} (NONE) — threshold/negotiable-state suffix. Der: veyl’sekh. Ex: E16.
+VI.2 Core entities and core state/act roots
+Ech’ta’reen /ˈɛkʔ.tɑ.ˈriːn/ [ENTITY] {CF} (NONE) — the people (endonym). Der: ech’ta’ren (INSTN). Ex: E01.
+Tha’veyl’ruun /tɑʔˈvejlʔruːn/ [ENTITY] {CF} (NONE) — home-realm (endonym). Der: tha’- realm-class (analytic). Ex: E16.
+Nûm’ta’reen /ˈnuːmʔ.tɑ.ˈriːn/ [ENTITY] {CF} (NONE) — resonance state-sharing mode. Der: nûm’ta’ren (INSTN). Ex: E14.
+nûm /nuːm/ [STATE/ACT] {CF/FC} (NONE) — align/cohere. Der: ech’nûm; reen’nûm; vael’nûm; uth’nûm. Ex: E01.
+kesh /kɛʃ/ [ACT] {CF/FC} (NONE) — cross/transition. Der: kesh=uth; qir’kesh. Ex: E20.
+veyl /vejl/ [STATE/ENTITY] {CF/FC} (NONE) — boundary interface/veil. Der: veyl=va; veyl’sekh. Ex: E04.
+threnn /tɾɛn/ [ENTITY/ACT] {CF} (NONE) — communal record-body; record merge domain. Der: threnn’vahl; threnn’ul’esh. Ex: E06.
+rhel /rɛl/ [STATE/ACT] {CF/FC} (NONE) — restore balance/coherence. Der: veyl’rhel. Ex: E23.
+vahl /vɑl/ [STATE/ACT] {CF/FC} (NONE) — latch/stabilize. Der: vahl=uth; -vahl. Ex: E07.
+keth /kɛt/ [STATE] {CF} (NONE) — cross-echo ethical evaluation. Der: keth=sha. Ex: E24.
+mën /mɛn/ [PART] {CF} (NONE) — WH.PERS. Der: mën=ka. Ex: E09.
+kô /koː/ [PART] {CF} (NONE) — WH.THING. Der: kô=en. Ex: E09.
+râ /rɑː/ [PART] {CF} (NONE) — WH.LOC. Der: râ=va. Ex: E20.
+sën /sɛn/ [PART] {CF} (NONE) — WH.MANNER. Der: së (REL). Ex: E13.
+VI.3 High-frequency derivations, consent, record ethics
+ech’nûm /ɛt͡ʃʔnuːm/ [STATE/ACT] {CF/FC} (NONE) — witnessed alignment. Der: ech + nûm. Ex: E01.
+reen’nûm /riːnʔnuːm/ [STATE/ACT] {CF} (NONE) — verified alignment. Der: reen + nûm. Ex: E06.
+uth’nûm /ʔʊθʔnuːm/ [STATE/ACT] {CF/FC} (NONE) — consent-primed alignment. Der: uth’- + nûm. Ex: E14.
+vael’nûm /vɑ.ɛlʔnuːm/ [STATE/ACT] {CF/FC} (NONE) — misaligned/not-aligned. Der: vael- + nûm. Ex: E10.
+vahl=uth /vɑl ʔʊθ/ [STATE/ACT] {CF} (NONE) — stabilization with consent. Der: vahl + =uth. Ex: E18.
+quvahl /kuʔˈvɑl/ [ACT] {CF} (NONE) — halt/cease a phase-state. Der: ta’quvahl. Ex: E07.
+ta’quvahl /tɑʔkuʔˈvɑl/ [ACT/STATE] {CF} (NONE) — forced cessation of phasing (violation term). Der: quvahl. Ex: E07.
+ta’still /tɑʔstɪl/ [PART] {AC} (CONTACT/DEPRECATED) — contact gloss; not native phonology. Der: —. Ex: E07.
+se’run /sɛʔˈɾun/ [STATE] {CF} (DEAD-NAME) — respect-silence packet (condolence; avoids naming). Der: uth’se’run. Ex: E27.
+uth’se’run /ʔʊθʔsɛʔˈɾun/ [STATE] {CF} (DEAD-NAME) — consent/softened respect-silence (formal condolence). Der: se’run; uth’-. Ex: E27.
+khur /xuɾ/ [ACT/STATE] {CF} (NONE) — predatory pull toward record-merge. Der: threnn’khurreen. Ex: E06.
+threnn’khurreen /ˈtɾɛnʔxuʔˈriːn/ [STATE] {CF} (NONE) — predatory merge-craving verified across echoes (risk flag). Der: threnn + khur + reen. Ex: E06.
+kitxar /kitˈxɑr/ [ACT] {CF} (NONE) — audit/scan for coercion traces. Der: threnn’kitxar. Ex: E24.
+threnn’kitxar /ˈtɾɛnʔkitˈxɑr/ [ACT] {CF} (NONE) — audit the record for coercion (formal). Der: threnn + kitxar. Ex: E24.
+veyl’sekh /vejlʔsɛx/ [STATE] {CF/FC} (NONE) — veil in threshold state. Der: veyl + -sekh. Ex: E16.
+koxra /koːxˈɾɑ/ [ACT/STATE] {CF} (NONE) — mend/repair obligation after harmful crossing. Der: veyl’koxra. Ex: E23.
+veyl’koxra /vejlʔkoːxˈɾɑ/ [ACT/STATE] {CF} (NONE) — Veil-mend obligation (debt to repair). Der: veyl + koxra. Ex: E23.
+shara /ʃɑˈɾɑ/ [STATE/ACT] {CF/FC} (NONE) — echo-spill/bleed (neutral technical). Der: ech’shara; vael’shara. Ex: E25.
+ech’shara /ɛt͡ʃʔʃɑˈɾɑ/ [STATE/ACT] {CF/FC} (NONE) — witnessed echo-spill. Der: ech + shara. Ex: E25.
+tarak /tɑˈɾɑk/ [STATE] {CF} (NONE) — endurance/persistence thread-state. Der: ruun’tarak. Ex: E30.
+ruun’tarak /ruːnʔtɑˈɾɑk/ [STATE] {CF} (NONE) — return-pattern endurance (persistence resurfaces). Der: ruun + tarak. Ex: E30.
+qir=sha /qir ʃɑ/ [ECHO] {CF} (NONE) — loop operator under focus. Der: qir + =sha. Ex: E15.
+vu=sha /vu ʃɑ/ [PART] {CF} (NONE) — negation under focus. Der: vu + =sha. Ex: E19.
+ech’kesh /ɛt͡ʃʔkɛʃ/ [ACT] {CF/FC} (NONE) — witnessed crossing. Der: ech + kesh. Ex: E20.
+reen’kesh /riːnʔkɛʃ/ [ACT] {CF} (NONE) — verified crossing (cross-echo confirmed). Der: reen + kesh. Ex: E23.
+uth’kesh /ʔʊθʔkɛʃ/ [ACT] {CF/FC} (NONE) — consent-primed crossing. Der: uth’- + kesh. Ex: E21.
+vael’kesh /vɑ.ɛlʔkɛʃ/ [ACT] {CF/FC} (NONE) — misaligned crossing (harmful/unstable transit). Der: vael- + kesh. Ex: E11.
+qir’kesh /qirʔkɛʃ/ [ACT] {CF/RT} (NONE) — looped crossing (repeating transit attractor). Der: qir + kesh. Ex: E15.
+ruun’kesh /ruːnʔkɛʃ/ [ACT] {CF} (NONE) — return-pattern crossing (expected recurrence). Der: ruun + kesh. Ex: E16.
+ech’veyl /ɛt͡ʃʔvejl/ [STATE] {CF/FC} (NONE) — witnessed veil-state (boundary as observed). Der: ech + veyl. Ex: E04.
+reen’veyl /riːnʔvejl/ [STATE] {CF} (NONE) — verified veil-state (boundary cross-echo confirmed). Der: reen + veyl. Ex: E16.
+vael’veyl /vɑ.ɛlʔvejl/ [STATE] {CF} (NONE) — misaligned veil (unstable interface). Der: vael- + veyl. Ex: E30.
+uth’veyl /ʔʊθʔvejl/ [STATE] {CF} (NONE) — consent-primed veil approach (non-invasive interface). Der: uth’- + veyl. Ex: E21.
+threnn’ul’esh /ˈtɾɛnʔʊlʔˈɛʃ/ [ACT] {CF} (NONE) — grant record access (formal). Der: threnn + ul’esh. Ex: E12.
+ul’esh /ʊlʔˈɛʃ/ [ACT] {CF} (NONE) — grant/share access (authorized). Der: threnn’ul’esh. Ex: E12.
+threnn’vahl /ˈtɾɛnʔˈvɑl/ [STATE] {CF} (NONE) — record latched into permanence. Der: threnn + -vahl. Ex: E06.
+threnn’vahl=tra /ˈtɾɛnʔˈvɑlʔtɾɑ/ [STATE] {CF} (NONE) — “as for the latched record…” (topic chain). Der: + =tra. Ex: E06.
+keth’nûm /kɛtʔnuːm/ [STATE] {CF} (NONE) — ethical alignment (coherence with minimized harm). Der: keth + nûm. Ex: E24.
+keth’kesh /kɛtʔkɛʃ/ [STATE] {CF} (NONE) — ethical evaluation of a crossing (audit frame). Der: keth + kesh. Ex: E24.
+keth’veyl /kɛtʔvejl/ [STATE] {CF} (NONE) — ethical evaluation of a veil-interface decision. Der: keth + veyl. Ex: E24.
+rhel’nûm /rɛlʔnuːm/ [ACT/STATE] {CF} (NONE) — restore alignment (balance act). Der: rhel + nûm. Ex: E23.
+veyl’rhel /vejlʔrɛl/ [ACT/STATE] {CF} (NONE) — restore the Veil’s balance. Der: veyl + rhel. Ex: E23.
+na’veyl /naʔˈvejl/ [STATE] {RT} (CLP-ADJ) — veil-state adjacent to collapse (ritual hazard label). Der: na’- + veyl. Ex: E25.
+na’kesh /naʔˈkɛʃ/ [ACT] {RT} (CLP-ADJ) — crossing adjacent to collapse (ritual disclosure shorthand). Der: na’- + kesh. Ex: E25.
+na’nûm /naʔˈnuːm/ [STATE] {RT} (CLP-ADJ) — alignment adjacent to collapse (fragile coherence). Der: na’- + nûm. Ex: E25.
+qesh /qɛʃ/ [ACT] {RT} (RT-ONLY) — forbidden crossing-act (rite/war speech). Der: qesh’vahl. Ex: E29.
+qesh’vahl /qɛʃʔˈvɑl/ [STATE] {RT} (RT-ONLY) — forbidden crossing that latched (condemnation). Der: qesh + -vahl. Ex: E29.
+sa’nûm /saʔˈnuːm/ [STATE] {CF} (NONE) — comfort-alignment (coherence used to soothe). Der: sa’- + nûm. Ex: E27.
+sa’kesh /saʔˈkɛʃ/ [ACT] {CF} (NONE) — soft crossing (minimal turbulence; non-invasive). Der: sa’- + kesh. Ex: E21.
+sa’veyl /saʔˈvejl/ [STATE] {CF} (NONE) — comfort veil-state (safe interface). Der: sa’- + veyl. Ex: E04.
+reen’rhel /riːnʔrɛl/ [ACT/STATE] {CF} (NONE) — verified restoration of balance. Der: reen + rhel. Ex: E23.
+ech’rhel /ɛt͡ʃʔrɛl/ [ACT/STATE] {CF/FC} (NONE) — witnessed restoration (local). Der: ech + rhel. Ex: E23.
+reen’keth /riːnʔkɛt/ [STATE] {CF} (NONE) — verified ethical evaluation (Conclave-confirmed). Der: reen + keth. Ex: E24.
+ech’keth /ɛt͡ʃʔkɛt/ [STATE] {CF/FC} (NONE) — witnessed ethical evaluation (speaker-local). Der: ech + keth. Ex: E24.
+veyl’ren /vejlʔˈrɛn/ [ENTITY] {CF} (NONE) — single veil-instance/interface point. Der: veyl + -ren. Ex: E20.
+kesh’ren /kɛʃʔˈrɛn/ [ENTITY] {CF} (NONE) — single crossing-instance (one transit). Der: kesh + -ren. Ex: E20.
+nûm’ren /nuːmʔˈrɛn/ [ENTITY] {CF} (NONE) — single alignment-instance (one tick). Der: nûm + -ren. Ex: E01.
+threnn’ren /tɾɛnʔˈrɛn/ [ENTITY] {CF} (NONE) — a single record-thread (one entry). Der: threnn + -ren. Ex: E12.
+threnn’reen /tɾɛnʔˈriːn/ [STATE] {CF} (NONE) — record verified across echoes (entry cross-checked). Der: threnn + reen. Ex: E12.
+threnn’ech /tɾɛnʔɛt͡ʃ/ [STATE] {CF} (NONE) — record witnessed (local record only). Der: threnn + ech. Ex: E12.
+uth’threnn /ʔʊθʔtɾɛn/ [STATE/ACT] {CF} (NONE) — consent-primed record contact (non-invasive recording). Der: uth’- + threnn. Ex: E12.
+vael’threnn /vɑ.ɛlʔtɾɛn/ [STATE] {CF} (NONE) — misaligned record contact (corruption risk). Der: vael- + threnn. Ex: E19.
+ta’ren /tɑʔˈrɛn/ [ENTITY] {CF} (NONE) — deictic-salient single instance (used in compounds; not a pronoun). Der: ech’ta’reen; nûm’ta’reen. Ex: E14.
+na=ka /nɑʔkɑ/ [PART] {CF/FC} (NONE) — 1st person agent packet (“I/me” as AGT). Der: na=ka=uth (rare). Ex: E02.
+ta=en /tɑʔɛn/ [PART] {CF/FC} (NONE) — 2nd person patient packet (“you” as PAT). Der: ta=en=uth. Ex: E01.
+mën=en /mɛnʔɛn/ [PART] {CF} (NONE) — WH.PERS as patient (“whom”). Der: —. Ex: E09.
+kô=en /koːʔɛn/ [PART] {CF} (NONE) — WH.THING as patient (“what”). Der: —. Ex: E09.
+râ=va /rɑːʔvɑ/ [PART] {CF} (NONE) — WH.LOC as goal (“to where”). Der: —. Ex: E20.
+hë=sha /hɛː ʃɑ/ [PART] {CF} (NONE) — focused interrogative (“is it this?”). Der: hë + =sha. Ex: E08.
+ta’qesh=tra /tɑʔˈqɛʃʔtɾɑ/ [PART] {CF} (NONE) — prohibition anchored as topic (formal warning framing). Der: ta’qesh + =tra. Ex: E30.
+qir’reen /qirʔˈriːn/ [ECHO] {CF} (NONE) — verified loop (recurrence cross-checked). Der: qir + reen. Ex: E22.
+ruun’reen /ruːnʔˈriːn/ [ECHO] {CF} (NONE) — verified return-pattern. Der: ruun + reen. Ex: E16.
+qir’ech /qirʔɛt͡ʃ/ [ECHO] {CF/FC} (NONE) — witnessed loop (local). Der: qir + ech. Ex: E15.
+ruun’ech /ruːnʔɛt͡ʃ/ [ECHO] {CF/FC} (NONE) — witnessed return-pattern (local). Der: ruun + ech. Ex: E16.
+vael’ruun /vɑ.ɛlʔruːn/ [ECHO] {CF} (NONE) — return-pattern made harmful by misalignment (bad recurrence). Der: vael- + ruun. Ex: E30.
+vael’qir /vɑ.ɛlʔqir/ [ECHO] {CF} (NONE) — loop made harmful by misalignment (trap recurrence). Der: vael- + qir. Ex: E15.
+uth’ruun /ʔʊθʔruːn/ [ECHO] {CF} (NONE) — consent-primed return expectation (non-coercive prediction). Der: uth’- + ruun. Ex: E16.
+uth’qir /ʔʊθʔqir/ [ECHO] {CF} (NONE) — consent-primed loop engagement (cautious repetition). Der: uth’- + qir. Ex: E15.
+sa’ruun /saʔˈruːn/ [ECHO] {CF} (NONE) — comfort return-pattern (reassuring recurrence). Der: sa’- + ruun. Ex: E16.
+sa’qir /saʔˈqir/ [ECHO] {CF} (NONE) — comfort loop (gentle repetition). Der: sa’- + qir. Ex: E15.
+vahl’reen /vɑlʔˈriːn/ [STATE] {CF} (NONE) — verified stabilization (Conclave-confirmed). Der: vahl + reen. Ex: E18.
+vahl’ech /vɑlʔɛt͡ʃ/ [STATE] {CF/FC} (NONE) — witnessed stabilization (local). Der: vahl + ech. Ex: E07.
+vael’vahl /vɑ.ɛlʔvɑl/ [STATE] {CF} (NONE) — harmful/dirty stabilization (coercion implicature). Der: vael- + vahl. Ex: E07.
+uth’vahl /ʔʊθʔvɑl/ [STATE] {CF} (NONE) — stabilization framed as permission-request (non-coercive). Der: uth’- + vahl. Ex: E18.
+kesh’vahl /kɛʃʔˈvɑl/ [STATE] {CF} (NONE) — crossing that latched (phase-locked outcome). Der: kesh + -vahl. Ex: E25.
+vael’kesh’vahl /vɑ.ɛlʔkɛʃʔˈvɑl/ [STATE] {CF} (NONE) — misaligned crossing that latched (condemned lock). Der: vael- + kesh + -vahl. Ex: E25.
+threnn’vu /tɾɛnʔvu/ [STATE] {CF} (NONE) — record negated/not-yet-latched (procedural status). Der: threnn + vu (analytical). Ex: E19.
+threnn’vu=tra /tɾɛnʔvuʔtɾɑ/ [STATE] {CF} (NONE) — topic: record not-yet-latched. Der: + =tra. Ex: E19.
+veyl’vu /vejlʔvu/ [STATE] {CF} (NONE) — “veil no” (boundary not-permitted/closed). Der: veyl + vu (analytical). Ex: E30.
+kesh’vu /kɛʃʔvu/ [STATE] {FC} (NONE) — “cross no” (do not cross). Der: kesh + vu (analytical). Ex: E30.
+nûm’vu /nuːmʔvu/ [STATE] {CF} (NONE) — “align no” (refused alignment). Der: nûm + vu (analytical). Ex: E10.
+threnn’tra /tɾɛnʔtɾɑ/ [ENTITY] {CF} (NONE) — “as for the record-body…” (topic frame). Der: threnn + =tra (lexicalized in formal minutes). Ex: E12.
+veyl’tra /vejlʔtɾɑ/ [ENTITY] {CF} (NONE) — “as for the boundary…” (topic frame). Der: veyl + =tra. Ex: E04.
+nûm’tra /nuːmʔtɾɑ/ [STATE] {CF} (NONE) — “as for coherence…” (topic frame). Der: nûm + =tra. Ex: E05.
+kesh’tra /kɛʃʔtɾɑ/ [ACT] {CF} (NONE) — “as for crossing…” (topic frame). Der: kesh + =tra. Ex: E24.
+keth’tra /kɛtʔtɾɑ/ [STATE] {CF} (NONE) — “as for ethics…” (topic frame). Der: keth + =tra. Ex: E24.
+rhel’tra /rɛlʔtɾɑ/ [ACT/STATE] {CF} (NONE) — “as for restoration…” (topic frame). Der: rhel + =tra. Ex: E23.
+ruun’tra /ruːnʔtɾɑ/ [ECHO] {CF} (NONE) — “as for return-pattern…” (topic frame). Der: ruun + =tra. Ex: E16.
+qir’tra /qirʔtɾɑ/ [ECHO] {CF} (NONE) — “as for loop…” (topic frame). Der: qir + =tra. Ex: E15.
+ech’tra /ɛt͡ʃʔtɾɑ/ [ECHO] {CF} (NONE) — “as for witness-status…” (topic frame). Der: ech + =tra. Ex: E01.
+reen’tra /riːnʔtɾɑ/ [ECHO] {CF} (NONE) — “as for verification…” (topic frame). Der: reen + =tra. Ex: E06.
+uth’tra /ʔʊθʔtɾɑ/ [PART] {CF} (NONE) — topic framed with consent (procedural politeness). Der: =tra + =uth interaction. Ex: E04.
+sa’tra /saʔˈtɾɑ/ [PART] {CF} (NONE) — comfort topic framing (soft agenda-setting). Der: sa’- + =tra. Ex: E27.
+vael’tra /vɑ.ɛlʔtɾɑ/ [PART] {CF} (NONE) — topic framing with misalignment warning (“topic is hazardous”). Der: vael- + =tra. Ex: E30.
+uth’qesh /ʔʊθʔqɛʃ/ [ACT] {RT} (RT-ONLY) — consent-primed forbidden crossing discussion (ritualized, constrained). Der: uth’- + qesh. Ex: E29.
+sa’qesh /saʔˈqɛʃ/ [ACT] {RT} (RT-ONLY) — comfort-rite forbidden crossing mention (rare). Der: sa’- + qesh. Ex: E29.
+na’qesh /naʔˈqɛʃ/ [ACT] {RT} (CLP-ADJ) — collapse-adjacent forbidden crossing (extreme hazard label). Der: na’- + qesh. Ex: E25.
+na’tra /naʔˈtɾɑ/ [PART] {RT} (CLP-ADJ) — topic frame for collapse-adjacent material (ritual constraints). Der: na’- + =tra. Ex: E25.
+na’vu /naʔˈvu/ [PART] {RT} (CLP-ADJ) — ritual negation/closure over collapse-adjacent talk (stop-here packet). Der: na’- + vu. Ex: E25.
+threnn’na’vyr /tɾɛnʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — record marked collapse-adjacent (restricted filing). Der: threnn + na’vyr. Ex: E25.
+veyl’na’vyr /vejlʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — boundary marked collapse-adjacent (no-cross region). Der: veyl + na’vyr. Ex: E25.
+nûm’na’vyr /nuːmʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — coherence marked collapse-adjacent (fragile). Der: nûm + na’vyr. Ex: E25.
+kesh’na’vyr /kɛʃʔnaʔˈvyr/ [ACT] {RT} (CLP-ADJ) — crossing marked collapse-adjacent (confessional). Der: kesh + na’vyr. Ex: E25.
+rhel’na’vyr /rɛlʔnaʔˈvyr/ [ACT/STATE] {RT} (CLP-ADJ) — restoration attempt adjacent to collapse (ritual report). Der: rhel + na’vyr. Ex: E25.
+keth’na’vyr /kɛtʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — ethics packet for collapse adjacency (restricted evaluation). Der: keth + na’vyr. Ex: E25.
+threnn’sekh /tɾɛnʔsɛx/ [STATE] {CF} (NONE) — record in threshold state (not yet latched; negotiable). Der: threnn + -sekh. Ex: E19.
+nûm’sekh /nuːmʔsɛx/ [STATE] {CF} (NONE) — coherence at threshold (unstable but not failed). Der: nûm + -sekh. Ex: E10.
+kesh’sekh /kɛʃʔsɛx/ [STATE] {CF} (NONE) — crossing at threshold (decision point; may bruise veil). Der: kesh + -sekh. Ex: E30.
+rhel’sekh /rɛlʔsɛx/ [STATE] {CF} (NONE) — restoration at threshold (partial mend). Der: rhel + -sekh. Ex: E23.
+keth’sekh /kɛtʔsɛx/ [STATE] {CF} (NONE) — ethical evaluation at threshold (pending). Der: keth + -sekh. Ex: E24.
+VI.4 Perception, interaction, and controlled self-reference
+xir /xiɾ/ [STATE/ACT] {CF/FC} (NONE) — perceive/attend (non-visual, resonance-sense). Der: ech’xir; reen’xir. Ex: E04.
+ech’xir /ɛt͡ʃʔxiɾ/ [STATE/ACT] {CF/FC} (NONE) — witnessed perception (I sense it). Der: ech + xir. Ex: E04.
+reen’xir /riːnʔxiɾ/ [STATE/ACT] {CF} (NONE) — verified perception (cross-echo corroborated). Der: reen + xir. Ex: E06.
+vael’xir /vɑ.ɛlʔxiɾ/ [STATE] {CF} (NONE) — misperception/false-attendance (dangerous). Der: vael- + xir. Ex: E30.
+uth’xir /ʔʊθʔxiɾ/ [ACT] {CF} (NONE) — consent-primed attending (non-invasive sensing). Der: uth’- + xir. Ex: E21.
+wum /wum/ [ACT] {FC} (NONE) — mark/point by resonance ping (deictic act). Der: ech’wum. Ex: E04.
+ech’wum /ɛt͡ʃʔwum/ [ACT] {FC} (NONE) — witnessed ping/mark. Der: ech + wum. Ex: E04.
+ruun’wum /ruːnʔwum/ [ACT] {CF} (NONE) — returning mark (same target re-signaled). Der: ruun + wum. Ex: E16.
+yem /jɛm/ [STATE] {CF} (NONE) — coherence warmth/affinity (non-kin resonance closeness). Der: ech’yem; yem’een. Ex: E01.
+yem’een /jɛmʔiːn/ [ENTITY] {CF} (NONE) — affinity-set/close-resonance cohort (not lineage). Der: yem + -een. Ex: E01.
+ech’yem /ɛt͡ʃʔjɛm/ [STATE] {CF} (NONE) — witnessed affinity (I feel closeness). Der: ech + yem. Ex: E02.
+xash /xɑʃ/ [ACT] {CF/FC} (NONE) — conceal/withhold (strategic silence, not se’run). Der: uth’xash; xash=tra. Ex: E17.
+uth’xash /ʔʊθʔxɑʃ/ [ACT] {CF} (NONE) — consent-primed withholding (polite non-disclosure). Der: uth’- + xash. Ex: E26.
+xash=tra /xɑʃʔtɾɑ/ [ACT] {CF} (NONE) — topic: withheld (formal minutes). Der: xash + =tra. Ex: E26.
+pesh /pɛʃ/ [ACT] {CF} (NONE) — offer/extend (action initiation). Der: uth’pesh. Ex: E14.
+uth’pesh /ʔʊθʔpɛʃ/ [ACT] {CF} (NONE) — offer with consent framing (non-coercive). Der: uth’- + pesh. Ex: E14.
+nex /nɛx/ [STATE] {CF/FC} (NONE) — safe/clear (non-hazard state). Der: veyl’nex. Ex: E21.
+veyl’nex /vejlʔnɛx/ [STATE] {CF/FC} (NONE) — veil-state safe/clear for contact. Der: veyl + nex. Ex: E21.
+vael’nex /vɑ.ɛlʔnɛx/ [STATE] {CF} (NONE) — “not safe” (misaligned clear-signal). Der: vael- + nex. Ex: E30.
+mek /mɛk/ [ACT] {CF} (NONE) — request/ask (formal). Der: mek=uth. Ex: E08.
+mek=uth /mɛk ʔʊθ/ [ACT] {CF} (NONE) — request with consent framing (permission-seeking). Der: mek + =uth. Ex: E14.
+hux /hux/ [STATE] {FC} (NONE) — urgency signal (non-lexical alarm flavor). Der: ta’qesh hux. Ex: E30.
+tresh /tɾɛʃ/ [ACT] {CF} (NONE) — bind/commit (oath-like, resonance-bound). Der: tresh=uth; vael’tresh. Ex: E02.
+tresh=uth /tɾɛʃ ʔʊθ/ [ACT] {CF} (NONE) — consensual commitment (no coercion). Der: tresh + =uth. Ex: E18.
+vael’tresh /vɑ.ɛlʔtɾɛʃ/ [ACT] {CF} (NONE) — broken/poisoned commitment (coherence damage implicature). Der: vael- + tresh. Ex: E10.
+xen /xɛn/ [ENTITY] {CF} (NONE) — thread/continuity unit (less than “soul,” more than “life”). Der: xen’een; xen’ren. Ex: E06.
+xen’een /xɛnʔiːn/ [ENTITY] {CF} (NONE) — continuity-set (linked lives/threads). Der: xen + -een. Ex: E06.
+xen’ren /xɛnʔˈrɛn/ [ENTITY] {CF} (NONE) — single continuity-thread instance. Der: xen + -ren. Ex: E01.
+xen’vahl /xɛnʔˈvɑl/ [STATE] {CF} (NONE) — continuity latched (no longer changing). Der: xen + -vahl. Ex: E06.
+xen’sekh /xɛnʔsɛx/ [STATE] {CF} (NONE) — continuity at threshold (uncertain thread). Der: xen + -sekh. Ex: E10.
+xen’qir /xɛnʔqir/ [STATE] {CF} (NONE) — continuity in loop (repeating identity state). Der: xen + qir. Ex: E15.
+xen’ruun /xɛnʔruːn/ [STATE] {CF} (NONE) — continuity in return-pattern (expected reappearance). Der: xen + ruun. Ex: E16.
+xen’na’vyr /xɛnʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — continuity collapse-adjacent (taboo). Der: xen + na’vyr. Ex: E25.
+xir’tra /xiɾʔtɾɑ/ [PART] {CF} (NONE) — topic: perception/attention (procedural). Der: xir + =tra. Ex: E04.
+xen’tra /xɛnʔtɾɑ/ [PART] {CF} (NONE) — topic: continuity thread (procedural). Der: xen + =tra. Ex: E06.
+pesh’tra /pɛʃʔtɾɑ/ [PART] {CF} (NONE) — topic: offer made (minutes). Der: pesh + =tra. Ex: E14.
+mek’hë /mɛkʔhɛː/ [PART] {CF} (NONE) — question particle bundle for formal requests (“request-query”). Der: mek + hë. Ex: E08.
+wum=sha /wum ʃɑ/ [ACT] {FC} (NONE) — focused mark/ping (“this one”). Der: wum + =sha. Ex: E04.
+xash=uth /xɑʃ ʔʊθ/ [ACT] {CF} (NONE) — withholding with permission (consent-respecting secrecy). Der: xash + =uth. Ex: E26.
+pesh=uth /pɛʃ ʔʊθ/ [ACT] {CF} (NONE) — offer with explicit consent boundary (“you may refuse”). Der: pesh + =uth. Ex: E14.
+VI.5 Coherence hazards, negotiation, and Conclave procedure
+lax /lax/ [STATE] {CF/FC} (NONE) — stable/held-in-coherence (non-latched). Der: nûm’lax; veyl’lax. Ex: E01.
+nûm’lax /nuːmʔlax/ [STATE] {CF/FC} (NONE) — coherence held steady (not yet latched). Der: nûm + lax. Ex: E01.
+veyl’lax /vejlʔlax/ [STATE] {CF} (NONE) — Veil held steady (contact-safe). Der: veyl + lax. Ex: E21.
+zesh /zɛʃ/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-scribe attempt; contains non-inventory /z/. Der: —. Ex: E28.
+sesh /sɛʃ/ [ACT] {CF/FC} (NONE) — set/seat (place a state into a frame). Der: threnn’sesh; sesh=tra. Ex: E12.
+threnn’sesh /tɾɛnʔsɛʃ/ [ACT] {CF} (NONE) — seat a matter into the communal record (procedural filing step). Der: threnn + sesh. Ex: E12.
+sesh=tra /sɛʃʔtɾɑ/ [PART] {CF} (NONE) — topic: seated/entered for discussion (minutes). Der: sesh + =tra. Ex: E12.
+xum /xum/ [STATE] {CF/FC} (NONE) — turbulence/strain in local coherence field. Der: veyl’xum; kesh’xum. Ex: E30.
+veyl’xum /vejlʔxum/ [STATE] {CF/FC} (NONE) — Veil under strain/turbulence (hazard). Der: veyl + xum. Ex: E30.
+kesh’xum /kɛʃʔxum/ [STATE] {FC} (NONE) — crossing that produces turbulence (warning label). Der: kesh + xum. Ex: E30.
+vex /vɛx/ [STATE] {CF/FC} (NONE) — open/available (permission-ready state). Der: veyl’vex; vex=uth. Ex: E21.
+veyl’vex /vejlʔvɛx/ [STATE] {CF} (NONE) — boundary open/available for interface. Der: veyl + vex. Ex: E21.
+vex=uth /vɛx ʔʊθ/ [STATE] {CF} (NONE) — explicitly open by consent (non-coercive availability). Der: vex + =uth. Ex: E18.
+tek /tɛk/ [ACT] {CF} (NONE) — test/probe (controlled, low-force). Der: uth’tek; tek=shi. Ex: E21.
+uth’tek /ʔʊθʔtɛk/ [ACT] {CF} (NONE) — consent-primed probe (asks before touching states). Der: uth’- + tek. Ex: E21.
+tek=shi /tɛk ʃi/ [ACT] {CF} (NONE) — probing by means (instrumental). Der: tek + =shi. Ex: E23.
+shen /ʃɛn/ [STATE] {CF/FC} (NONE) — withheld-yes (acceptance with guarded boundary). Der: shen=uth; shen=sha. Ex: E14.
+shen=uth /ʃɛn ʔʊθ/ [STATE] {CF} (NONE) — acceptance explicitly consent-bounded (“yes, but only if…”). Der: shen + =uth. Ex: E14.
+shen=sha /ʃɛn ʃɑ/ [STATE] {CF} (NONE) — focused guarded-acceptance (contrastive). Der: shen + =sha. Ex: E14.
+suv /suv/ [STATE] {CF/FC} (NONE) — refusal/closure (hard-no, door shut). Der: suv=uth (rare); veyl’suv. Ex: E30.
+veyl’suv /vejlʔsuv/ [STATE] {CF/FC} (NONE) — boundary closed/refused (no interface). Der: veyl + suv. Ex: E30.
+rhem /rɛm/ [ACT/STATE] {CF} (NONE) — reconcile/bring back into mutual coherence (post-conflict). Der: rhel’rhem; rhem=uth. Ex: E23.
+rhel’rhem /rɛlʔrɛm/ [ACT] {CF} (NONE) — restore via reconciliation (balance-through-relation). Der: rhel + rhem. Ex: E23.
+rhem=uth /rɛm ʔʊθ/ [ACT] {CF} (NONE) — reconcile with explicit consent (no forced repair). Der: rhem + =uth. Ex: E18.
+qir’shara /qirʔʃɑˈɾɑ/ [STATE] {CF} (NONE) — looping echo-spill (bleed repeats). Der: qir + shara. Ex: E15.
+ruun’shara /ruːnʔʃɑˈɾɑ/ [STATE] {CF} (NONE) — returning echo-spill (keeps coming back). Der: ruun + shara. Ex: E16.
+na’shara /naʔˈʃɑˈɾɑ/ [STATE] {RT} (CLP-ADJ) — echo-spill adjacent to collapse (taboo hazard). Der: na’- + shara. Ex: E25.
+lek /lɛk/ [ACT] {AC} (CONTACT/DEPRECATED) — contact gloss for “translate”; contains non-inventory /l/ (baseline uses sesh/tek + threnn’lek only as scribal calque). Der: —. Ex: E12.
+lek=uth /lɛk ʔʊθ/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer “translate with permission.” Der: lek + =uth. Ex: E14.
+threnn’lek /tɾɛnʔlɛk/ [ACT] {CF} (NONE) — file an approximation-note into record (scribal; not “translation” in Common sense). Der: threnn + lek (scribal root retained). Ex: E12.
+hesh /hɛʃ/ [STATE] {FC} (NONE) — immediate danger flavor (pre-alarm, shorter than ta’qesh). Der: ta’qesh hesh. Ex: E30.
+kak /kɑk/ [ACT] {CF} (NONE) — cut/terminate an interface (non-lethal; closing act). Der: kak=uth; veyl’kak. Ex: E11.
+kak=uth /kɑk ʔʊθ/ [ACT] {CF} (NONE) — terminate interface by consent (clean disengage). Der: kak + =uth. Ex: E18.
+veyl’kak /vejlʔkɑk/ [ACT] {CF/FC} (NONE) — close the boundary interface (procedural/urgent). Der: veyl + kak. Ex: E30.
+rux /rux/ [STATE] {CF/FC} (NONE) — residue/ethical trace left by an act (non-taboo; evaluable). Der: keth’rux; rux=tra. Ex: E24.
+keth’rux /kɛtʔrux/ [STATE] {CF} (NONE) — ethical residue as evaluated across echoes. Der: keth + rux. Ex: E24.
+rux=tra /ruxʔtɾɑ/ [PART] {CF} (NONE) — topic: residue/trace (minutes). Der: rux + =tra. Ex: E24.
+shel /ʃɛl/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer “shield”; contains non-inventory /l/ (baseline uses veyl’lax + wem packets instead). Der: —. Ex: E21.
+uth’shel /ʔʊθʔʃɛl/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer “shield with consent.” Der: uth’- + shel. Ex: E21.
+shel=shi /ʃɛl ʃi/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer instrumental shield. Der: shel + =shi. Ex: E23.
+wem /wɛm/ [STATE] {CF/FC} (NONE) — calm/quieted resonance field (not se’run; non-funerary). Der: sa’wem; wem=uth. Ex: E27.
+sa’wem /saʔˈwɛm/ [STATE] {CF} (NONE) — comfort-calm (soothing field). Der: sa’- + wem. Ex: E27.
+wem=uth /wɛm ʔʊθ/ [STATE] {CF} (NONE) — calm by consent (no imposed damping). Der: wem + =uth. Ex: E18.
+nuk /nuk/ [ACT] {FC} (NONE) — short confirm ping (field assent; not full reen). Der: nuk=sha. Ex: E03.
+nuk=sha /nuk ʃɑ/ [ACT] {FC} (NONE) — focused confirm ping (“that one, confirmed”). Der: nuk + =sha. Ex: E03.
+threnn’nuk /tɾɛnʔnuk/ [ACT] {CF} (NONE) — confirm ping entered into record (procedural). Der: threnn + nuk. Ex: E12.
+threnn’vex /tɾɛnʔvɛx/ [STATE] {CF} (NONE) — record-channel open/available (minutes ready). Der: threnn + vex. Ex: E12.
+threnn’suv /tɾɛnʔsuv/ [STATE] {CF} (NONE) — record-channel closed (filing ended). Der: threnn + suv. Ex: E12.
+qir’lek /qirʔlɛk/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer “repeat-translate”; contains /l/. Der: qir + lek. Ex: E15.
+vael’lek /vɑ.ɛlʔlɛk/ [ACT] {AC} (CONTACT/DEPRECATED) — contact-layer “dirty translation.” Der: vael- + lek. Ex: E12.
+kesh’rux /kɛʃʔrux/ [STATE] {CF} (NONE) — residue left specifically by a crossing. Der: kesh + rux. Ex: E24.
+nûm’rux /nuːmʔrux/ [STATE] {CF} (NONE) — residue left by alignment act (often consent-related). Der: nûm + rux. Ex: E18.
+vahl’rux /vɑlʔrux/ [STATE] {CF} (NONE) — residue left by stabilization (high scrutiny). Der: vahl + rux. Ex: E18.
+kesh’kak /kɛʃʔkɑk/ [ACT] {FC} (NONE) — abort a crossing mid-act (emergency cut). Der: ta’qesh kesh’kak. Ex: E30.
+veyl’kesh /vejlʔkɛʃ/ [ACT] {CF/FC} (NONE) — interface-cross (cross via boundary, explicit). Der: veyl + kesh. Ex: E20.
+rhel’kak /rɛlʔkɑk/ [ACT] {CF} (NONE) — cut in order to restore (disengage to prevent harm). Der: rhel + kak. Ex: E23.
+uth’rhel’kak /ʔʊθʔrɛlʔkɑk/ [ACT] {CF} (NONE) — consensual disengage-for-balance (polite withdrawal). Der: uth’- + rhel’kak. Ex: E18.
+ruun’wem /ruːnʔwɛm/ [STATE] {CF} (NONE) — calm returns (reassuring recurrence). Der: ruun + wem. Ex: E16.
+qir’wem /qirʔwɛm/ [STATE] {CF} (NONE) — calm loops (meditative repetition). Der: qir + wem. Ex: E15.
+na’wem /naʔˈwɛm/ [STATE] {RT} (CLP-ADJ) — calm adjacent to collapse (ritual term: deceptive quiet). Der: na’- + wem. Ex: E25.
+VI.6 Witnessing, record-safety, and branch-management
+nak /nak/ [ACT] {CF/FC} (NONE) — name/label (non-true-name; public tag assignment). Der: nak=uth; threnn’nak. Ex: E26.
+nak=uth /nak ʔʊθ/ [ACT] {CF} (NONE) — label with consent (speaker asks before tagging). Der: nak + =uth. Ex: E26.
+threnn’nak /tɾɛnʔnak/ [ACT] {CF} (NONE) — enter a label into the communal record (procedural). Der: threnn + nak. Ex: E12.
+nak=tra /nakʔtɾɑ/ [PART] {CF} (NONE) — topic: label/tag (minutes). Der: nak + =tra. Ex: E26.
+hax /hax/ [ACT/STATE] {FC} (NONE) — do-not-name packet (field compliance; avoids true-name/dead-name breaches). Der: hax=tra. Ex: E26.
+hax=tra /haxʔtɾɑ/ [PART] {CF} (NONE) — topic: do-not-name constraint (formal). Der: hax + =tra. Ex: E26.
+qem /qɛm/ [STATE/ACT] {RT} (RT-ONLY) — ritual intensifier for boundary-stop framing (licenses /q/ layer; not a noun). Der: qem’qesh. Ex: E29.
+qem’qesh /qɛmʔqɛʃ/ [ACT] {RT} (RT-ONLY) — ritually-framed forbidden crossing mention (warning without enactment). Der: qem + qesh. Ex: E29.
+wes /wɛs/ [STATE] {CF/FC} (NONE) — safe-to-witness (non-invasive observation state). Der: wes=uth; ech’wes. Ex: E04.
+wes=uth /wɛs ʔʊθ/ [STATE] {CF} (NONE) — observation with explicit consent (“I may witness?”). Der: wes + =uth. Ex: E14.
+ech’wes /ɛt͡ʃʔwɛs/ [STATE] {CF/FC} (NONE) — witnessed “safe-to-witness” status (local). Der: ech + wes. Ex: E04.
+reen’wes /riːnʔwɛs/ [STATE] {CF} (NONE) — verified safe-to-witness status. Der: reen + wes. Ex: E06.
+har /haɾ/ [ACT] {CF/FC} (NONE) — share state packet (non-record; live exchange). Der: har=uth; uth’har. Ex: E14.
+har=uth /haɾ ʔʊθ/ [ACT] {CF} (NONE) — share by consent (explicit). Der: har + =uth. Ex: E18.
+uth’har /ʔʊθʔhaɾ/ [ACT] {CF} (NONE) — consent-primed sharing (polite offer). Der: uth’- + har. Ex: E14.
+threnn’har /tɾɛnʔhaɾ/ [ACT] {CF} (NONE) — share into record-domain (procedural: make share auditable). Der: threnn + har. Ex: E12.
+xir’har /xiɾʔhaɾ/ [ACT] {CF} (NONE) — share-perception (relay what was sensed without asserting reen). Der: xir + har. Ex: E04.
+ech’xir’har /ɛt͡ʃʔxiɾʔhaɾ/ [ACT] {CF} (NONE) — witnessed share-perception (speaker confirms direct sensing). Der: ech + xir’har. Ex: E04.
+mash /maʃ/ [ENTITY/STATE] {CF} (NONE) — group-face/collective stance (how a set presents itself; not “tribe”). Der: mash’een; mash=tra. Ex: E27.
+mash’een /maʃʔiːn/ [ENTITY] {CF} (NONE) — collective stance-set (aligned cohort). Der: mash + -een. Ex: E27.
+mash=tra /maʃʔtɾɑ/ [PART] {CF} (NONE) — topic: collective stance (minutes). Der: mash + =tra. Ex: E27.
+hem /hɛm/ [STATE] {CF/FC} (NONE) — constraint heat (social pressure to correct residue). Der: keth’hem; hem=tra. Ex: E24.
+keth’hem /kɛtʔhɛm/ [STATE] {CF} (NONE) — ethically-triggered constraint heat (duty to repair). Der: keth + hem. Ex: E24.
+hem=tra /hɛmʔtɾɑ/ [PART] {CF} (NONE) — topic: constraint heat (minutes). Der: hem + =tra. Ex: E24.
+xen’mash /xɛnʔmaʃ/ [ENTITY] {CF} (NONE) — continuity aligned with a stance-set (belonging without lineage). Der: xen + mash. Ex: E27.
+yem’mash /jɛmʔmaʃ/ [STATE] {CF} (NONE) — affinity toward a stance-set (cohort closeness). Der: yem + mash. Ex: E27.
+kik /kik/ [ACT] {CF/FC} (NONE) — split/branch an account (procedural: keep alternatives separate). Der: threnn’kik; kik=uth. Ex: E12.
+kik=uth /kik ʔʊθ/ [ACT] {CF} (NONE) — branch with consent (speaker requests permission to fork a report). Der: kik + =uth. Ex: E18.
+threnn’kik /tɾɛnʔkik/ [ACT] {CF} (NONE) — fork the record (create parallel entries). Der: threnn + kik. Ex: E12.
+kik’ren /kikʔˈrɛn/ [ENTITY] {CF} (NONE) — a single branch instance (one forked line). Der: kik + -ren. Ex: E12.
+kik’een /kikʔiːn/ [ENTITY] {CF} (NONE) — branch set (family of forks). Der: kik + -een. Ex: E12.
+kik’reen /kikʔˈriːn/ [STATE] {CF} (NONE) — branch verified (fork confirmed across echoes). Der: kik + reen. Ex: E06.
+kik’ech /kikʔɛt͡ʃ/ [STATE] {CF} (NONE) — branch witnessed (local fork only). Der: kik + ech. Ex: E01.
+qir’kik /qirʔkik/ [ACT] {CF} (NONE) — looping branch behavior (fork repeats; hazard: drift). Der: qir + kik. Ex: E15.
+ruun’kik /ruːnʔkik/ [ACT] {CF} (NONE) — returning need to fork (pattern recurs). Der: ruun + kik. Ex: E16.
+vex’kik /vɛxʔkik/ [ACT] {CF} (NONE) — open-permission fork (branching permitted by boundary state). Der: vex + kik. Ex: E21.
+suv’kik /suvʔkik/ [ACT] {CF} (NONE) — closed-permission fork (branching refused; keep single line). Der: suv + kik. Ex: E30.
+kik’rux /kikʔrux/ [STATE] {CF} (NONE) — residue caused by branching (ethical trace of splitting accounts). Der: kik + rux. Ex: E24.
+keth’kik /kɛtʔkik/ [STATE] {CF} (NONE) — ethical evaluation of branching (whether a fork is allowed). Der: keth + kik. Ex: E24.
+tuk /tuk/ [ACT] {CF/FC} (NONE) — bind-to-one-line (commit to a single account; reduce forks). Der: tuk=uth; threnn’tuk. Ex: E12.
+tuk=uth /tuk ʔʊθ/ [ACT] {CF} (NONE) — bind-to-one-line with consent (no coercion). Der: tuk + =uth. Ex: E18.
+threnn’tuk /tɾɛnʔtuk/ [ACT] {CF} (NONE) — bind record to a single line (close alternatives). Der: threnn + tuk. Ex: E12.
+tuk’vahl /tukʔˈvɑl/ [STATE] {CF} (NONE) — single-line latched (no further revision allowed). Der: tuk + -vahl. Ex: E06.
+tuk’sekh /tukʔsɛx/ [STATE] {CF} (NONE) — single-line at threshold (may still revise). Der: tuk + -sekh. Ex: E19.
+xash’tuk /xɑʃʔtuk/ [ACT] {CF} (NONE) — withhold then bind (ethical: don’t publish before ready). Der: xash + tuk. Ex: E26.
+uth’xash’tuk /ʔʊθʔxɑʃʔtuk/ [ACT] {CF} (NONE) — consensual withhold-then-bind (polite procedural). Der: uth’- + xash’tuk. Ex: E18.
+pesh’tuk /pɛʃʔtuk/ [ACT] {CF} (NONE) — offer then bind (promise structure; heavy responsibility). Der: pesh + tuk. Ex: E02.
+vael’pesh’tuk /vɑ.ɛlʔpɛʃʔtuk/ [ACT] {CF} (NONE) — poisoned offer-then-bind (coercive promise; condemned). Der: vael- + pesh’tuk. Ex: E10.
+wum’kik /wumʔkik/ [ACT] {FC} (NONE) — mark then fork (field: “flag this as alternate”). Der: wum + kik. Ex: E04.
+wum’tuk /wumʔtuk/ [ACT] {FC} (NONE) — mark then bind (field: “this is the line we keep”). Der: wum + tuk. Ex: E04.
+xum’kik /xumʔkik/ [STATE] {CF} (NONE) — branching under turbulence (high drift risk). Der: xum + kik. Ex: E30.
+xum’tuk /xumʔtuk/ [STATE] {CF} (NONE) — binding under turbulence (risk of coercion; scrutinize). Der: xum + tuk. Ex: E30.
+na’kik /naʔˈkik/ [ACT] {RT} (CLP-ADJ) — branching adjacent to collapse (taboo; may worsen hazards). Der: na’- + kik. Ex: E25.
+na’tuk /naʔˈtuk/ [ACT] {RT} (CLP-ADJ) — binding adjacent to collapse (taboo; can erase options). Der: na’- + tuk. Ex: E25.
+ruun’tuk /ruːnʔtuk/ [ACT] {CF} (NONE) — return-pattern binding (keeps happening: you keep committing). Der: ruun + tuk. Ex: E16.
+qir’tuk /qirʔtuk/ [ACT] {CF} (NONE) — looping binding (stuck re-committing; warning). Der: qir + tuk. Ex: E15.
+rhel’tuk /rɛlʔtuk/ [ACT] {CF} (NONE) — bind-to-one-line to restore balance (procedural closure). Der: rhel + tuk. Ex: E23.
+rhel’kik /rɛlʔkik/ [ACT] {CF} (NONE) — fork to restore balance (separate harms/causes for repair). Der: rhel + kik. Ex: E23.
+kak’tuk /kɑkʔtuk/ [ACT] {CF} (NONE) — cut then bind (close interface and commit to record line). Der: kak + tuk. Ex: E30.
+kak’kik /kɑkʔkik/ [ACT] {CF} (NONE) — cut then fork (close interface, keep alternates distinct). Der: kak + kik. Ex: E30.
+VI.7 Anchors, stability, and coercion diagnostics
+renk /rɛŋk/ [STATE] {CF/FC} (NONE) — phase-hunger / coherence draw (baseline need-signal; not food). Der: nûm’renk; vael’renk. Ex: E10.
+nûm’renk /nuːmʔrɛŋk/ [STATE] {CF} (NONE) — alignment hunger (need for coherence contact). Der: nûm + renk. Ex: E10.
+vael’renk /vɑ.ɛlʔrɛŋk/ [STATE] {CF} (NONE) — toxic phase-hunger (predatory pull). Der: vael- + renk. Ex: E30.
+sa’renk /saʔˈrɛŋk/ [STATE] {CF} (NONE) — softened hunger (managed need). Der: sa’- + renk. Ex: E27.
+ven /vɛn/ [STATE] {CF/FC} (NONE) — stable body-hold (Anchor physicality frame). Der: ven’vahl; ven’sekh. Ex: E25.
+ven’vahl /vɛnʔˈvɑl/ [STATE] {CF} (NONE) — body-hold latched (permanent phase-lock risk). Der: ven + -vahl. Ex: E25.
+ven’sekh /vɛnʔsɛx/ [STATE] {CF} (NONE) — body-hold at threshold (lock may be reversible). Der: ven + -sekh. Ex: E19.
+uth’ven /ʔʊθʔvɛn/ [STATE] {CF} (NONE) — consent-framed body-hold (requested stabilization). Der: uth’- + ven. Ex: E18.
+vael’ven /vɑ.ɛlʔvɛn/ [STATE] {CF} (NONE) — coerced body-hold (dirty stabilization; implicates violation). Der: vael- + ven. Ex: E07.
+ank /ɑŋk/ [ENTITY] {AC} (CONTACT/DEPRECATED) — contact tag “Anchor” (loan label; not native). Der: ank’ven (contact compound). Ex: E25.
+ven’een /vɛnʔiːn/ [ENTITY] {CF} (NONE) — body-held cohort (stable-form set). Der: ven + -een. Ex: E25.
+ven’ren /vɛnʔˈrɛn/ [ENTITY] {CF} (NONE) — single body-held instance (one stabilized form). Der: ven + -ren. Ex: E25.
+xen’ven /xɛnʔvɛn/ [STATE] {CF} (NONE) — continuity under body-hold (identity under lock). Der: xen + ven. Ex: E25.
+xen’ven’sekh /xɛnʔvɛnʔsɛx/ [STATE] {CF} (NONE) — continuity under reversible lock (salvageable). Der: xen + ven’sekh. Ex: E19.
+xen’ven’vahl /xɛnʔvɛnʔˈvɑl/ [STATE] {CF} (NONE) — continuity under permanent lock (requires Conclave care). Der: xen + ven’vahl. Ex: E25.
+tah /tɑ/ [PART] {CF/FC} (NONE) — intensity scalar (non-lexical amplitude marker). Der: tah=sha. Ex: E30.
+tah=sha /tɑ ʃɑ/ [PART] {CF} (NONE) — focused intensity (“specifically strong”). Der: tah + =sha. Ex: E30.
+huth /hʊθ/ [ACT] {CF/FC} (NONE) — request-permission boundary check (pre-consent probe). Der: huth=uth; huth=hë. Ex: E08.
+huth=uth /hʊθ ʔʊθ/ [ACT] {CF} (NONE) — explicit permission request (double-consent framing; formal). Der: huth + =uth. Ex: E14.
+huth’hë /hʊθʔhɛː/ [PART] {CF} (NONE) — interrogative permission packet (“may I?”). Der: huth + hë. Ex: E08.
+kerm /kɛɾm/ [STATE] {CF} (NONE) — coercion-trace (felt in resonance after contact). Der: kitxar’kerm; kerm=tra. Ex: E24.
+kitxar’kerm /kitˈxɑrʔkɛɾm/ [ACT] {CF} (NONE) — audit specifically for coercion traces. Der: kitxar + kerm. Ex: E24.
+kerm=tra /kɛɾmʔtɾɑ/ [PART] {CF} (NONE) — topic: coercion-trace (minutes). Der: kerm + =tra. Ex: E24.
+sarn /sɑɾn/ [STATE] {CF/FC} (NONE) — “clean touch” (contact that leaves no residue; practical ideal). Der: rhel’sarn; sarn=uth. Ex: E23.
+rhel’sarn /rɛlʔsɑɾn/ [ACT/STATE] {CF} (NONE) — restore to clean-contact state (repair completion). Der: rhel + sarn. Ex: E23.
+sarn=uth /sɑɾn ʔʊθ/ [STATE] {CF} (NONE) — clean contact by consent (gold standard). Der: sarn + =uth. Ex: E18.
+vurn /vuɾn/ [STATE] {CF/FC} (NONE) — warning-stiffness (speaker locks phrasing to avoid harm). Der: vurn=tra; vurn=sha. Ex: E26.
+vurn=tra /vuɾnʔtɾɑ/ [PART] {CF} (NONE) — topic: constrained wording (minutes). Der: vurn + =tra. Ex: E26.
+vurn=sha /vuɾn ʃɑ/ [STATE] {CF} (NONE) — focused constrained wording (explicit caution). Der: vurn + =sha. Ex: E26.
+shuv /ʃuv/ [ACT] {CF/FC} (NONE) — soothe/settle another’s field (non-coercive calming). Der: shuv=uth; sa’shuv. Ex: E27.
+shuv=uth /ʃuv ʔʊθ/ [ACT] {CF} (NONE) — soothe by consent (asks before damping). Der: shuv + =uth. Ex: E18.
+sa’shuv /saʔʃuv/ [ACT] {CF} (NONE) — comfort-soothe (caretaker register). Der: sa’- + shuv. Ex: E27.
+vael’shuv /vɑ.ɛlʔʃuv/ [ACT] {CF} (NONE) — coerced soothing (suspected violation). Der: vael- + shuv. Ex: E07.
+ner /nɛɾ/ [STATE] {CF/FC} (NONE) — “open self” stance (allows reading). Der: ner=uth; ner’een. Ex: E14.
+ner=uth /nɛɾ ʔʊθ/ [STATE] {CF} (NONE) — explicitly open self by consent (invites witness). Der: ner + =uth. Ex: E14.
+ner’een /nɛɾʔiːn/ [ENTITY] {CF} (NONE) — set of those in open stance (ritual/clinic). Der: ner + -een. Ex: E18.
+vael’ner /vɑ.ɛlʔnɛɾ/ [STATE] {CF} (NONE) — forced openness (violation). Der: vael- + ner. Ex: E07.
+kesh’ner /kɛʃʔnɛɾ/ [STATE] {CF} (NONE) — crossing while open (high vulnerability; requires consent). Der: kesh + ner. Ex: E21.
+veyl’ner /vejlʔnɛɾ/ [STATE] {CF} (NONE) — boundary interface while open (medical/ritual). Der: veyl + ner. Ex: E21.
+threnn’ner /tɾɛnʔnɛɾ/ [STATE] {CF} (NONE) — record opened for inspection (minutes release). Der: threnn + ner. Ex: E12.
+threnn’ner=uth /tɾɛnʔnɛɾ ʔʊθ/ [STATE] {CF} (NONE) — record opened by consent (authorized access). Der: + =uth. Ex: E12.
+vahl’ner /vɑlʔnɛɾ/ [STATE] {CF} (NONE) — stabilized openness (safe to witness continuously). Der: vahl + ner. Ex: E18.
+vahl’ner’een /vɑlʔnɛɾʔiːn/ [ENTITY] {CF} (NONE) — cohort stabilized for observation (field team). Der: vahl’ner + -een. Ex: E18.
+rexh /rɛx/ [ACT/STATE] {CF} (NONE) — unhook/let-go (end a hold without cutting). Der: rexh=uth; rhel’rexh. Ex: E23.
+rexh=uth /rɛx ʔʊθ/ [ACT] {CF} (NONE) — let-go by consent (gentle disengage). Der: rexh + =uth. Ex: E18.
+rhel’rexh /rɛlʔrɛx/ [ACT/STATE] {CF} (NONE) — restore by letting-go (balance via release). Der: rhel + rexh. Ex: E23.
+kak’rexh /kɑkʔrɛx/ [ACT] {CF} (NONE) — close boundary then release (safe termination sequence). Der: kak + rexh. Ex: E30.
+tuk’rexh /tukʔrɛx/ [ACT] {CF} (NONE) — bind-to-one-line then release (finalize, then stop revisiting). Der: tuk + rexh. Ex: E06.
+threnn’rexh /tɾɛnʔrɛx/ [ACT] {CF} (NONE) — release a record from active scrutiny (archive). Der: threnn + rexh. Ex: E12.
+threnn’rexh=tra /tɾɛnʔrɛxʔtɾɑ/ [PART] {CF} (NONE) — topic: archived/released (minutes). Der: + =tra. Ex: E12.
+hëm /hɛm/ [PART] {CF} (NONE) — polite downtone particle (Conclave formal; softens absolutes). Der: —. Ex: E04.
+hëm=uth /hɛm ʔʊθ/ [PART] {CF} (NONE) — downtone + consent frame (very formal). Der: hëm + =uth. Ex: E14.
+qir’ven /qirʔvɛn/ [STATE] {CF} (NONE) — looping body-hold (Anchor cycles; exhaustion). Der: qir + ven. Ex: E15.
+ruun’ven /ruːnʔvɛn/ [STATE] {CF} (NONE) — returning body-hold (lock reasserts). Der: ruun + ven. Ex: E16.
+keth’ven /kɛtʔvɛn/ [STATE] {CF} (NONE) — ethical evaluation of body-hold (when stabilization is allowed). Der: keth + ven. Ex: E24.
+keth’ven=tra /kɛtʔvɛnʔtɾɑ/ [PART] {CF} (NONE) — topic: ethics of stabilization (minutes). Der: + =tra. Ex: E24.
+na’ven /naʔˈvɛn/ [STATE] {RT} (CLP-ADJ) — body-hold adjacent to collapse (taboo hazard label). Der: na’- + ven. Ex: E25.
+na’renk /naʔˈrɛŋk/ [STATE] {RT} (CLP-ADJ) — hunger adjacent to collapse (panic; ritual silence recommended). Der: na’- + renk. Ex: E25.
+uth’renk /ʔʊθʔrɛŋk/ [STATE] {CF} (NONE) — hunger disclosed with consent (requests help without coercion). Der: uth’- + renk. Ex: E14.
+threnn’renk /tɾɛnʔrɛŋk/ [STATE] {CF} (NONE) — hunger-status logged into record (medical/legal). Der: threnn + renk. Ex: E12.
+VI.8 Ritual register, sacred constraints, and name-taboo machinery
+qesh’ta /qɛʃʔtɑ/ [PART] {RT} (RT-ONLY) — rite-bound framing particle (licenses constrained discussion). Der: qesh’ta=tra. Ex: E29.
+qesh’ta=tra /qɛʃʔtɑʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: rite-bound material. Der: + =tra. Ex: E29.
+thu /θu/ [STATE] {RT} (RT-ONLY) — sanctified hush (not se’run; used before taboo operators). Der: thu=tra; thu’qem. Ex: E29.
+thu=tra /θuʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: sanctified hush requirement. Der: —. Ex: E29.
+thu’qem /θuʔqɛm/ [PART] {RT} (RT-ONLY) — hush + intensifier bundle (ritual containment). Der: thu + qem. Ex: E29.
+neth /nɛθ/ [ACT] {CF} (TRUE-NAME) — true-name avoidance act (replace with tag, never utter). Der: neth=uth; threnn’neth. Ex: E26.
+neth=uth /nɛθ ʔʊθ/ [ACT] {CF} (TRUE-NAME) — ask permission before applying a replacement tag (rare, hyper-formal). Der: neth + =uth. Ex: E26.
+threnn’neth /tɾɛnʔnɛθ/ [ACT] {CF} (TRUE-NAME) — file true-name avoidance in record (redaction protocol). Der: threnn + neth. Ex: E12.
+sëth /sɛθ/ [ACT] {CF} (DEAD-NAME) — dead-name avoidance protocol (funerary/ethical). Der: sëth=uth; threnn’sëth. Ex: E27.
+threnn’sëth /tɾɛnʔsɛθ/ [ACT] {CF} (DEAD-NAME) — record redaction: dead-name removal. Der: threnn + sëth. Ex: E12.
+sëth=uth /sɛθ ʔʊθ/ [ACT] {CF} (DEAD-NAME) — request permission to reference by descriptor (never name). Der: sëth + =uth. Ex: E27.
+hax’neth /haxʔnɛθ/ [ACT] {CF} (TRUE-NAME) — do-not-name + true-name protocol combined (field emergency). Der: hax + neth. Ex: E26.
+hax’sëth /haxʔsɛθ/ [ACT] {CF} (DEAD-NAME) — do-not-name + dead-name protocol combined. Der: hax + sëth. Ex: E27.
+qir’neth /qirʔnɛθ/ [ACT] {RT} (TRUE-NAME) — looping avoidance (ritual: repeated redaction to prevent bleed). Der: qir + neth. Ex: E29.
+ruun’sëth /ruːnʔsɛθ/ [ACT] {CF} (DEAD-NAME) — recurring dead-name avoidance (anniversary register). Der: ruun + sëth. Ex: E27.
+keth’neth /kɛtʔnɛθ/ [STATE] {CF} (TRUE-NAME) — ethical evaluation: naming breach risk. Der: keth + neth. Ex: E24.
+keth’sëth /kɛtʔsɛθ/ [STATE] {CF} (DEAD-NAME) — ethical evaluation: dead-name breach risk. Der: keth + sëth. Ex: E24.
+rhel’neth /rɛlʔnɛθ/ [ACT] {CF} (TRUE-NAME) — restore balance after naming breach (repair ritual). Der: rhel + neth. Ex: E23.
+rhel’sëth /rɛlʔsɛθ/ [ACT] {CF} (DEAD-NAME) — restore balance after dead-name breach. Der: rhel + sëth. Ex: E23.
+vahl’neth /vɑlʔnɛθ/ [STATE] {RT} (TRUE-NAME) — latched avoidance (permanent ban in a record). Der: vahl + neth. Ex: E29.
+vahl’sëth /vɑlʔsɛθ/ [STATE] {RT} (DEAD-NAME) — latched dead-name avoidance (never again in minutes). Der: vahl + sëth. Ex: E29.
+qon /qɔn/ [PART] {RT} (RT-ONLY) — sacred clause opener (permits taboo adjacency talk without enactment). Der: qon=tra. Ex: E29.
+qon=tra /qɔnʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: sacred-clause domain. Der: —. Ex: E29.
+na’qon /naʔˈqɔn/ [PART] {RT} (CLP-ADJ) — sacred clause constrained by collapse adjacency (extreme). Der: na’- + qon. Ex: E25.
+qon’na’vyr /qɔnʔnaʔˈvyr/ [STATE] {RT} (CLP-ADJ) — sacred clause marking collapse-adjacent content (sealed). Der: qon + na’vyr. Ex: E25.
+threnn’qon /tɾɛnʔqɔn/ [ACT] {RT} (RT-ONLY) — file sacred clause into record (sealed minutes). Der: threnn + qon. Ex: E12.
+threnn’qon=uth /tɾɛnʔqɔn ʔʊθ/ [ACT] {RT} (RT-ONLY) — sealed minutes filed by consent of Conclave (rare). Der: + =uth. Ex: E12.
+vurn’thu /vuɾnʔθu/ [STATE] {RT} (RT-ONLY) — constrained speech + sanctified hush (pre-taboo). Der: vurn + thu. Ex: E29.
+vurn’thu=tra /vuɾnʔθuʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: hush requirement before statement. Der: —. Ex: E29.
+mën’thu /mɛnʔθu/ [PART] {RT} (RT-ONLY) — “who” under hush (asking about person without naming). Der: mën + thu. Ex: E29.
+kô’thu /koːʔθu/ [PART] {RT} (RT-ONLY) — “what” under hush (ask without invoking). Der: kô + thu. Ex: E29.
+râ’thu /rɑːʔθu/ [PART] {RT} (RT-ONLY) — “where” under hush (avoid location-calling). Der: râ + thu. Ex: E29.
+sarn’thu /sɑɾnʔθu/ [STATE] {RT} (RT-ONLY) — clean-contact hush (ritual before touching states). Der: sarn + thu. Ex: E29.
+uth’sarn’thu /ʔʊθʔsɑɾnʔθu/ [STATE] {RT} (RT-ONLY) — consent-primed clean-contact hush. Der: uth’- + sarn’thu. Ex: E29.
+qir’thu /qirʔθu/ [PART] {RT} (RT-ONLY) — looped hush (repeat silence intentionally; recordable). Der: qir + thu. Ex: E29.
+ruun’thu /ruːnʔθu/ [PART] {RT} (RT-ONLY) — returning hush (silence expected again). Der: ruun + thu. Ex: E27.
+kesh’thu /kɛʃʔθu/ [STATE] {RT} (RT-ONLY) — hush while crossing is mentioned (danger talk). Der: kesh + thu. Ex: E29.
+veyl’thu /vejlʔθu/ [STATE] {RT} (RT-ONLY) — hush at boundary mention. Der: veyl + thu. Ex: E29.
+nûm’thu /nuːmʔθu/ [STATE] {RT} (RT-ONLY) — hush around alignment talk (avoid coercion implications). Der: nûm + thu. Ex: E29.
+ven’thu /vɛnʔθu/ [STATE] {RT} (RT-ONLY) — hush around body-hold talk (Anchor respect). Der: ven + thu. Ex: E29.
+renk’thu /rɛŋkʔθu/ [STATE] {RT} (RT-ONLY) — hush around hunger talk (avoid panic cascades). Der: renk + thu. Ex: E29.
+na’thu /naʔˈθu/ [PART] {RT} (CLP-ADJ) — collapse-adjacent hush (absolute stop). Der: na’- + thu. Ex: E25.
+ta’qesh’thu /tɑʔqɛʃʔθu/ [PART] {RT} (RT-ONLY) — alarm + hush (do not speak further; act). Der: ta’qesh + thu. Ex: E30.
+ta’qesh’qon /tɑʔqɛʃʔqɔn/ [PART] {RT} (RT-ONLY) — alarm + sacred clause (official hazard disclosure). Der: ta’qesh + qon. Ex: E30.
+qesh’rexh /qɛʃʔrɛx/ [ACT] {RT} (RT-ONLY) — forbidden-act release protocol (ending a rite safely). Der: qesh + rexh. Ex: E29.
+qesh’rexh=uth /qɛʃʔrɛx ʔʊθ/ [ACT] {RT} (RT-ONLY) — release rite by consent of Conclave (rare). Der: + =uth. Ex: E29.
+threnn’qesh’rexh /tɾɛnʔqɛʃʔrɛx/ [ACT] {RT} (RT-ONLY) — archive rite termination in sealed record. Der: threnn + qesh’rexh. Ex: E12.
+rhel’qesh /rɛlʔqɛʃ/ [ACT] {RT} (RT-ONLY) — repair after forbidden-cross discourse (ritual restitution). Der: rhel + qesh. Ex: E23.
+keth’qesh /kɛtʔqɛʃ/ [STATE] {RT} (RT-ONLY) — ethical evaluation of forbidden-cross domain (ritual court). Der: keth + qesh. Ex: E24.
+threnn’keth’qesh /tɾɛnʔkɛtʔqɛʃ/ [STATE] {RT} (RT-ONLY) — record-court on forbidden-cross ethics (sealed minutes). Der: threnn + keth’qesh. Ex: E12.
+qon’keth /qɔnʔkɛt/ [STATE] {RT} (RT-ONLY) — sacred ethics framing (only Conclave may use). Der: qon + keth. Ex: E29.
+qon’keth=tra /qɔnʔkɛtʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: sacred ethics. Der: —. Ex: E29.
+vahl’qon /vɑlʔqɔn/ [STATE] {RT} (RT-ONLY) — sacred clause latched (immutable ruling). Der: vahl + qon. Ex: E29.
+vahl’qon=tra /vɑlʔqɔnʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: immutable sacred ruling. Der: —. Ex: E29.
+suv’thu /suvʔθu/ [STATE] {RT} (RT-ONLY) — closed-by-hush (silence indicates refusal). Der: suv + thu. Ex: E27.
+shen’thu /ʃɛnʔθu/ [STATE] {RT} (RT-ONLY) — guarded-yes-by-hush (consent implied but not granted; needs explicit =uth). Der: shen + thu. Ex: E14.
+uth’thu /ʔʊθʔθu/ [PART] {RT} (RT-ONLY) — consent-hush (silence used to grant permission in ritual only). Der: uth’- + thu. Ex: E29.
+uth’thu=tra /ʔʊθʔθuʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: consent-by-silence domain. Der: —. Ex: E29.
+vu’thu /vuʔθu/ [PART] {RT} (RT-ONLY) — negation-hush (silence indicates denial; ritual). Der: vu + thu. Ex: E29.
+vu’thu=tra /vuʔθuʔtɾɑ/ [PART] {RT} (RT-ONLY) — topic: denial-by-silence domain. Der: —. Ex: E29.
+VI.9 Rare/archaic forms, edge operators, and mistranslation traps
+xel /xɛl/ [STATE] {CF/FC} (NONE) — afterimage echo-halo (visualizable artifact; not “aura”). Der: ech’xel; xel’een. Ex: E25.
+ech’xel /ɛt͡ʃʔxɛl/ [STATE] {CF/FC} (NONE) — witnessed echo-halo (local). Der: ech + xel. Ex: E25.
+xel’een /xɛlʔiːn/ [ENTITY] {CF} (NONE) — halo-set (those saturated by crossings). Der: xel + -een. Ex: E25.
+vex’xel /vɛxʔxɛl/ [STATE] {CF} (NONE) — halo indicates boundary-open (field heuristic). Der: vex + xel. Ex: E21.
+suv’xel /suvʔxɛl/ [STATE] {CF} (NONE) — halo indicates boundary-closed (warning). Der: suv + xel. Ex: E30.
+qir’xel /qirʔxɛl/ [STATE] {CF} (NONE) — looping halo (repeated saturation). Der: qir + xel. Ex: E15.
+ruun’xel /ruːnʔxɛl/ [STATE] {CF} (NONE) — returning halo (comes back even after rest). Der: ruun + xel. Ex: E16.
+resh /rɛʃ/ [ACT] {CF} (NONE) — align speech to prevent harmful inference (pragmatic calibration). Der: resh=uth; threnn’resh. Ex: E26.
+resh=uth /rɛʃ ʔʊθ/ [ACT] {CF} (NONE) — calibrate with consent (asks before reframing). Der: resh + =uth. Ex: E14.
+threnn’resh /tɾɛnʔrɛʃ/ [ACT] {CF} (NONE) — record a calibration note (prevents mistranslation). Der: threnn + resh. Ex: E12.
+keth’resh /kɛtʔrɛʃ/ [STATE] {CF} (NONE) — ethical calibration (reframe to minimize harm). Der: keth + resh. Ex: E24.
+rhel’resh /rɛlʔrɛʃ/ [ACT] {CF} (NONE) — restore balance via calibration (repair misreadings). Der: rhel + resh. Ex: E23.
+qir’resh /qirʔrɛʃ/ [ACT] {CF} (NONE) — repeated calibration (common in field clipped). Der: qir + resh. Ex: E15.
+ruun’resh /ruːnʔrɛʃ/ [ACT] {CF} (NONE) — calibration that returns (same misunderstanding recurring). Der: ruun + resh. Ex: E16.
+vak /vɑk/ [STATE] {CF/FC} (NONE) — “thread angle” (relative stance of two continuities; geometry metaphor, not space travel). Der: vak=tra; vak’een. Ex: E24.
+vak=tra /vɑkʔtɾɑ/ [PART] {CF} (NONE) — topic: stance angle (minutes). Der: vak + =tra. Ex: E24.
+vak’een /vɑkʔiːn/ [ENTITY] {CF} (NONE) — set of aligned angles (shared stance family). Der: vak + -een. Ex: E27.
+xen’vak /xɛnʔvɑk/ [STATE] {CF} (NONE) — continuity angle (how an identity sits relative to others). Der: xen + vak. Ex: E24.
+yem’vak /jɛmʔvɑk/ [STATE] {CF} (NONE) — affinity angle (closeness expressed as stance). Der: yem + vak. Ex: E27.
+qir’vak /qirʔvɑk/ [STATE] {CF} (NONE) — angle loops (stuck in a relational stance). Der: qir + vak. Ex: E15.
+ruun’vak /ruːnʔvɑk/ [STATE] {CF} (NONE) — angle returns (relationship stance recurs). Der: ruun + vak. Ex: E16.
+na’vak /naʔˈvɑk/ [STATE] {RT} (CLP-ADJ) — collapse-adjacent angle (relationship becomes hazard). Der: na’- + vak. Ex: E25.
+tesh /tɛʃ/ [ACT] {CF/FC} (NONE) — “edge-touch” (minimal interface contact; diagnostic). Der: tesh=uth; tesh=shi. Ex: E21.
+tesh=uth /tɛʃ ʔʊθ/ [ACT] {CF} (NONE) — edge-touch by consent (standard field practice). Der: tesh + =uth. Ex: E14.
+tesh=shi /tɛʃ ʃi/ [ACT] {CF} (NONE) — edge-touch by instrument/means (array-assisted). Der: tesh + =shi. Ex: E23.
+threnn’tesh /tɾɛnʔtɛʃ/ [ACT] {CF} (NONE) — record the edge-touch diagnostic result. Der: threnn + tesh. Ex: E12.
+keth’tesh /kɛtʔtɛʃ/ [STATE] {CF} (NONE) — ethical evaluation of edge-touch (was it invasive?). Der: keth + tesh. Ex: E24.
+xum’tesh /xumʔtɛʃ/ [STATE] {CF} (NONE) — turbulence during edge-touch (hazard). Der: xum + tesh. Ex: E30.
+vael’tesh /vɑ.ɛlʔtɛʃ/ [ACT] {CF} (NONE) — misaligned edge-touch (can bruise veil). Der: vael- + tesh. Ex: E30.
+kesh’tesh /kɛʃʔtɛʃ/ [ACT] {CF} (NONE) — crossing-by-edge (minimal transit; special skill). Der: kesh + tesh. Ex: E20.
+sa’kesh’tesh /saʔkɛʃʔtɛʃ/ [ACT] {CF} (NONE) — comfort minimal transit (safe escort). Der: sa’- + kesh’tesh. Ex: E21.
+vahl’tesh /vɑlʔtɛʃ/ [STATE] {CF} (NONE) — edge-touch latched (persistent interface scar; mild). Der: vahl + tesh. Ex: E25.
+tesh’vahl /tɛʃʔˈvɑl/ [STATE] {CF} (NONE) — latched edge-interface (scarred boundary point). Der: tesh + -vahl. Ex: E25.
+qir’tesh /qirʔtɛʃ/ [ACT] {CF} (NONE) — repeated edge-touch (care protocol). Der: qir + tesh. Ex: E15.
+ruun’tesh /ruːnʔtɛʃ/ [ACT] {CF} (NONE) — edge-touch returns (symptom repeats). Der: ruun + tesh. Ex: E16.
+mav /mɑv/ [STATE] {CF} (NONE) — “too-many-selves” saturation (identity overload precursor). Der: mav=tra; qir’mav. Ex: E15.
+mav=tra /mɑvʔtɾɑ/ [PART] {CF} (NONE) — topic: overload saturation. Der: mav + =tra. Ex: E15.
+qir’mav /qirʔmɑv/ [STATE] {CF} (NONE) — overload loops (dangerous). Der: qir + mav. Ex: E15.
+ruun’mav /ruːnʔmɑv/ [STATE] {CF} (NONE) — overload returns (chronic). Der: ruun + mav. Ex: E16.
+rhel’mav /rɛlʔmɑv/ [ACT/STATE] {CF} (NONE) — restore from overload (clinical). Der: rhel + mav. Ex: E23.
+sa’rhel’mav /saʔrɛlʔmɑv/ [ACT/STATE] {CF} (NONE) — comfort-restoration from overload (caretaker). Der: sa’- + rhel’mav. Ex: E27.
+na’mav /naʔˈmɑv/ [STATE] {RT} (CLP-ADJ) — overload adjacent to collapse (taboo). Der: na’- + mav. Ex: E25.
+xen’mav /xɛnʔmɑv/ [STATE] {CF} (NONE) — continuity overload (identity split risk). Der: xen + mav. Ex: E15.
+xen’mav’sekh /xɛnʔmɑvʔsɛx/ [STATE] {CF} (NONE) — continuity overload at threshold (intervention window). Der: xen’mav + -sekh. Ex: E19.
+vurn’resh /vuɾnʔrɛʃ/ [ACT] {CF} (NONE) — constrained calibration (careful translator-safe phrasing). Der: vurn + resh. Ex: E26.
+threnn’vurn’resh /tɾɛnʔvuɾnʔrɛʃ/ [ACT] {CF} (NONE) — record a constrained calibration note (minutes). Der: threnn + vurn’resh. Ex: E12.
+hëk /hɛːk/ [PART] {CF} (NONE) — incredulity marker (Conclave formal; translator often outputs “impossible”). Der: hëk=sha. Ex: E08.
+hëk=sha /hɛːk ʃɑ/ [PART] {CF} (NONE) — focused incredulity (“specifically, that can’t stand”). Der: hëk + =sha. Ex: E08.
+sën’hëk /sɛnʔhɛːk/ [PART] {CF} (NONE) — manner-question with incredulity (“how, exactly?”). Der: së(n) + hëk. Ex: E08.
+keth’hëk /kɛtʔhɛːk/ [STATE] {CF} (NONE) — ethical incredulity (action violates norms). Der: keth + hëk. Ex: E24.
+keth’hëk=tra /kɛtʔhɛːkʔtɾɑ/ [PART] {CF} (NONE) — topic: norm-violation disbelief. Der: —. Ex: E24.
+rhel’hëk /rɛlʔhɛːk/ [ACT] {CF} (NONE) — repair after disbelief (restore trust via procedure). Der: rhel + hëk. Ex: E23.
+qir’hëk /qirʔhɛːk/ [PART] {CF} (NONE) — repeated incredulity (stuck in “this can’t be”). Der: qir + hëk. Ex: E15.
+ruun’hëk /ruːnʔhɛːk/ [PART] {CF} (NONE) — incredulity returns (same shock again). Der: ruun + hëk. Ex: E16.
+threnn’hëk /tɾɛnʔhɛːk/ [STATE] {CF} (NONE) — record marked as contested/impossible (procedural flag). Der: threnn + hëk. Ex: E12.
+threnn’hëk=uth /tɾɛnʔhɛːk ʔʊθ/ [STATE] {CF} (NONE) — contested record flagged with consent (avoids accusation). Der: + =uth. Ex: E14.
+qir’threnn’hëk /qirʔtɾɛnʔhɛːk/ [STATE] {CF} (NONE) — contested record loops (keeps resurfacing unresolved). Der: qir + threnn’hëk. Ex: E15.
+ruun’threnn’hëk /ruːnʔtɾɛnʔhɛːk/ [STATE] {CF} (NONE) — contested record returns (periodic dispute). Der: ruun + threnn’hëk. Ex: E16.
+kak’threnn’hëk /kɑkʔtɾɛnʔhɛːk/ [ACT] {CF} (NONE) — close interface around a contested record (stop active debate; defer). Der: kak + threnn’hëk. Ex: E30.
+threnn’vahl’hëk /tɾɛnʔvɑlʔhɛːk/ [STATE] {CF} (NONE) — “latched, yet contested” (rare paradox flag; triggers Conclave review). Der: threnn’vahl + hëk. Ex: E06.
+PART VII — Fieldwork Artifacts (Translator Logs)
+Extracted from NID xenolinguistics field units operating near veil-thin sites. Logs reflect recurrent failure modes of Common-based translators when handling Nûm’ta’reen. Bracketed notes are post-hoc analyst corrections.
+TL01 — False Tense Assumption
+Source utterance: ech’wes kik’ren=tra
+Machine output: “I saw the branch earlier.”
+Likely intent: “This branch is witnessed and currently under discussion.”
+Error type: TENSE IMPOSITION
+Notes: Translator incorrectly forced a past tense. Ech’ta’reen encodes witness-status, not temporal location.
+TL02 — Consent Dropped in Compression
+Source utterance: har=uth sa’renk
+Machine output: “Share your hunger.”
+Likely intent: “May I share a softened need-state with you?”
+Error type: CONSENT ELISION
+Notes: Loss of =uth converts a polite request into a demand. Caused minor diplomatic incident.
+TL03 — Ethical Operator Flattened
+Source utterance: keth’kik=tra
+Machine output: “Branching protocol.”
+Likely intent: “We are evaluating whether branching is ethically allowed.”
+Error type: OPERATOR LOSS
+Notes: keth- is evaluative, not descriptive. Removing it strips moral force.
+TL04 — Taboo Silence Misread as Compliance
+Source utterance: thu … vu’thu
+Machine output: “No response recorded.”
+Likely intent: “Explicit ritual denial via silence.”
+Error type: TABOO MISREAD
+Notes: Silence here is meaningful negation, not absence of speech.
+TL05 — Anchor Term Overliteralized
+Source utterance: ven’sekh xen’ven
+Machine output: “Unstable body, unstable identity.”
+Likely intent: “Reversible body-hold with continuity intact.”
+Error type: SEMANTIC DRIFT
+Notes: Translators tend to pathologize Anchor states instead of describing thresholds.
+TL06 — Ritual Register Ignored
+Source utterance: qon keth’qesh
+Machine output: “Forbidden ethics discussion.”
+Likely intent: “Sacred, licensed evaluation of forbidden-cross ethics.”
+Error type: REGISTER COLLAPSE
+Notes: RT-only markers were dropped, making a lawful act appear illicit.
+TL07 — Loop Marker Rendered as Emotion
+Source utterance: qir’hëk
+Machine output: “Repeated disbelief.”
+Likely intent: “This contested state is looping and unresolved.”
+Error type: AFFECT SUBSTITUTION
+Notes: hëk is not emotional surprise; it is a procedural flag.
+TL08 — Name-Taboo Breach by Substitution
+Source utterance: hax’neth threnn’nak
+Machine output: “Record the alias.”
+Likely intent: “Apply do-not-name protocol and log the replacement label.”
+Error type: TABOO SOFTENING
+Notes: Translator removed the avoidance force, risking true-name exposure.
+TL09 — Branch Closure Misread as Finality
+Source utterance: tuk’sekh
+Machine output: “Decision finalized.”
+Likely intent: “Single-line commitment at a revisable threshold.”
+Error type: THRESHOLD LOSS
+Notes: sekh explicitly marks reversibility. Translators habitually ignore it.
+TL10 — Collapse-Adjacent Warning Ignored
+Source utterance: na’ven na’renk
+Machine output: “Severe instability.”
+Likely intent: “Body-hold and hunger both adjacent to collapse; cease discourse.”
+Error type: HAZARD UNDERREPORTING
+Notes: CLP-ADJ markers should trigger automatic speech cutoff protocols.

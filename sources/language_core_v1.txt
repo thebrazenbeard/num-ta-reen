@@ -1,0 +1,564 @@
+Nûm’ta’reen Reference Grammar v1.0
+The language of: Ech’ta’reen (species endonym)
+Name of communication mode: Nûm’ta’reen (resonance-based state-sharing)
+Home-realm endonym: Tha’veyl’ruun (Ech’ta’reen term for the NID label “Zeta-775”)
+Changelog
+v1.0 (2025-12-31): Initial reference grammar scaffold: Parts I–II (phonology + morphology). Corpus, syntax, semantics, dictionary, and fieldwork artifacts pending in later installments.
+Method & assumptions
+This grammar is written as if compiled by xenolinguistic field teams working at veil-stabilized contact sites with partial translator-array support. The analysis treats Nûm’ta’reen as a linguistic system (rule-governed mapping from signals to meanings) realized through multimodal resonance and timing.
+Assumptions (explicit, consistent):
+Segmentability: Despite being resonance-native, Ech’ta’reen messages can be segmented into discrete phonological words in the transliteration layer, validated by recurrent timing patterns and distributional constraints.
+Phonemic stop: The apostrophe (’) in field transliteration corresponds to a phonemic laryngeal interruption (primary realization /ʔ/), not punctuation.
+Echo-status grammar: Temporal reference is not encoded by tense; instead, Ech’ta’reen grammaticize echo-status (witnessed, verified across echoes, looped, branched, collapsed).
+Role marking via clitics: Argument roles are encoded primarily through clitics/particles rather than inflectional case.
+Register stratification: Conclave formal, field clipped, ritual register, and Anchor creole are treated as systematic varieties with predictable phonological and morphological differences.
+Non-transparency constraint: Native lexical material is non-transparent to Common; any English-looking substrings in earlier drafts are excluded from the native lexicon.
+Note: Later Parts (III–VII) will add a 30-utterance annotated corpus (IGT) that serves as evidence for each rule stated here.
+PART I — Phonetics & phonology
+I.1 Phonetic channel and “speech” abstraction
+Ech’ta’reen produce communicative signals primarily through resonance modulation and timing discontinuities. For fieldwork purposes, the system is rendered in a speakable transliteration that maps stable contrasts to segmental phonemes. The transliteration is not assumed to be the native physical substrate; it is an analytic layer that preserves:
+contrasts in laryngeal interruption (the phonemic stop),
+contrasts in place/manner that correlate with resonance bands,
+contrasts in vowel quality and length that correlate with coherence intensity,
+contrasts in prosodic timing that correlate with scope and evidentiality.
+I.2 Phoneme inventory (IPA)
+Consonants
+¹ /q/ is restricted and associated with ritual register and taboo-adjacent lexemes.
+² /ʔ/ is phonemic and corresponds to orthographic apostrophe (’).
+Vowels
+Field teams also report a lowered [ɑ] allophone of /a/ in emphatic or strained states; this is treated as contextual rather than phonemic.
+I.3 Allophony and phonetic notes
+/ʔ/ is realized as [ʔ] in careful speech, [ʔ̞] (creaky interruption) intervocalically in rapid field register, and may coarticulate with uvularization near /q/.
+/ɾ/ ~ /r/: [ɾ] occurs intervocalically and in fast speech; [r] (trill or strong tap) surfaces in ritual register and under emphasis.
+/x/ ranges from [x] to [χ] near back vowels and in proximity to /q/.
+Vowel length correlates with coherence intensity and scope marking. Long vowels are phonemic in the transliteration layer.
+I.4 Syllable structure & phonotactics
+Syllable template
+(C)(C)V(ː)(C)
+Onsets: any single consonant; clusters limited to /ʃr, xr, kw, sw/ in Conclave formal. Field clipped reduces clusters.
+Codas permitted: /n ŋ k t ʃ x/ (with register-conditioned variation).
+/ʔ/ does not appear as a coda in the transliteration analysis; it is boundary-linked (see below).
+Apostrophe placement constraint
+The phonemic stop /ʔ/ occurs:
+Morphological boundaries (root+root; root+clitic in specific environments).
+Vowel hiatus prevention (V’V sequences).
+Caution marking: a boundary click placed before taboo-adjacent material in field speech.
+I.5 Prosody: stress, timing, and scope
+Stress
+Default word stress is initial:
+/ˈCV…/ unless vowel length attracts stress.
+Phrase-level timing
+Ech’ta’reen prosody encodes scope in timing, represented in transliteration by:
+lengthening of a nucleus (Vː) for wide-scope echo-status;
+compressed inter-word intervals for “already-collapsed” states;
+double /ʔ/ (written as …’…’…) as a caution delimiter in ritualized warnings.
+I.6 Minimal pairs (phonemic contrasts)
+(Orthography / IPA / glosses are provisional; corpus IDs will be assigned in Part V.)
+Stop vs no stop
+Echareen /ˈe.ka.ˈriːn/ “echo-coherent collective (neutral)”
+Ech’ta’reen /ˈɛkʔ.tɑ.ˈriːn/ “the people-as-echoed-coherence (endonym)”
+Vowel length
+nûm /nuːm/ “align/cohere (state)”
+num /num/ “momentary alignment tick (clipped register)”
+/s/ vs /ʃ/
+sa’ren /saʔˈrɛn/ “vow-bind (state binding)”
+sha’ren /ʃaʔˈrɛn/ “consent-softened bind (non-dominant weave)”
+/k/ vs /q/ (ritual restriction)
+kesh /kɛʃ/ “cross/transition (general)”
+qesh /qɛʃ/ “forbidden crossing-act (rite/war speech)”
+PART II — Morphology
+II.1 Morphological typology
+Ech’ta’reen in transliteration is best analyzed as root-and-particle with:
+compounding (root+root, often with /ʔ/ boundary),
+clitic role marking (argument roles, consent),
+derivational prefixes/suffixes (register, inversion, collectivization),
+minimal inflection; echo-status is treated as particles/clitics rather than tense.
+II.2 Lexical categories (field analysis)
+Because Nûm’ta’reen is state-forward, many roots are category-flexible.
+Field categories used in this grammar:
+STATE: predicative roots encoding conditions (e.g., nûm).
+ACT: eventive roots (e.g., kesh).
+ENTITY: stable referents (e.g., threnn “communal record-body”).
+ECHO: echo-status operators (e.g., ech, reen, qir).
+CLITIC: role/consent markers attaching to hosts.
+II.3 Core roots (non-exhaustive seed set)
+These are native roots used as productive bases.
+ech (ECHO/STATE): witnessed echo channel
+reen (ECHO/STATE): coherence verified across echoes
+qir (ECHO/ACT): recurrence/loop operator
+kesh (ACT): cross/transition
+veyl (STATE/ENTITY): boundary interface
+nûm (STATE/ACT): cohere/align
+threnn (ENTITY/ACT): communal record-body; record merge
+rhel (STATE/ACT): restore balance/coherence
+vahl (STATE/ACT): latch/stabilize
+keth (STATE): cross-echo ethical evaluation
+II.4 Productive clitics (role marking)
+Clitics attach to the right edge of the host (orthographically with “=” for analysis).
+=ka AGT (agent/doer)
+=en PAT (patient/undergoer)
+=ru SRC (source/origin)
+=va GOAL (goal/target)
+=shi INST (instrument/means)
+=uth CONS (consent/permission)
+Example frames (schematic):
+STATE X=ka Y=en ECHO
+ACT X=ka Y=va ECHO
+II.5 Echo-status particles (grammatical operators)
+Echo-status markers occur clause-finally in the default analysis, but may cliticize to the predicate in Conclave formal.
+ech EVID.WIT (directly witnessed)
+reen EVID.VRF (verified across echoes)
+qir LOOP (looped/recurring)
+ruun RET (return-pattern asserted)
+na’vyr CLP (collapse/“never-was” adjacency; taboo-adjacent)
+II.6 Derivational morphology
+Prefixes
+vael- INV (inverse/misaligned state)
+uth’- SOFT/CONS (consent-primed; reduces coercive reading)
+sa’- COMF (comfort/low-force register)
+na’- ABS/CLP (absence/collapse adjacency; restricted)
+Suffixes
+-een COLL (collective/coherent-set)
+-ren INSTN (single instance/one-thread referent)
+-vahl LCH (latched/stabilized state; may be laudatory or condemnatory depending on CONS)
+-sekh THR (threshold/negotiable boundary state)
+Compounding rule
+Root₁(’)Root₂ forms a single lexical item with right-headed semantics unless specified.
+/ʔ/ boundary is obligatory if Root₁ ends in a vowel and Root₂ begins in a vowel; optional elsewhere but used to mark semantic boundary or taboo caution.
+II.7 Worked derivations
+Ech’ta’reen (endonym)
+Structure: ech + ’ + ta + ’ + reen
+Analysis: ECHO.WIT + BND + DEM(2nd-person salience marker) + BND + ECHO.COH
+Interpretation: “those whose identity is coherent echo-address” (self-name; outsider transliterations lose the stops).
+Nûm’ta’reen (communication mode)
+Structure: nûm + ’ + ta + ’ + reen
+Interpretation: “coherence-state-sharing” (not ‘speech’)
+Veyl’sekh (threshold state)
+Structure: veyl + ’ + sekh
+Interpretation: boundary in threshold/negotiable state.
+Uth’nûm (consent-primed alignment)
+Structure: uth’ + nûm
+Interpretation: alignment offered as permission-request or non-coercive approach.
+Vael’kesh’vahl (misaligned crossing that latched)
+Structure: vael- + kesh + ’ + vahl
+Interpretation: crossing resulting in trap/lock (often used for phase-locked Anchors).
+II.8 Register-conditioned morphology (overview)
+Conclave formal: full echo particles, permitted onset clusters, conservative /ʔ/ boundary marking.
+Field clipped: vowel shortening, reduced clusters, greater reliance on final echo markers; frequent pragmatic /ʔ/ as caution.
+Ritual register: increased /q/ usage, stronger [r], longer vowels; taboo lexemes licensed.
+Anchor creole: loanword integration (Common nouns), expansion of pronouns, adoption of linear tense markers in contact situations (treated as calques, not native grammar).
+PART III — Syntax
+III.1 Clause architecture: “state packet” model
+The default Ech’ta’reen clause is best described as a state packet: a predicate (STATE/ACT) followed by participants marked for role, then a clause-final echo-status sequence.
+Default template (Conclave formal):
+PRED (STATE/ACT)
+(TOPIC) optional topicalized constituent
+ARGUMENTS (role clitics)
+(ADJUNCTS) (often INST-marked)
+ECHO-STATUS operators
+EVIDENTIAL (if not fused with echo-status)
+Field clipped permits argument scrambling because roles are clitic-marked; however, the clause-final echo layer remains comparatively stable.
+Example [E01] (basic transitive state):
+Orthography: Nûm ta=en ech.
+IPA: /ˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm align/cohere ta=en 2=PAT ech EVID.WIT
+Free: “You are aligned (I witness it).”
+Notes: Predicate-first; patient role explicit; no agent is stated (default agent = ambient/collective unless specified).
+III.2 Constituent order and scrambling
+Ech’ta’reen is predicate-initial as a default. Because clitics identify roles, ARG order is pragmatically driven:
+early = topical/anchored in discourse
+late = focused/new information
+Example [E02] (agent expressed; agent precedes patient by discourse choice):
+Orthography: Nûm na=ka ta=en ech.
+IPA: /ˈnuːm nɑʔˈkɑ tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm align na=ka 1=AGT ta=en 2=PAT ech EVID.WIT
+Free: “I align you (witnessed).”
+Notes: In Conclave formal, explicit agents are used sparingly; using na=ka increases responsibility/ownership.
+Example [E03] (scrambled arguments; focus on agent):
+Orthography: Nûm ta=en na=ka ech.
+IPA: /ˈnuːm tɑʔˈɛn nɑʔˈkɑ ɛt͡ʃ/
+IGT: nûm align ta=en 2=PAT na=ka 1=AGT ech EVID.WIT
+Free: “It is you I’m aligning (and yes, it’s me doing it).”
+Notes: Late placement of the agent is interpreted as contrast/focus in field logs.
+III.3 Topic and focus marking
+Topic and focus are marked by optional enclitics.
+=thra TOP (topic anchor; “as for…”)
+=sha FOC (contrastive focus)
+Example [E04] (topic marker):
+Orthography: Veyl=thra sekh ech.
+IPA: /ˈvejlʔˈθrɑ sɛx ɛt͡ʃ/
+IGT: veyl=thra boundary=TOP sekh THR ech EVID.WIT
+Free: “As for the Veil, it’s in threshold state (witnessed).”
+Notes: Topic-marking is common when speaking with non-Ech’ta’reen interlocutors who require explicit discourse framing.
+Example [E05] (focus marker):
+Orthography: Nûm=sha ta=en ech.
+IPA: /ˈnuːmʔʃɑ tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm=sha align=FOC ta=en 2=PAT ech EVID.WIT
+Free: “It’s alignment (specifically) that you’re undergoing (witnessed).”
+III.4 Copula absence and predicate types
+No dedicated copula is required. STATE roots serve as predicates. ENTITY roots can predicate as states without additional morphology.
+Example [E06] (entity as predicate):
+Orthography: Threnn’vahl reen.
+IPA: /ˈθrɛnʔˈvɑl riːn/
+IGT: threnn’vahl record.LCH reen EVID.VRF
+Free: “The record is latched (verified across echoes).”
+Notes: Translator arrays often output “It’s official.” This is a pragmatic inference.
+III.5 Valency and implicit arguments
+Ech’ta’reen frequently omit agents.
+With no AGT, the clause is interpreted as ambient-causation or collective responsibility, depending on register.
+Example [E07] (implicit agent):
+Orthography: Vahl ta=en ech.
+IPA: /ˈvɑl tɑʔˈɛn ɛt͡ʃ/
+IGT: vahl latch/stabilize ta=en 2=PAT ech EVID.WIT
+Free: “You are latched/stabilized (witnessed).”
+Notes: Without consent marking, this may imply coercion; see IV.3.
+III.6 Questions
+Questions are encoded by a clause-final interrogative particle and prosodic rise.
+hë Q (polar interrogative) /hɛː/ in Conclave formal; /hɛ/ in field clipped.
+WH roots (used in situ):
+mën WH.PERS “who”
+kô WH.THING “what”
+râ WH.LOC “where”
+sën WH.MANNER “how”
+Example [E08] (yes/no question):
+Orthography: Nûm ta=en ech hë?
+IPA: /ˈnuːm tɑʔˈɛn ɛt͡ʃ hɛː/
+IGT: nûm align ta=en 2=PAT ech EVID.WIT hë Q
+Free: “Are you aligned (as I witness it)?”
+Example [E09] (WH in situ):
+Orthography: Kesh mën=ka ta=en ech hë?
+IPA: /kɛʃ mɛnʔˈkɑ tɑʔˈɛn ɛt͡ʃ hɛː/
+IGT: kesh cross mën=ka WH.PERS=AGT ta=en 2=PAT ech EVID.WIT hë Q
+Free: “Who crossed you (witnessed)?”
+Notes: WH roots do not front by default; fronting is a contact-induced calque in Anchor creole.
+III.7 Negation and prohibition
+Negation is primarily state inversion rather than propositional “not.”
+vael- INV (misaligned/negated state)
+vu NEG (clause particle used when inversion is not semantically available)
+ta’qesh PROH/CAUT (strong prohibition / do-not-proceed)
+Example [E10] (inversion negation):
+Orthography: Vael’nûm ta=en ech.
+IPA: /ˈvɑ.ɛlʔˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: vael-nûm INV-align ta=en 2=PAT ech EVID.WIT
+Free: “You are misaligned / not aligned (witnessed).”
+Example [E11] (prohibition):
+Orthography: Ta’qesh kesh ech.
+IPA: /tɑʔˈqɛʃ kɛʃ ɛt͡ʃ/
+IGT: ta’qesh PROH kesh cross ech EVID.WIT
+Free: “Do not cross (I witness the danger).”
+Notes: In field logs this is often mistranslated as “Stop.” The intended meaning includes “crossing here harms the Veil/you.”
+III.8 Subordination and clause chaining
+Subordination is expressed through particles rather than embedding-heavy syntax.
+ke COMP (complement/“that”)
+rhel CONC (concessive “even if” as a clausal operator)
+sën REL (relativizer; also WH.MANNER in context)
+Example [E12] (complement):
+Orthography: Threnn’ul’esh ke nûm ta=en reen.
+IPA: /ˈθrɛnʔʊlʔˈɛʃ kɛ ˈnuːm tɑʔˈɛn riːn/
+IGT: threnn’ul’esh record.GRANT ke COMP nûm align ta=en 2=PAT reen EVID.VRF
+Free: “I grant record-access that you are aligned (verified).”
+Notes: Used in Conclave formal when a verification is being entered into communal record.
+Example [E13] (relative-like modifier):
+Orthography: Veyl sekh së nûm reen.
+IPA: /ˈvejl sɛx sɛn ˈnuːm riːn/
+IGT: veyl boundary sekh THR së REL nûm align reen EVID.VRF
+Free: “The threshold-veil that is aligned (verified).”
+III.9 Imperatives
+Imperatives are typically predicate-only, often with evidential omitted (because the act is prospective), plus optional consent markers.
+Example [E14] (gentle imperative):
+Orthography: Uth’nûm=uth.
+IPA: /ʔʊθʔˈnuːm ʔʊθ/
+IGT: uth-nûm=uth SOFT-align=CONS
+Free: “Align with permission (let us do this consensually).”
+PART IV — Semantics & pragmatics
+IV.1 Echo-status system (replacement of tense)
+Ech’ta’reen grammaticize echo-status rather than tense. Echo-status specifies how an event/state relates to the speaker’s accessible echo set.
+Core markers
+ech EVID.WIT: directly witnessed in the current echo.
+reen EVID.VRF: verified across multiple echoes (cross-validation).
+qir LOOP: recurrence/looping; the event/state is in a repeating attractor.
+ruun RET: return-pattern; the event/state is expected to recur or has recurred.
+na’vyr CLP: collapse adjacency; references a state/event that has been collapsed into “never-was” in this echo (taboo-adjacent).
+Stacking and scope
+When stacked, the default order is:
+LOOP / RET / CLP (structural echo operators)
+WIT / VRF (evidential layer)
+Example [E15] (looped witnessed):
+Orthography: Qir nûm ta=en ech.
+IPA: /qir ˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: qir LOOP nûm align ta=en 2=PAT ech EVID.WIT
+Free: “You keep becoming aligned again (looped; I witness it).”
+Example [E16] (return-pattern verified):
+Orthography: Ruun veyl’sekh reen.
+IPA: /ruːn ˈvejlʔsɛx riːn/
+IGT: ruun RET veyl-sekh boundary-THR reen EVID.VRF
+Free: “The veil-threshold state returns (verified across echoes).”
+IV.2 Evidentiality as social contract
+Evidentiality is not optional in Conclave formal. Omitting it is interpreted as:
+uncertainty,
+refusal to commit,
+or deliberate concealment.
+Field clipped allows omission when safety requires brevity.
+Example [E17] (evidential omission as strategic):
+Orthography: Ta’qesh.
+IPA: /tɑʔˈqɛʃ/
+IGT: ta’qesh PROH
+Free: “Stop. Do not proceed.”
+Notes: Omission of evidential is licensed because the utterance functions as an alarm packet.
+IV.3 Consent marking and coercion implicatures
+Consent is grammaticized via =uth.
+Predicate=uth frames the act/state as consent-governed.
+Participant=uth indicates that participant has granted consent.
+Absence of consent marking with coercion-salient predicates (vahl, stabilizing; certain kesh contexts) yields a coercive implicature.
+Example [E18] (consensual stabilization):
+Orthography: Vahl=uth ta=en=uth ech.
+IPA: /ˈvɑl ʔʊθ tɑʔˈɛn ʔʊθ ɛt͡ʃ/
+IGT: vahl=uth latch=CONS ta=en=uth 2=PAT=CONS ech EVID.WIT
+Free: “You are being stabilized, with consent (witnessed).”
+Notes: Field translators frequently collapse this to “I’m helping you,” losing the moral/legal force of consent marking.
+IV.4 Truth, verification, and “cross-echo ethics”
+Ech’ta’reen distinguish:
+local truth (true in this echo, unverified)
+cross-echo truth (reen-marked; verified across echoes)
+The ethical system (keth) is encoded in lexical selection and evidential choice; stating reen without basis is a major breach.
+IV.5 Taboo and sacred speech constraints
+True-name taboo
+True names are resonance chords, recorded in field notes as ⟦…⟧. Speaking a true name in foreign reality is avoided; reference strategies include:
+role-only reference (AGT/PAT without lexical name)
+echo-tags (event identifiers)
+demonstratives and topic markers
+Dead-name taboo
+The dead are referenced by echo-tags or record states, not personal names. This produces a pragmatic pattern in condolence: record-latched rather than “gone.”
+Collapse adjacency (na’vyr)
+The CLP marker na’vyr is restricted to ritual register or formal Conclave audit contexts.
+IV.6 Register system (predictable variation)
+Conclave formal
+conservative /ʔ/ boundary marking
+mandatory evidential
+full echo stacking
+reduced pronoun usage
+Field clipped
+vowel shortening, occasional loss of length contrast
+frequent standalone alarm packets (e.g., ta’qesh)
+role clitics preserved; echo operators may be reduced to a single marker
+Ritual register
+increased /q/ usage; licensing of restricted lexemes
+stronger [r], longer vowels
+doubled boundary stops as delimiter
+Anchor creole
+Anchors (phase-locked) develop contact grammar:
+increased pronoun frequency
+optional calqued linear tense particles (treated as loan-operators)
+adoption of Common lexemes for material culture (including ship life) as marked borrowings ‹…›
+Crucially, creole elements are treated as contact-layer, not baseline Ech’ta’reen grammar.
+PART V — Annotated corpus (field excerpts)
+V.0 Notes on transcription
+The corpus below consists of short, high-clarity excerpts from veil-stabilized contact sessions and emergency field encounters. Each item is presented with:
+Orthography (field transliteration), 2) IPA, 3) Interlinear Gloss (IGT), 4) Free translation, 5) Notes (pragmatics + translator-array failure modes).
+Register tags:
+[CF] Conclave formal
+[FC] Field clipped
+[RT] Ritual register
+[AC] Anchor creole
+Caution: The transliteration layer compresses resonance and timing into segmental strings; many pragmatic effects are carried by prosody and are partially lost here.
+V.1 Corpus items
+[E01] [CF]
+Orthography: Nûm ta=en ech.
+IPA: /ˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm align ta=en 2=PAT ech EVID.WIT
+Free: “You are aligned (I witness it).”
+Notes: Baseline state packet; no agent expressed.
+[E02] [CF]
+Orthography: Nûm na=ka ta=en ech.
+IPA: /ˈnuːm nɑʔˈkɑ tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm align na=ka 1=AGT ta=en 2=PAT ech EVID.WIT
+Free: “I align you (witnessed).”
+Notes: Explicit agency implies responsibility; translator arrays often over-render as a promise (“I will keep you safe”).
+[E03] [FC]
+Orthography: Nûm ta=en na=ka ech.
+IPA: /ˈnuːm tɑʔˈɛn nɑʔˈkɑ ɛt͡ʃ/
+IGT: nûm align ta=en 2=PAT na=ka 1=AGT ech EVID.WIT
+Free: “It is you I’m aligning (and it’s me doing it).”
+Notes: Late AGT signals contrast/focus in clipped briefings.
+[E04] [CF]
+Orthography: Veyl=tra sekh ech.
+IPA: /ˈvejlʔˈtɾɑ sɛx ɛt͡ʃ/
+IGT: veyl=tra boundary=TOP sekh THR ech EVID.WIT
+Free: “As for the Veil, it is in threshold state (witnessed).”
+Notes: Topic clitic helps mixed-species interlocutors track discourse anchors.
+[E05] [CF]
+Orthography: Nûm=sha ta=en ech.
+IPA: /ˈnuːmʔʃɑ tɑʔˈɛn ɛt͡ʃ/
+IGT: nûm=sha align=FOC ta=en 2=PAT ech EVID.WIT
+Free: “It’s alignment (specifically) that you’re undergoing.”
+Notes: Translator arrays commonly miss FOC and output a bland declarative.
+[E06] [CF]
+Orthography: Threnn’vahl reen.
+IPA: /ˈθrɛnʔˈvɑl riːn/
+IGT: threnn’vahl record.LCH reen EVID.VRF
+Free: “The record is latched (verified across echoes).”
+Notes: Often mistranslated as “Official.” The evidential force is stronger.
+[E07] [FC]
+Orthography: Vahl ta=en ech.
+IPA: /ˈvɑl tɑʔˈɛn ɛt͡ʃ/
+IGT: vahl latch/stabilize ta=en 2=PAT ech EVID.WIT
+Free: “You are stabilized/latched (witnessed).”
+Notes: Without consent marking, implies coercion risk.
+[E08] [CF]
+Orthography: Nûm ta=en ech hë?
+IPA: /ˈnuːm tɑʔˈɛn ɛt͡ʃ hɛː/
+IGT: nûm align ta=en 2=PAT ech EVID.WIT hë Q
+Free: “Are you aligned (as I witness it)?”
+[E09] [CF]
+Orthography: Kesh mën=ka ta=en ech hë?
+IPA: /kɛʃ mɛnʔˈkɑ tɑʔˈɛn ɛt͡ʃ hɛː/
+IGT: kesh cross mën=ka WH.PERS=AGT ta=en 2=PAT ech EVID.WIT hë Q
+Free: “Who crossed you (witnessed)?”
+Notes: WH remains in situ; Common-biased fronting is an Anchor-creole calque.
+[E10] [CF]
+Orthography: Vael’nûm ta=en ech.
+IPA: /ˈvɑ.ɛlʔˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: vael-nûm INV-align ta=en 2=PAT ech EVID.WIT
+Free: “You are misaligned (witnessed).”
+[E11] [FC]
+Orthography: Ta’qesh kesh ech.
+IPA: /tɑʔˈqɛʃ kɛʃ ɛt͡ʃ/
+IGT: ta’qesh PROH kesh cross ech EVID.WIT
+Free: “Do not cross (I witness the danger).”
+Notes: Arrays collapse to “Stop,” losing the veil-harm implication.
+[E12] [CF]
+Orthography: Threnn’ul’esh ke nûm ta=en reen.
+IPA: /ˈθrɛnʔʊlʔˈɛʃ kɛ ˈnuːm tɑʔˈɛn riːn/
+IGT: threnn’ul’esh record.GRANT ke COMP nûm align ta=en 2=PAT reen EVID.VRF
+Free: “I grant record-access that you are aligned (verified).”
+[E13] [CF]
+Orthography: Veyl sekh së nûm reen.
+IPA: /ˈvejl sɛx sɛn ˈnuːm riːn/
+IGT: veyl boundary sekh THR së REL nûm align reen EVID.VRF
+Free: “The threshold-veil that is aligned (verified).”
+[E14] [CF]
+Orthography: Uth’nûm=uth.
+IPA: /ʔʊθʔˈnuːm ʔʊθ/
+IGT: uth-nûm=uth SOFT-align=CONS
+Free: “Align with permission.”
+[E15] [FC]
+Orthography: Qir nûm ta=en ech.
+IPA: /qir ˈnuːm tɑʔˈɛn ɛt͡ʃ/
+IGT: qir LOOP nûm align ta=en 2=PAT ech EVID.WIT
+Free: “Your alignment is looping (witnessed).”
+[E16] [CF]
+Orthography: Ruun veyl’sekh reen.
+IPA: /ruːn ˈvejlʔsɛx riːn/
+IGT: ruun RET veyl-sekh boundary-THR reen EVID.VRF
+Free: “The veil-threshold state returns (verified).”
+[E17] [FC]
+Orthography: Ta’qesh.
+IPA: /tɑʔˈqɛʃ/
+IGT: ta’qesh PROH
+Free: “Stop. Do not proceed.”
+[E18] [CF]
+Orthography: Vahl=uth ta=en=uth ech.
+IPA: /ˈvɑl ʔʊθ tɑʔˈɛn ʔʊθ ɛt͡ʃ/
+IGT: vahl=uth latch=CONS ta=en=uth 2=PAT=CONS ech EVID.WIT
+Free: “You are being stabilized, with consent (witnessed).”
+[E19] [CF]
+Orthography: Threnn’vahl vu ech.
+IPA: /ˈθrɛnʔˈvɑl vu ɛt͡ʃ/
+IGT: threnn’vahl record.LCH vu NEG ech EVID.WIT
+Free: “The record is not latched (witnessed).”
+Notes: In practice: “not yet entered/ratified.”
+[E20] [FC]
+Orthography: Kesh na=ka veyl=va ech.
+IPA: /kɛʃ nɑʔˈkɑ vɛjlʔˈvɑ ɛt͡ʃ/
+IGT: kesh cross na=ka 1=AGT veyl=va boundary=GOAL ech EVID.WIT
+Free: “I cross toward the boundary (witnessed).”
+[E21] [CF]
+Orthography: Kesh=uth na=ka veyl=va ech.
+IPA: /kɛʃ ʔʊθ nɑʔˈkɑ vɛjlʔˈvɑ ɛt͡ʃ/
+IGT: kesh=uth cross=CONS na=ka 1=AGT veyl=va boundary=GOAL ech EVID.WIT
+Free: “I cross (with permission) toward the boundary (witnessed).”
+[E22] [CF]
+Orthography: Qir nûm ta=en ech hë?
+IPA: /qir ˈnuːm tɑʔˈɛn ɛt͡ʃ hɛː/
+IGT: qir LOOP nûm align ta=en 2=PAT ech EVID.WIT hë Q
+Free: “Is your alignment looping (as I witness it)?”
+[E23] [CF]
+Orthography: Rhel na=ka veyl=en reen.
+IPA: /rɛl nɑʔˈkɑ vɛjlʔˈɛn riːn/
+IGT: rhel restore.balance na=ka 1=AGT veyl=en boundary=PAT reen EVID.VRF
+Free: “I restore the Veil’s balance (verified).”
+[E24] [CF]
+Orthography: Keth=sha na=ka kesh=en reen.
+IPA: /kɛθʔʃɑ nɑʔˈkɑ kɛʃʔˈɛn riːn/
+IGT: keth=sha ethic.eval=FOC na=ka 1=AGT kesh=en cross=PAT reen EVID.VRF
+Free: “It is the ethical evaluation I apply to this crossing (verified).”
+[E25] [RT]
+Orthography: Na’vyr kesh na=ka ech.
+IPA: /naʔˈvyr kɛʃ nɑʔˈkɑ ɛt͡ʃ/
+IGT: na’vyr CLP kesh cross na=ka 1=AGT ech EVID.WIT
+Free: “I crossed adjacent to a collapse (witnessed).”
+Notes: Restricted to ritual disclosure or formal hazard reporting.
+[E26] [CF] (scribal)
+Orthography: ⟦61·113·233⟧=tra vu ech.
+IPA: (unspoken; chord notation only)
+IGT: ⟦…⟧=tra TRUE.NAME=TOP vu NEG ech EVID.WIT
+Free: “As for the true-name, it is not spoken (witnessed).”
+Notes: True-name taboo: teams record chords but do not vocalize.
+[E27] [CF]
+Orthography: Threnn’vahl reen. Uth’se’lun.
+IPA: /ˈθrɛnʔˈvɑl riːn ʔʊθʔsɛʔˈlun/
+IGT: threnn’vahl record.LCH reen EVID.VRF uth-se’lun SOFT-respect.silence
+Free: “The record is latched (verified). [Respect-silence].”
+Notes: Condolence formula shaped by dead-name taboo.
+[E28] [AC]
+Orthography: Nûm na=ka ta=en ech ‹airlock›=va.
+IPA: /ˈnuːm nɑʔˈkɑ tɑʔˈɛn ɛt͡ʃ ˈeːɹ.lɑkʔˈvɑ/
+IGT: nûm align na=ka 1=AGT ta=en 2=PAT ech EVID.WIT ‹airlock›=va LOAN=GOAL
+Free: “I align you (witnessed) toward the airlock.”
+Notes: Ship lexeme is contact-layer; baseline Ech’ta’reen lacks such material culture terms.
+[E29] [RT]
+Orthography: Qesh ta=en ech.
+IPA: /qɛʃ tɑʔˈɛn ɛt͡ʃ/
+IGT: qesh FORB.ACT ta=en 2=PAT ech EVID.WIT
+Free: “You are under the forbidden crossing-act (witnessed).”
+Notes: Ritual register licenses restricted /q/ material.
+[E30] [FC]
+Orthography: Ta’qesh. Veyl’sekh ech. Kesh vu.
+IPA: /tɑʔˈqɛʃ ˈvejlʔsɛx ɛt͡ʃ kɛʃ vu/
+IGT: ta’qesh PROH veyl-sekh boundary-THR ech EVID.WIT kesh cross vu NEG
+Free: “Stop. The veil is at threshold (witnessed). Do not cross.”
+Notes: Emergency chaining; Common outputs often lose the veil-state rationale.
+Labial
+Alveolar
+Postalveolar
+Velar
+Uvular
+Glottal
+Stops
+/p/
+/t/
+/k/
+/q/¹
+/ʔ/²
+Fricatives
+/s/
+/ʃ/
+/x/
+/h/
+Nasals
+/m/
+/n/
+/ŋ/
+Liquids
+/ɾ/ ~ /r/
+Approximants
+/w/
+/j/
+Front
+Central
+Back
+/i iː/
+/a aː/
+/u uː/
+/e eː/
+/o oː/
