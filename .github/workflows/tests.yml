@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ['3.11', '3.13']
+        python-version: ['3.10', '3.11', '3.13']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,3 +19,35 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Verify source and translation behavior
         run: python -m unittest discover -s tests -v
+      - name: Verify PowerShell entrypoint and Unicode roundtrip
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $ntToEn = & ./scripts/Translate-Numtareen.ps1 -Direction nt-en -Text 'Nûm ta=en ech.'
+          if ($LASTEXITCODE -ne 0) { throw 'Num’ta’reen → English launcher failed' }
+          if (($ntToEn -join "`n") -notmatch 'You are aligned') {
+            throw 'Num’ta’reen → English launcher did not return its attested gloss'
+          }
+          $enToNt = & ./scripts/Translate-Numtareen.ps1 -Direction en-nt -Text 'Stop. Do not proceed.'
+          if ($LASTEXITCODE -ne 0) { throw 'English → Num’ta’reen launcher failed' }
+          if (($enToNt -join "`n") -notmatch 'Ta’qesh\.') {
+            throw 'English → Num’ta’reen launcher did not return its attested text'
+          }
+      - name: Verify Windows PowerShell 5.1 UTF-8 argument transport
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $enToNt = & ./scripts/Translate-Numtareen.ps1 -Direction en-nt -Text 'Stop. Do not proceed.'
+          if ($LASTEXITCODE -ne 0) { throw 'Windows PowerShell 5.1 launcher failed' }
+          $expected = 'Ta' + [char]0x2019 + 'qesh.'
+          if (($enToNt -join "`n").IndexOf($expected, [StringComparison]::Ordinal) -lt 0) {
+            throw 'PowerShell 5.1 launcher corrupted an attested Unicode translation'
+          }
+          $nonBmp = [char]::ConvertFromUtf32(0x1F680)
+          $probe = 'unattested "quoted" ' + $nonBmp
+          $unknown = & ./scripts/Translate-Numtareen.ps1 -Direction nt-en -Unknown mark -Text $probe
+          if ($LASTEXITCODE -ne 0) { throw 'Windows PowerShell 5.1 quoted-input launch failed' }
+          if (($unknown -join "`n").IndexOf($nonBmp, [StringComparison]::Ordinal) -lt 0) {
+            throw 'PowerShell 5.1 launcher lost non-BMP Unicode input'
+          }
