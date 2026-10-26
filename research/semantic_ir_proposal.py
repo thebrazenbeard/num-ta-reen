@@ -2,8 +2,10 @@
 
 This module analyzes human-authored *English interlinear glosses*, not native
 signals. Its tentative scope expressions are deliberately partial and cannot
-translate or create novel Num'ta'reen expressions. No true-name representation
-is returned from its public functions.
+translate or create novel Num'ta'reen expressions. The public IGT parser,
+renderer, and packet serializer withhold protected true-name notation; the
+source-reading helper necessarily returns source rows, including the original
+public E26 row, and is not a confidentiality boundary.
 """
 
 from __future__ import annotations
@@ -14,6 +16,7 @@ import os
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Mapping
+import unicodedata
 
 
 SCHEMA = "numtareen.proposal.semantic_ir.v1"
@@ -32,6 +35,7 @@ _PREDICATE_GLOSSES = frozenset({
     "record.GRANT", "boundary-THR", "SOFT-respect.silence", "FORB.ACT",
 })
 _PROTECTED_DELIMITERS = ("⟦", "⟧")
+_MAX_IGT_CHARS = 8192
 
 
 @dataclass(frozen=True)
@@ -140,7 +144,37 @@ def load_verified_corpus(repo_root: str | Path | None = None) -> dict[str, dict[
 
 
 def _contains_protected(text: str) -> bool:
-    return any(delimiter in text for delimiter in _PROTECTED_DELIMITERS)
+    # Do not dispatch a caller-controlled str subclass's __contains__. Even
+    # if a subclass lies about membership, the underlying Unicode contents
+    # must determine whether the E26 true-name delimiters are present.
+    if type(text) is not str:
+        raise ValueError("protected-notation check requires exact plain text")
+    return any(str.__contains__(text, delimiter)
+               for delimiter in _PROTECTED_DELIMITERS)
+
+
+def _validate_plain_text(value: str, *, label: str, field: bool = False) -> None:
+    """Reject method-spoofing subclasses and invalid/unbounded IGT text.
+
+    Caller-defined __contains__, split, format, or other methods may lie
+    while retaining hidden protected notation in the actual Unicode value.
+    Require exact built-in str before calling any user-controllable method.
+    """
+    if type(value) is not str:
+        raise ValueError(f"{label} must be exact plain text")
+    if len(value) > _MAX_IGT_CHARS:
+        raise ValueError(f"{label} exceeds bounded proposal size")
+    if _contains_protected(value):
+        raise ValueError("protected notation cannot enter IGT parser/renderer")
+    # Attested source E27 uses a line break between pairs. Newline, tab,
+    # and carriage return are safe top-level pair separators, but never
+    # valid inside a single atom's form or gloss.
+    permitted_separators = "" if field else "\t\n\r"
+    if any(unicodedata.category(ch) in {"Cc", "Cs"}
+           and ch not in permitted_separators for ch in value):
+        raise ValueError(f"{label} cannot contain control/surrogate code points")
+    if field and (not value or any(ch.isspace() for ch in value)):
+        raise ValueError(f"{label} must be one nonempty IGT field")
 
 
 def parse_igt_pairs(igt: str) -> tuple[GlossAtom, ...]:
@@ -149,10 +183,7 @@ def parse_igt_pairs(igt: str) -> tuple[GlossAtom, ...]:
     This is not a semantic parser for Num'ta'reen orthography. Unsupported
     categories stay visible to the downstream fail-closed classifier.
     """
-    if not isinstance(igt, str):
-        raise ValueError("IGT must be text")
-    if _contains_protected(igt):
-        raise ValueError("protected notation cannot enter IGT parser")
+    _validate_plain_text(igt, label="IGT")
     pieces = igt.split()
     if len(pieces) % 2:
         raise ValueError("IGT must contain paired form/gloss fields")
@@ -166,9 +197,17 @@ def parse_igt_pairs(igt: str) -> tuple[GlossAtom, ...]:
 
 
 def render_igt_pairs(atoms: tuple[GlossAtom, ...]) -> str:
-    if any(_contains_protected(a.form) or _contains_protected(a.gloss) for a in atoms):
-        raise ValueError("protected notation cannot enter IGT renderer")
-    return " ".join(f"{a.form} {a.gloss}" for a in atoms)
+    if type(atoms) is not tuple or len(atoms) > 64:
+        raise ValueError("IGT renderer requires a bounded exact tuple of atoms")
+    for atom in atoms:
+        if type(atom) is not GlossAtom:
+            raise ValueError("IGT renderer requires exact GlossAtom instances")
+        _validate_plain_text(atom.form, label="IGT form", field=True)
+        _validate_plain_text(atom.gloss, label="IGT gloss", field=True)
+    rendered = " ".join(f"{atom.form} {atom.gloss}" for atom in atoms)
+    if len(rendered) > _MAX_IGT_CHARS:
+        raise ValueError("IGT rendering exceeds bounded proposal size")
+    return rendered
 
 
 def analyze_corpus_id(corpus_id: str, *, repo_root: str | Path | None = None) -> SemanticPacket:

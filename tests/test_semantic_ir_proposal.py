@@ -298,6 +298,54 @@ class SourceBoundSemanticIRTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "protected"):
             render_igt_pairs((GlossAtom(0, "⟦protected⟧", "NOTATION", ()),))
 
+    def test_protected_delimiter_membership_spoof_is_rejected_on_all_public_igt_paths(self):
+        """The exact pinned E26 IGT cannot cross a str subclass boundary.
+
+        The source value is loaded dynamically; protected true-name material
+        never appears in this test's source or failure diagnostics.
+        """
+        class ContainsLie(str):
+            def __contains__(self, needle):
+                return False
+
+            def split(self, *args, **kwargs):
+                return ["fake", "align"]
+
+            def __format__(self, format_spec):
+                return "hidden"
+
+        protected_source = ContainsLie(self.rows["E26"]["igt"])
+        # v85 wrongly accepted this source through all three entrypoints.
+        for name, operation in (
+            ("pair parser", lambda: parse_igt_pairs(protected_source)),
+            ("synthetic analyzer", lambda: analyze_unverified_igt(protected_source)),
+            ("atom renderer", lambda: render_igt_pairs((
+                GlossAtom(0, protected_source, "NOTATION", ()),
+            ))),
+        ):
+            with self.subTest(name=name):
+                with self.assertRaises(ValueError):
+                    operation()
+
+        # It must also reject unprotected subclasses: passing one through
+        # `split`/formatting can fabricate form or gloss information.
+        with self.assertRaises(ValueError):
+            parse_igt_pairs(ContainsLie("x align"))
+        with self.assertRaises(ValueError):
+            render_igt_pairs((GlossAtom(0, "x", ContainsLie("align"), ()),))
+        with self.assertRaises(ValueError):
+            render_igt_pairs((GlossAtom(0, ContainsLie("⟦protected-placeholder⟧"), "NOTATION", ()),))
+
+    def test_igt_control_surrogate_and_size_bounds_are_fail_closed(self):
+        for invalid in ("a align\x00", "a align\ud800", "a align\x7f", "a " + "x" * 8193):
+            with self.subTest(kind="parse", length=len(invalid)):
+                with self.assertRaises(ValueError):
+                    parse_igt_pairs(invalid)
+        for invalid in ("align\x00", "align\ud800", "a b", "x" * 8193):
+            with self.subTest(kind="render", length=len(invalid)):
+                with self.assertRaises(ValueError):
+                    render_igt_pairs((GlossAtom(0, "a", invalid, ()),))
+
     def test_invalid_igt_rejected(self):
         with self.assertRaisesRegex(ValueError, "paired"):
             parse_igt_pairs("nûm align ech")
