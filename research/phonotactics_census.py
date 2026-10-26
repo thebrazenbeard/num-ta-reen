@@ -29,6 +29,13 @@ DICTIONARY = REPO / "sources" / "dictionary_v2_updated_lphoneme.txt"
 
 def git_blob_sha(path: Path) -> str:
     raw = path.read_bytes()
+    # GitHub's Windows checkout may materialize the same pinned Git blob
+    # with uniform CRLF working-tree line endings. Permit only that exact
+    # mechanical transformation; mixed EOLs and stray carriage returns
+    # remain mismatches against the committed source object.
+    crlf_count = raw.count(b"\r\n")
+    if crlf_count and raw.count(b"\n") == crlf_count and raw.count(b"\r") == crlf_count:
+        raw = raw.replace(b"\r\n", b"\n")
     return hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\x00" + raw).hexdigest()
 
 

@@ -1,5 +1,8 @@
 """Regression for exact diagnostic counts, never a grammar-validity test."""
 
+import hashlib
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from research.phonotactics_census import census, git_blob_sha, SOURCE, GRAMMAR, DICTIONARY, REPO
@@ -16,6 +19,18 @@ class PhonotacticsCensusTests(unittest.TestCase):
         self.assertEqual(git_blob_sha(SOURCE), shas["lexicon"])
         self.assertEqual(git_blob_sha(GRAMMAR), shas["grammar"])
         self.assertEqual(git_blob_sha(DICTIONARY), shas["dictionary"])
+
+    def test_windows_crlf_checkout_keeps_git_object_digest_but_mixed_eol_fails(self):
+        original = b"inventoried\nsource\n"
+        expected = hashlib.sha1(b"blob " + str(len(original)).encode() + b"\x00" + original).hexdigest()
+        with TemporaryDirectory() as directory:
+            source = Path(directory) / "checkout.txt"
+            source.write_bytes(original)
+            self.assertEqual(git_blob_sha(source), expected)
+            source.write_bytes(original.replace(b"\n", b"\r\n"))
+            self.assertEqual(git_blob_sha(source), expected)
+            source.write_bytes(b"inventoried\r\nsource\n")
+            self.assertNotEqual(git_blob_sha(source), expected)
 
     def test_exact_no_false_aggregate(self):
         self.assertEqual(self.report["entries"], 500)
