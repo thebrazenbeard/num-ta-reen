@@ -34,6 +34,35 @@ If `py` is unavailable, use `python` instead. The convenience PowerShell wrapper
 
 Interactive commands: `:direction nt-en`, `:direction en-nt`, `:unknown mark|keep|error`, `:help`, `:quit`. Python also supports `--json` for structured, provenance-preserving results. The PowerShell wrapper sends one-shot text using an exact UTF-8 transport to preserve quotes, Unicode, and punctuation on Windows PowerShell 5.1.
 
+### Search the dictionary (not translation)
+
+Search the existing 500 author-provided entries without asking the translator
+to invent a sentence meaning:
+
+```powershell
+# Exact English gloss → original headword and dictionary source line
+py -3 -m numtareen --lexicon-search "patient role" --match exact --json
+
+# Literal substring search with original classification labels preserved
+py -3 -m numtareen --lexicon-search "role" --field gloss --category CLITIC --limit 10
+
+# PowerShell 5.1-safe, exact UTF-8 query transport
+$queryB64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("nûm"))
+py -3 -m numtareen --lexicon-search-base64 $queryB64 --field headword --match exact
+```
+
+Options: `--match exact|contains`, `--field headword|gloss|both`, optional
+`--category`, `--register`, `--taboo` (literal classification filters), and
+`--limit` from 1 to 100. Results include IPA, register/taboo, source line,
+total match count, and truncation status. `source_line` points into the amended
+`sources/dictionary_v2_updated_lphoneme.txt`, not the normalized
+`data/lexicon.json`; machine-readable results name both files separately.
+The default is a 25-entry limit with
+exact matches ranked first; missing terms return zero matches. This is an
+offline **author-lexicon reference** only: dictionary glosses are not fluent
+English translations or learned grounding, and true-name chord notation
+remains untranslated.
+
 ### What kind of translation is this?
 
 - **Attested sentence:** an exact match from the 30 annotated utterances is returned with the source free translation.
