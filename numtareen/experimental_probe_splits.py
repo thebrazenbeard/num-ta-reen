@@ -10,7 +10,7 @@ learners must execute in an isolated process without this module or ledger.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import pi, remainder
+from math import isclose, pi, remainder
 from random import Random
 
 from numtareen.experimental_resonance import (
@@ -28,6 +28,9 @@ MAX_ARMS_PER_SPLIT = 8
 # Floating arithmetic around a complete 2*pi turn can leave ~1e-15 rad
 # residue. This tolerance is numerical, not a perceptual similarity metric.
 PHASE_PERIODIC_TOLERANCE_RAD = 1e-12
+# Numerical carrier equivalence, not a psychoacoustic discrimination threshold.
+# The synthetic oscillator uses floating-point pitch multiplication.
+CARRIER_ROUNDOFF_REL_TOLERANCE = 1e-12
 
 
 @dataclass(frozen=True)
@@ -100,6 +103,50 @@ def _validate_codebook(name: str, codebook: object) -> tuple[int, ...]:
     return codebook
 
 
+def _carrier_rows(
+    arms: tuple[NuisanceArm, ...], codebook: tuple[int, ...]
+) -> tuple[tuple[int, float, float, float], ...]:
+    """Private analytic carrier/gain/phase ledger; never learner-visible."""
+    return tuple(
+        (state, (250.0 + 92.0 * codebook[state]) * arm.pitch_scale,
+         arm.gain, arm.phase_shift_rad)
+        for arm in arms for state in range(STATE_COUNT)
+    )
+
+
+def _indistinguishable_deterministic_carriers(
+    left: tuple[int, float, float, float],
+    right: tuple[int, float, float, float],
+) -> bool:
+    """Recognize cross-label oscillator aliases despite independent noise."""
+    left_state, left_hz, left_gain, left_phase = left
+    right_state, right_hz, right_gain, right_phase = right
+    return (
+        left_state != right_state
+        and left_gain == right_gain
+        and isclose(left_hz, right_hz, rel_tol=CARRIER_ROUNDOFF_REL_TOLERANCE)
+        and abs(remainder(left_phase - right_phase, 2 * pi))
+        <= PHASE_PERIODIC_TOLERANCE_RAD
+    )
+
+
+def _has_carrier_alias(
+    left_rows: tuple[tuple[int, float, float, float], ...],
+    right_rows: tuple[tuple[int, float, float, float], ...] | None = None,
+) -> bool:
+    """Bounded O((8 * arms)^2) evaluator-only structural ambiguity check."""
+    if right_rows is None:
+        return any(
+            _indistinguishable_deterministic_carriers(left, right)
+            for index, left in enumerate(left_rows)
+            for right in left_rows[index + 1:]
+        )
+    return any(
+        _indistinguishable_deterministic_carriers(left, right)
+        for left in left_rows for right in right_rows
+    )
+
+
 def render_private_balanced_probe_splits(
     *,
     batch_seed: int,
@@ -135,6 +182,18 @@ def render_private_balanced_probe_splits(
     total_trials = STATE_COUNT * (len(train_arms) + len(holdout_arms))
     if total_trials * samples_per_state > MAX_BATCH_SAMPLES:
         raise ValueError("experiment exceeds aggregate sample cap")
+    train_carriers = _carrier_rows(train_arms, evaluator_codebook)
+    holdout_carriers = _carrier_rows(holdout_arms, holdout_codebook)
+    if _has_carrier_alias(train_carriers):
+        raise ValueError("structurally ambiguous carrier labels within training split")
+    if _has_carrier_alias(holdout_carriers):
+        raise ValueError("structurally ambiguous carrier labels within holdout split")
+    # Explicit holdout codebook permutation is an *intentional* negative
+    # control, not a positive semantic evaluation. Preserve that intervention.
+    # The normal same-codebook evaluation must reject cross-label physical
+    # aliases across its train/frozen-holdout boundary.
+    if holdout_codebook == evaluator_codebook and _has_carrier_alias(train_carriers, holdout_carriers):
+        raise ValueError("structurally ambiguous carrier labels across train and holdout")
     rng = Random(batch_seed)
     all_seeds = iter(rng.sample(range(1 << 32), total_trials))
 
