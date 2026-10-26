@@ -25,6 +25,15 @@ py -3 -m numtareen --direction en-nt --interactive
 
 If `py` is unavailable, use `python` instead. The convenience PowerShell wrapper in `scripts/` is an alternative once you've cloned the repository.
 
+```powershell
+# PowerShell 5.1 or PowerShell 7, from the cloned repository root
+.\scripts\Translate-Numtareen.ps1 -Direction nt-en -Text 'Nûm ta=en ech.'
+.\scripts\Translate-Numtareen.ps1 -Direction en-nt -Text 'Stop. Do not proceed.'
+.\scripts\Translate-Numtareen.ps1 -Interactive
+```
+
+Interactive commands: `:direction nt-en`, `:direction en-nt`, `:unknown mark|keep|error`, `:help`, `:quit`. Python also supports `--json` for structured, provenance-preserving results. The PowerShell wrapper sends one-shot text using an exact UTF-8 transport to preserve quotes, Unicode, and punctuation on Windows PowerShell 5.1.
+
 ### What kind of translation is this?
 
 - **Attested sentence:** an exact match from the 30 annotated utterances is returned with the source free translation.
@@ -64,6 +73,8 @@ py -3 -m unittest discover -s tests -v
 ```
 
 The tool needs only local, checked-in JSON. The CI workflow runs the test suite on Windows and Linux. No production service, host agent, or external database is required.
+
+The current implementation performs source-attested sentence lookup and approximate lexicon lookup, **not unrestricted compositional or native-resonance translation**. See `proposals/RESONANCE_AND_EVERYDAY_COVERAGE_V0.md` for a noncanonical research direction and `docs/DISPATCH3_ENGINEERING_REPORT.md` for this iteration's execution evidence and remaining platform checks.
 
 ## Provenance and rights
 
