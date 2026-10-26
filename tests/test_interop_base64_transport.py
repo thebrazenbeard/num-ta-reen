@@ -8,8 +8,11 @@ import subprocess
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from numtareen import Translator
+from numtareen.engine import DataError
+from numtareen.interop import handle_request
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -89,6 +92,37 @@ class JsonlBase64TransportTests(unittest.TestCase):
         self.assertEqual([r["error"]["code"] for r in rows[:5]],
                          ["INVALID_TEXT_ENCODING", "INVALID_TEXT_ENCODING",
                           "INVALID_REQUEST", "INVALID_REQUEST", "INVALID_TEXT_ENCODING"])
+
+    def test_single_leading_utf8_bom_is_accepted_on_each_jsonl_frame(self):
+        # Windows PowerShell 5.1/.NET Framework stream writers may emit a
+        # UTF-8 signature before the first byte of a JSONL request. A single
+        # signature at byte zero of any frame is transport decoration only.
+        valid = encoded_request(Translator().corpus[0]["orthography_index"])
+        rows = self.run_frames([b"\xef\xbb\xbf" + valid, valid, b"\xef\xbb\xbf" + valid])
+        self.assertEqual(len(rows), 3)
+        self.assertTrue(all(row["ok"] for row in rows))
+        self.assertEqual(rows[0]["record"], rows[1]["record"])
+        self.assertEqual(rows[2]["record"], rows[1]["record"])
+
+    def test_bom_tolerance_is_start_only_and_strict(self):
+        valid = encoded_request(Translator().corpus[0]["orthography_index"])
+        malformed = [
+            b"\xef\xbb\xbf\xef\xbb\xbf" + valid,  # double signature
+            valid[:1] + b"\xef\xbb\xbf" + valid[1:],  # interior signature
+            b"\xef\xbb\xbf" + valid.replace(b'"direction"', b'"direction" : "nt-en", "direction"'),
+            b"\xef\xbb\xbf" + b"\xff" + valid,  # invalid UTF-8
+        ]
+        rows = self.run_frames([*malformed, valid])
+        self.assertEqual(len(rows), 5)
+        self.assertEqual([row["ok"] for row in rows], [False] * 4 + [True])
+        self.assertEqual([row["error"]["code"] for row in rows[:4]], ["MALFORMED_JSON"] * 4)
+
+    def test_data_error_reports_source_failure_not_invalid_text(self):
+        # DataError subclasses ValueError, so catch ordering is observable.
+        request = {"direction": "nt-en", "text": "known"}
+        with patch("numtareen.interop.to_reference_record", side_effect=DataError("corrupt source")):
+            response = handle_request(Translator(), request)
+        self.assertEqual(response["error"]["code"], "SOURCE_DATA_ERROR")
 
 
 if __name__ == "__main__":

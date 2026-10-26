@@ -241,10 +241,10 @@ def handle_request(translator: Translator, request: Any) -> dict[str, Any]:
         response = to_reference_record(translator, phrase, direction=direction, unknown=unknown)
     except UnknownTermError:
         return _error("UNKNOWN_SEGMENT", "Unknown segment with strict unknown policy", request_id)
-    except ValueError:
-        return _error("INVALID_TEXT", "Input has no translatable segments", request_id)
     except (DataError, OSError, KeyError):
         return _error("SOURCE_DATA_ERROR", "Pinned reference data could not be verified", request_id)
+    except ValueError:
+        return _error("INVALID_TEXT", "Input has no translatable segments", request_id)
     envelope = {"ok": True, "request_id": request_id, "record": response}
     if len(json.dumps(envelope, ensure_ascii=True, separators=(",", ":")).encode("utf-8")) > MAX_REQUEST_BYTES:
         return _error("RESPONSE_TOO_LARGE", "Reference evidence exceeds 65536 bytes", request_id)
@@ -278,7 +278,10 @@ def main() -> int:
         else:
             try:
                 request = json.loads(
-                    line.decode("utf-8"),
+                    # utf-8-sig consumes precisely one BOM at byte zero of
+                    # this frame. Interior/double BOMs and invalid UTF-8
+                    # remain malformed JSON; JSON guards still apply.
+                    line.decode("utf-8-sig"),
                     object_pairs_hook=_reject_duplicate_json_keys,
                     parse_constant=_reject_non_json_constant,
                 )
