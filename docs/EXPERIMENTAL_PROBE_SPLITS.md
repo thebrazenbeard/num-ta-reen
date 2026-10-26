@@ -56,11 +56,23 @@ their labels impossible to distinguish from the public signal. Each state occurs
 is exactly balanced by state, and sample rate/duration are uniform; different
 gain/pitch/noise/phase combinations are held out.
 
-Exact duplicate rejection is only a minimal validity guard. It does **not**
-reject near-identical or statistically ambiguous signals; noisy cross-class
-collisions and independent captures remain unresolved. No perfect held-out
-classification result should be interpreted as semantics without checking
-observability and those collision risks.
+The evaluator also checks the synthetic oscillator's private carrier/gain/phase
+settings before noise is sampled. It rejects two **different** state labels
+whose deterministic public oscillator is numerically equivalent within
+training, within holdout, or across the train/holdout boundary under an
+unchanged codebook. This catches the state 2 (434 Hz at pitch `1`) versus
+state 3 (526 Hz at pitch `434/526`) alias even with *independent nonzero noise*.
+The carrier comparison's `1e-12` relative tolerance only handles floating
+roundoff; it is **not** a psychoacoustic or statistical discrimination rule.
+
+An explicitly permuted holdout codebook is allowed to deliberately invalidate
+the stable labeling contract as a **negative control**, never to justify a
+positive semantic score. Exact waveform replay remains rejected for all modes.
+
+These guards still do **not** establish acoustic identifiability in general:
+independent captures, overlapping noisy distributions, mismatched gain/phase,
+finite spectral resolution, and uncalibrated near-collisions remain unresolved.
+No perfect held-out score should be interpreted as learned semantics.
 
 An optional evaluator-only `holdout_codebook` permutation is a negative-control
 probe of frequency-codebook memorization. Even without this ablation, a trivial
