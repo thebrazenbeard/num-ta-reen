@@ -9,6 +9,7 @@ import json
 import sys
 
 from .engine import DataError, Translator, UnknownTermError, escape_invisible, format_translation
+from .lexicon_search import format_search, search_lexicon
 
 
 HELP = ("Commands: :direction nt-en | :direction en-nt | :unknown mark|keep|error | "
@@ -72,13 +73,48 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--direction", choices=("nt-en", "en-nt"), default="nt-en")
     parser.add_argument("--unknown", choices=("mark", "keep", "error"), default="mark")
     parser.add_argument("--json", action="store_true", help="emit machine-readable results")
+    parser.add_argument("--match", choices=("exact", "contains"), help="lexicon search matching")
+    parser.add_argument("--field", choices=("headword", "gloss", "both"), help="lexicon search field")
+    parser.add_argument("--category", help="exact lexicon category filter")
+    parser.add_argument("--register", help="exact lexicon register filter")
+    parser.add_argument("--taboo", help="exact lexicon taboo classification filter")
+    parser.add_argument("--limit", type=int, help="maximum lexicon entries (1..100)")
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--text", help="phrase to look up")
     mode.add_argument("--text-base64", help="UTF-8 phrase encoded as strict standard Base64; safe PowerShell transport")
     mode.add_argument("--interactive", action="store_true", help="interactive REPL with direction switching")
+    mode.add_argument("--lexicon-search", help="search source dictionary without translating")
+    mode.add_argument("--lexicon-search-base64",
+                      help="search query encoded as strict standard Base64 UTF-8 for PowerShell 5.1")
     args = parser.parse_args(argv)
+    is_search = args.lexicon_search is not None or args.lexicon_search_base64 is not None
+    if not is_search and any(getattr(args, key) is not None
+                             for key in ("match", "field", "category", "register", "taboo", "limit")):
+        parser.error("lexicon search options require --lexicon-search or --lexicon-search-base64")
     try:
         translator = Translator()
+        if is_search:
+            query = args.lexicon_search
+            if args.lexicon_search_base64 is not None:
+                try:
+                    # A 256-character query uses at most 1024 UTF-8 bytes.
+                    # Bound the transport before decoding untrusted input.
+                    if len(args.lexicon_search_base64) > 1368:
+                        raise ValueError("Encoded search query is too long")
+                    query = base64.b64decode(
+                        args.lexicon_search_base64.encode("ascii"), validate=True
+                    ).decode("utf-8")
+                except (UnicodeError, ValueError, binascii.Error) as exc:
+                    raise ValueError("--lexicon-search-base64 requires standard Base64 of UTF-8 text") from exc
+            result = search_lexicon(
+                translator, query, match=args.match or "contains",
+                field=args.field or "both", category=args.category,
+                register=args.register, taboo=args.taboo,
+                limit=args.limit if args.limit is not None else 25,
+            )
+            print(json.dumps(result, ensure_ascii=True, indent=2)
+                  if args.json else format_search(result))
+            return 0
         if args.interactive:
             return interactive(translator, args.direction, args.unknown, args.json)
         text = args.text
