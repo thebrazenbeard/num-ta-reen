@@ -59,6 +59,11 @@ jobs:
           if (($enToNt -join "`n").IndexOf($expected, [StringComparison]::Ordinal) -lt 0) {
             throw 'English to NT launcher did not return its attested text'
           }
+      - name: Qualify pronunciation bridge on both native Windows PowerShell runtimes
+        if: runner.os == 'Windows'
+        env:
+          NUMTAREEN_REQUIRE_SHELLS: pwsh,powershell
+        run: python -m unittest discover -s tests -p test_phonetic_transport.py -v
       - name: Verify Windows PowerShell 5.1 UTF-8 argument transport
         if: runner.os == 'Windows'
         shell: powershell
