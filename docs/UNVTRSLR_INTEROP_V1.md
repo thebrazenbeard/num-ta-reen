@@ -42,6 +42,21 @@ without banners or logging on stdout.
 {"request_id":"r1","direction":"nt-en","text":"Nûm ta=en ech.","unknown":"mark"}
 ```
 
+For callers with unreliable Unicode JSON serialization (especially Windows
+PowerShell 5.1), a request may instead contain the **mutually exclusive**
+`text_base64` field. Its value must be standard padded Base64 of strict UTF-8
+text, not a lossy code-page conversion. This is an ASCII-only request shape:
+
+```json
+{"direction":"nt-en","text_base64":"BASE64_OF_UTF8_TEXT"}
+```
+
+`BASE64_OF_UTF8_TEXT` is a placeholder, not a valid encoded utterance.
+Exactly one of `text` or `text_base64` is required. The decoded text follows
+the same 4,096-character limit; invalid Base64, invalid UTF-8, and excessive
+decoded bytes yield `INVALID_TEXT_ENCODING`, without stopping later frames.
+This transport changes no meaning, source precedence or qualification grade.
+
 Directions are `nt-en` and `en-nt`; unknown policies are `mark`, `keep` and
 `error`, defaulting to `mark`. Unsupported fields, oversized requests, bad
 UTF-8, malformed JSON, and invalid options produce a structured error without
@@ -76,9 +91,10 @@ The evidence record fields include:
 
 Windows PowerShell 5.1 may recode piped Unicode input under legacy code pages.
 For ordinary interactive Windows translation, use the existing
-`scripts/Translate-Numtareen.ps1` Base64 transport. For JSONL automation, use
-a caller that writes literal UTF-8 bytes to process stdin rather than relying
-on implicit PowerShell 5.1 string-pipeline encoding.
+`scripts/Translate-Numtareen.ps1` Base64 transport. For JSONL automation, the
+private `tests/Test-NumtareenInterop.ps1` demonstrates building a fixed ASCII
+JSON request containing `text_base64` and writing exact ASCII bytes to the
+Python process. Avoid implicit PowerShell 5.1 string-pipeline encoding.
 
 ## Qualification rule
 

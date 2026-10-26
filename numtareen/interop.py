@@ -11,6 +11,8 @@ exclude its answers from no-shared-language discovery evaluations.
 
 from __future__ import annotations
 
+import base64
+import binascii
 import hashlib
 import json
 import re
@@ -25,6 +27,8 @@ SCHEMA = "unvtrslr-reference-evidence-v1"
 SOURCE_BASELINE_COMMIT = "cdfbea09cc8b4a1648cde733953986c7d694d496"
 ORIGIN_REPO = "thebrazenbeard/num-ta-reen"
 MAX_REQUEST_BYTES = 65536
+MAX_TEXT_BYTES = 16384
+MAX_BASE64_CHARS = 4 * ((MAX_TEXT_BYTES + 2) // 3)
 DATA_SHA256 = {
     "corpus.json": "5bc4c939e728e9e5bce1875eafcba9e71609570281bebb87dc7e64e2e9a6d229",
     "lexicon.json": "208d5daa5953383cccbac6a145df795531691ec60248256dc2e18a5651c6ba08",
@@ -209,11 +213,25 @@ def handle_request(translator: Translator, request: Any) -> dict[str, Any]:
     request_id = request.get("request_id")
     if request_id is not None and (not isinstance(request_id, str) or len(request_id) > 128):
         return _error("INVALID_REQUEST", "request_id must be a string of at most 128 characters")
-    if set(request) - {"direction", "text", "unknown", "request_id"}:
+    if set(request) - {"direction", "text", "text_base64", "unknown", "request_id"}:
         return _error("INVALID_REQUEST", "Unsupported request fields", request_id)
     direction = request.get("direction")
-    phrase = request.get("text")
     unknown = request.get("unknown", "mark")
+    if ("text" in request) == ("text_base64" in request):
+        return _error("INVALID_REQUEST", "Exactly one of text or text_base64 is required", request_id)
+    if "text_base64" in request:
+        encoded = request["text_base64"]
+        if not isinstance(encoded, str) or not encoded or len(encoded) > MAX_BASE64_CHARS:
+            return _error("INVALID_TEXT_ENCODING", "text_base64 must be bounded Base64 text", request_id)
+        try:
+            encoded_bytes = base64.b64decode(encoded, validate=True)
+            if len(encoded_bytes) > MAX_TEXT_BYTES:
+                raise ValueError("decoded text exceeds byte limit")
+            phrase = encoded_bytes.decode("utf-8", errors="strict")
+        except (binascii.Error, UnicodeError, ValueError):
+            return _error("INVALID_TEXT_ENCODING", "text_base64 must decode to bounded UTF-8", request_id)
+    else:
+        phrase = request["text"]
     if (direction not in ("nt-en", "en-nt") or not isinstance(phrase, str)
             or not phrase.strip() or len(phrase) > 4096):
         return _error("INVALID_REQUEST", "direction and nonempty text up to 4096 characters are required", request_id)
