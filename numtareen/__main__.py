@@ -15,6 +15,18 @@ HELP = ("Commands: :direction nt-en | :direction en-nt | :unknown mark|keep|erro
         ":help | :quit")
 
 
+def configure_output_encoding() -> None:
+    """Use UTF-8 for Windows redirected output even under legacy code pages.
+
+    An installed Python on Windows can otherwise default to cp1252 for a
+    redirected stream, causing ordinary source IPA and Unicode output to raise
+    UnicodeEncodeError. This does not reinterpret the input or data files.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
+
+
 def interactive(translator: Translator, direction: str, unknown: str, as_json: bool) -> int:
     print("Offline Nûm’ta’reen ⇄ English. " + HELP)
     while True:
@@ -55,6 +67,7 @@ def interactive(translator: Translator, direction: str, unknown: str, as_json: b
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_output_encoding()
     parser = argparse.ArgumentParser(description="Source-constrained offline Num’ta’reen ⇄ English lookup")
     parser.add_argument("--direction", choices=("nt-en", "en-nt"), default="nt-en")
     parser.add_argument("--unknown", choices=("mark", "keep", "error"), default="mark")

@@ -31,7 +31,7 @@ Integration commands on Linux/Python 3.12:
 
 ```text
 python3 -m unittest discover -s tests -q
-Ran 37 tests in 0.848s — OK (exit 0)
+Ran 38 tests — OK (exit 0; current integrated suite)
 
 python3 -m numtareen --direction nt-en --text 'Nûm ta=en ech.'
 source-attested E01 → You are aligned (I witness it).
@@ -45,5 +45,7 @@ approximate lexical gloss only (not a fluent or attested sentence)
 
 Independent hostile probing reproduced an exponential-time slash-gloss regex and terminal control/bidi output injection in earlier drafts. The final engine bounded slash matching and visibly escapes terminal controls; adversarial regressions are included.
 
-**Qualification boundaries:** The 37-test result is local Linux behavior. Windows PowerShell 5.1/7 runtime behavior and the published branch's GitHub Actions are separate, pending effects until observed. Main integration requires PR review, CI, and an explicit decision; this report does not itself authorize merging.
+**CI corrective iteration:** Initial GitHub Actions run `40321596682` exposed two genuine portability gaps: a Windows redirected `cp1252` stdout `UnicodeEncodeError` on IPA/symbols, and a PowerShell syntax error from typographic apostrophes inside single-quoted CI script literals. The CLI now explicitly configures UTF-8 output and has a legacy-code-page regression test; the workflow now constructs the curly apostrophe with `[char]0x2019` and uses ASCII-only diagnostic literals. These corrections require a fresh Windows/Linux CI run on their exact published commit.
+
+**Qualification boundaries:** The 38-test result is local Linux behavior. Windows PowerShell 5.1/7 runtime behavior and the *corrected* published branch's GitHub Actions are separate, pending effects until observed. Main integration requires PR review, CI, and an explicit decision; this report does not itself authorize merging.
 

@@ -24,14 +24,15 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $ntToEn = & ./scripts/Translate-Numtareen.ps1 -Direction nt-en -Text 'Nûm ta=en ech.'
-          if ($LASTEXITCODE -ne 0) { throw 'Num’ta’reen → English launcher failed' }
+          if ($LASTEXITCODE -ne 0) { throw 'NT to English launcher failed' }
           if (($ntToEn -join "`n") -notmatch 'You are aligned') {
-            throw 'Num’ta’reen → English launcher did not return its attested gloss'
+            throw 'NT to English launcher did not return its attested gloss'
           }
           $enToNt = & ./scripts/Translate-Numtareen.ps1 -Direction en-nt -Text 'Stop. Do not proceed.'
-          if ($LASTEXITCODE -ne 0) { throw 'English → Num’ta’reen launcher failed' }
-          if (($enToNt -join "`n") -notmatch 'Ta’qesh\.') {
-            throw 'English → Num’ta’reen launcher did not return its attested text'
+          if ($LASTEXITCODE -ne 0) { throw 'English to NT launcher failed' }
+          $expected = 'Ta' + [char]0x2019 + 'qesh.'
+          if (($enToNt -join "`n").IndexOf($expected, [StringComparison]::Ordinal) -lt 0) {
+            throw 'English to NT launcher did not return its attested text'
           }
       - name: Verify Windows PowerShell 5.1 UTF-8 argument transport
         if: runner.os == 'Windows'

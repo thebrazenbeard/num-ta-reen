@@ -2,6 +2,7 @@
 
 import base64
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -132,6 +133,19 @@ class CommandLineTests(unittest.TestCase):
         result = self.invoke("--direction", "en-nt", "--text", "Stop. Do not proceed.")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Ta’qesh.", result.stdout)
+
+    def test_legacy_output_code_page_does_not_crash_unicode_response(self):
+        # Simulates Windows' legacy redirected cp1252 output in a child process.
+        # A direct CLI call must not rely on the PowerShell wrapper to set UTF-8.
+        env = dict(os.environ, PYTHONIOENCODING="cp1252:strict")
+        result = subprocess.run(
+            [sys.executable, "-m", "numtareen", "--direction", "nt-en", "--text", "Nûm ta=en ech."],
+            cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            text=True, encoding="utf-8", check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("You are aligned", result.stdout)
+        self.assertIn("/ˈnuːm", result.stdout)
 
     def test_base64_transport_preserves_metacharacters_and_unicode(self):
         payload = 'He said "hello"; $() 😀'  # This must remain data, never executed.
