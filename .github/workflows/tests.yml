@@ -46,9 +46,13 @@ jobs:
             throw 'PowerShell 5.1 launcher corrupted an attested Unicode translation'
           }
           $nonBmp = [char]::ConvertFromUtf32(0x1F680)
-          $probe = 'unattested "quoted" ' + $nonBmp
+          $quoteMarker = 'emb"edded'
+          $probe = 'unattested ' + $quoteMarker + ' ' + $nonBmp
           $unknown = & ./scripts/Translate-Numtareen.ps1 -Direction nt-en -Unknown mark -Text $probe
           if ($LASTEXITCODE -ne 0) { throw 'Windows PowerShell 5.1 quoted-input launch failed' }
           if (($unknown -join "`n").IndexOf($nonBmp, [StringComparison]::Ordinal) -lt 0) {
             throw 'PowerShell 5.1 launcher lost non-BMP Unicode input'
+          }
+          if (($unknown -join "`n").IndexOf($quoteMarker, [StringComparison]::Ordinal) -lt 0) {
+            throw 'PowerShell 5.1 launcher lost an embedded double quote'
           }

@@ -47,5 +47,7 @@ Independent hostile probing reproduced an exponential-time slash-gloss regex and
 
 **CI corrective iteration:** Initial GitHub Actions run `40321596682` exposed two genuine portability gaps: a Windows redirected `cp1252` stdout `UnicodeEncodeError` on IPA/symbols, and a PowerShell syntax error from typographic apostrophes inside single-quoted CI script literals. The CLI now explicitly configures UTF-8 output and has a legacy-code-page regression test; the workflow now constructs the curly apostrophe with `[char]0x2019` and uses ASCII-only diagnostic literals. These corrections require a fresh Windows/Linux CI run on their exact published commit.
 
+Follow-up run `40322144943` passed all Ubuntu jobs and Windows Python/PowerShell 7 steps, but uncovered a Windows PowerShell 5.1 native-argument quoting defect in the Python interpreter probe (`py -3 -c ...`). The launcher now uses a quote-free `--version` probe and parses Python's major/minor version, with guarded fallback. The Windows 5.1 CI test also checks that an embedded double quote and a non-BMP character survive the Base64 transport. This change requires a third, exact-head CI readback before merge.
+
 **Qualification boundaries:** The 38-test result is local Linux behavior. Windows PowerShell 5.1/7 runtime behavior and the *corrected* published branch's GitHub Actions are separate, pending effects until observed. Main integration requires PR review, CI, and an explicit decision; this report does not itself authorize merging.
 

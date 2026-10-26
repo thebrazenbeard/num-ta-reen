@@ -56,15 +56,25 @@ foreach ($candidate in $candidates) {
         Select-Object -First 1
     if ($null -eq $command) { continue }
 
-    $probeArgs = @($candidate.Prefix) + @(
-        '-c',
-        'import sys; print("ok" if sys.version_info >= (3, 10) else "old")'
-    )
-    $probe = & $command.Source @probeArgs 2>$null
-    if ($LASTEXITCODE -eq 0 -and ("$probe").Trim() -eq 'ok') {
-        $pythonExe = $command.Source
-        $pythonPrefix = @($candidate.Prefix)
-        break
+    # Use --version rather than `-c 'python code'`: Windows PowerShell 5.1
+    # rewrites quotes in native arguments, even while probing interpreters.
+    $probeArgs = @($candidate.Prefix) + @('--version')
+    try {
+        $probe = & $command.Source @probeArgs 2>$null
+        $probeStatus = $LASTEXITCODE
+    } catch {
+        Write-Verbose "Python candidate probe failed: $($candidate.Name)"
+        continue
+    }
+    $versionText = ("$probe").Trim()
+    if ($probeStatus -eq 0 -and $versionText -match '^Python\s+([0-9]+)\.([0-9]+)(\.|$)') {
+        $major = [int]$Matches[1]
+        $minor = [int]$Matches[2]
+        if ($major -gt 3 -or ($major -eq 3 -and $minor -ge 10)) {
+            $pythonExe = $command.Source
+            $pythonPrefix = @($candidate.Prefix)
+            break
+        }
     }
 }
 if ($null -eq $pythonExe) {
