@@ -89,6 +89,15 @@ For a readable IPA string instead of JSON's portable Unicode escapes, use PowerS
 
 The input source snapshot is content-pinned to the current Wreckforge extracts; altered or spoofed files are refused. The E26 true-name notation is withheld from phonetic rendering. See the [noncanonical phonetic bridge proposal](proposals/PHONETIC_BRIDGE_V0.md) for its explicit source discrepancies and human-teaching boundaries.
 
+On Windows, the separate [PowerShell pronunciation guide](docs/POWERSHELL_TEACHING_UX_V1.md) offers readable, source-labeled results without manually decoding JSON. It uses strict Base64 UTF-8 transport to preserve IPA, quotation marks, and non-BMP input across Windows PowerShell 5.1 and PowerShell 7:
+
+```powershell
+$pronunciation = .\scripts\Get-NumtareenPronunciation.ps1 -Text 'Nûm ta=en ech.'
+$pronunciation.ipa
+```
+
+Unattested phrases return `UNKNOWN` without invented phonetics. The two Windows shell variants have independent regression gates.
+
 ## Repository contents
 
 | Path | Purpose |
@@ -120,6 +129,8 @@ For the mathematical layer, [`proposals/RESONANCE_PACKET_MATH_V0.md`](proposals/
 The separate [semantic composition proposal](proposals/SEMANTIC_COMPOSITION_V4.md) analyzes **source-verified author interlinear glosses** into tentative, typed roles, evidentiality, consent loci and partial scope trees. Its `research/semantic_ir_proposal.py` implementation abstains on conflicting sources, unlicensed operator stacks, and protected notation; it rejects spoofed string subclasses at its public parsing boundaries. It does not parse novel Num’ta’reen text or prove productive language; test it with `py -3 -m unittest discover -s tests -p test_semantic_ir_proposal.py -v`.
 
 The [semantic/acoustic alignment falsification audit](docs/SEMANTIC_ACOUSTIC_ALIGNMENT_AUDIT.md) quantifies what the original 3,072-state synthetic packet **loses**: 27 accepted authored source observations project to only 16 packet values, including collisions in predicate identity, question, focus, and consent scope. The `research/alignment_projection.py` reference projection is explicitly lossy and refuses any lossless-qualification claim. Run `py -3 -m unittest discover -s tests -p test_alignment_projection.py -v`; `py -3 -m research.census_alignment` reproduces the counts. This is a negative control, not canonical native encoding.
+
+The [typed semantic observation channel](proposals/TYPED_SEMANTIC_CHANNEL_V1.md) addresses that measured loss at the **symbolic research layer**: it preserves all 27 eligible source-observed predicate, ordered role, focus/question and distinct consent arrangements in reversible framed records, verifies provenance on every public decoded-object export, and abstains on unknown/conflicted/protected inputs. Run `py -3 -m unittest discover -s tests -p test_typed_channel.py -v`. It does **not** teach the translator new sentences, establish native frequency assignments, or prove the language's mathematical semantics.
 
 ## Development
 
