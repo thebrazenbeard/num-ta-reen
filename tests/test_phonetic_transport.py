@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 
@@ -19,6 +20,12 @@ REPO_ROOT = Path(os.environ.get("NUMTAREEN_REPO_ROOT", PROPOSAL_ROOT)).resolve()
 SCRIPT = PROPOSAL_ROOT / "scripts" / "phonetic_cli.py"
 CORPUS = json.loads((REPO_ROOT / "data" / "corpus.json").read_text(encoding="utf-8"))
 ROWS = {row["id"]: row for row in CORPUS["records"]}
+
+# The first Linux pwsh invocation on an otherwise green CI head once exceeded
+# 20 seconds; its following invocation completed in ~3.6 seconds and the next
+# identical run passed. This is a BOUNDED tolerance for cold starts, not a
+# resolution of the underlying intermittent launch delay. A true hang fails.
+NATIVE_SHELL_TIMEOUT_SECONDS = 45
 
 
 def invoke(text=None, *, encoded=None, encoding="utf-8"):
@@ -122,7 +129,8 @@ class PhoneticBase64TransportTests(unittest.TestCase):
              "-RepoRoot", str(REPO_ROOT), "-Text", ROWS["E01"]["orthography"],
              "-AsJson"],
             cwd=REPO_ROOT, capture_output=True, text=True,
-            encoding="utf-8", errors="replace", timeout=20, check=False,
+            encoding="utf-8", errors="replace",
+            timeout=NATIVE_SHELL_TIMEOUT_SECONDS, check=False,
         )
         self.assertEqual(p.returncode, 0, p.stderr)
         self.assertEqual(json.loads(p.stdout)["status"], "ATTESTED_UTTERANCE")
@@ -146,7 +154,8 @@ class PhoneticBase64TransportTests(unittest.TestCase):
                     [shell, "-NoProfile", "-NonInteractive", "-File", script,
                      "-RepoRoot", str(REPO_ROOT), "-Text", phrase, "-AsJson"],
                     cwd=REPO_ROOT, capture_output=True, text=True,
-                    encoding="utf-8", errors="replace", timeout=20, check=False,
+                    encoding="utf-8", errors="replace",
+                    timeout=NATIVE_SHELL_TIMEOUT_SECONDS, check=False,
                 )
                 self.assertEqual(p.returncode, 0)
                 self.assertEqual(json.loads(p.stdout)["status"], expected)
@@ -157,6 +166,16 @@ class PhoneticBase64TransportTests(unittest.TestCase):
 
     def test_native_windows_ps51_unknown_and_protected(self):
         self._assert_native_unknown_and_protected("powershell")
+
+    def test_native_shell_timeout_is_bounded_and_remains_a_failure(self):
+        # A real hung process must still fail, never be interpreted as an
+        # attestation or hidden behind an automatic retry/skip.
+        with mock.patch.object(self, "_shell", return_value="/fake/pwsh"):
+            with mock.patch("subprocess.run", side_effect=subprocess.TimeoutExpired("pwsh", 45)) as launched:
+                with self.assertRaises(subprocess.TimeoutExpired):
+                    self._assert_native_attested("pwsh")
+                self.assertEqual(launched.call_args.kwargs["timeout"],
+                                 NATIVE_SHELL_TIMEOUT_SECONDS)
 
 
 if __name__ == "__main__":
