@@ -87,6 +87,11 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument("--lexicon-search-base64",
                       help="search query encoded as strict standard Base64 UTF-8 for PowerShell 5.1")
     args = parser.parse_args(argv)
+    # The interactive REPL writes a human banner, prompts, and error messages
+    # to stdout. Until it has a defined JSONL protocol, accepting --json here
+    # would misrepresent that mixed output as machine-readable JSON.
+    if args.interactive and args.json:
+        parser.error("--json cannot be combined with --interactive; use --text --json")
     is_search = args.lexicon_search is not None or args.lexicon_search_base64 is not None
     if not is_search and any(getattr(args, key) is not None
                              for key in ("match", "field", "category", "register", "taboo", "limit")):
