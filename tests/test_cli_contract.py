@@ -97,6 +97,22 @@ class CliContractTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertIn(RECORDS["E17"]["orthography"], proc.stdout)
 
+    def test_interactive_json_is_rejected_before_any_stdout(self):
+        proc = run_cli(
+            "--direction", "nt-en", "--interactive", "--json",
+            input_text=RECORDS["E01"]["orthography"] + "\n:quit\n",
+        )
+        self.assertEqual(proc.returncode, 2)
+        self.assertEqual(proc.stdout, "")
+        self.assertIn("--json cannot be combined with --interactive", proc.stderr)
+
+    def test_one_shot_json_is_still_single_parseable_result(self):
+        proc = run_cli("--json", "--direction", "nt-en", "--text", RECORDS["E01"]["orthography"])
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        result = json.loads(proc.stdout)
+        self.assertEqual(result["status"], "attested")
+        self.assertEqual(result["matches"][0]["id"], "E01")
+
 
 if __name__ == "__main__":
     unittest.main()
