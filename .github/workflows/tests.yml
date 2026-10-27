@@ -44,6 +44,14 @@ jobs:
         if: runner.os == 'Windows'
         shell: powershell
         run: ./tests/Test-NumtareenInterop.ps1
+      - name: Qualify English gloss-span launcher on PowerShell 7
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./tests/Test-NumtareenGlossSpans.ps1
+      - name: Qualify English gloss-span launcher on Windows PowerShell 5.1
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: ./tests/Test-NumtareenGlossSpans.ps1
       - name: Verify PowerShell entrypoint and Unicode roundtrip
         shell: pwsh
         run: |

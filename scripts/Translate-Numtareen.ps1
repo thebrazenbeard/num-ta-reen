@@ -26,13 +26,20 @@ param(
     [switch]$Interactive,
 
     [ValidateSet('mark', 'keep', 'error')]
-    [string]$Unknown = 'mark'
+    [string]$Unknown = 'mark',
+
+    # Experimental evidence explorer: returns overlapping English lexical
+    # spans as JSON. Never generates a Num'ta'reen sentence.
+    [switch]$GlossSpans
 )
 
 Set-StrictMode -Version Latest
 
 if (-not $Interactive -and -not $PSBoundParameters.ContainsKey('Text')) {
     throw 'Supply -Text or -Interactive.'
+}
+if ($GlossSpans -and ($Interactive -or $Direction -ne 'en-nt')) {
+    throw '-GlossSpans requires -Direction en-nt with -Text.'
 }
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -82,6 +89,9 @@ if ($null -eq $pythonExe) {
 }
 
 $pythonArgs = @($pythonPrefix) + @('-m', 'numtareen', '--direction', $Direction, '--unknown', $Unknown)
+if ($GlossSpans) {
+    $pythonArgs += '--gloss-spans'
+}
 if ($Interactive) {
     $pythonArgs += '--interactive'
 } else {
