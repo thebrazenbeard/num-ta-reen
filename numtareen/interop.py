@@ -96,11 +96,19 @@ def _lexical_alternatives(result: dict[str, Any], direction: str) -> list[dict[s
                 raise AmbiguityOverflowError("total reference alternative limit exceeded")
             if "segmentation" in match:
                 # A clitic segmentation is a dictionary lookup, not a phrase
-                # translation. Preserve its constituent provenance verbatim.
+                # translation. The peer schema is closed: project the seven
+                # dictionary fields explicitly. Private, mutable-candidate
+                # integrity grades stay in Translator's result; passing them
+                # through would invalidate the pinned public importer.
                 candidates.append({
                     "kind": "lexical_segmentation",
                     "token": part["token"],
-                    "segmentation": match["segmentation"],
+                    "segmentation": [
+                        {key: lexeme[key] for key in (
+                            "headword", "gloss", "category", "register",
+                            "taboo", "ipa", "source_line"
+                        )} for lexeme in match["segmentation"]
+                    ],
                     "value": None,
                     "note": "Unparsed lexical segmentation",
                 })
