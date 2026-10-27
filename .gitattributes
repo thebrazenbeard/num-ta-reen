@@ -13,3 +13,8 @@ tests/test_factorial_scope_probe.py text eol=lf
 
 # The V176 research record pins raw bytes of all four archived text artifacts.
 research/acoustic_v176/* text eol=lf
+
+# Preserve pinned parse-report and cross-lexical research bytes on Windows.
+docs/SOURCE_PARSE_REPORT.md text eol=lf
+research/crosslex_v183/*.py text eol=lf
+research/crosslex_v183/REPORT.md text eol=lf
