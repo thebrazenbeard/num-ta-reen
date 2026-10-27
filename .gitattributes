@@ -2,3 +2,7 @@
 # Their SHA-256 digests are part of the reference-adapter provenance gate.
 data/corpus.json text eol=lf
 data/lexicon.json text eol=lf
+
+# Frozen synthetic-acoustic research files have SHA-256 custody assertions.
+# Enforce their original LF bytes on Windows as well as Unix checkouts.
+research/acoustic_v158/*.py text eol=lf
