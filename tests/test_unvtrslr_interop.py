@@ -168,6 +168,25 @@ class ExportContractTests(unittest.TestCase):
                 self.assertIs(result["qualification_eligible"], False)
                 self.assertIsNone(result.get("target_text"))
 
+    def test_segmentation_exports_only_legacy_peer_lexeme_fields(self):
+        # The internal source-candidate integrity grade is valuable, but the
+        # pinned public reference-evidence importer has a closed wire schema.
+        # Future internal metadata must not silently cross that boundary.
+        internal = self.translator.translate("Nûm=sha", "nt-en")
+        self.assertTrue(internal["parts"][0]["matches"][0]["segmentation"][0]
+                        ["source_candidate_verified"])
+        exported = self.export(self.translator, "Nûm=sha", "nt-en")
+        self.assertEqual(exported["evidence_class"], "AUTHOR_LEXICON_GLOSS")
+        segmented = next(alt for alt in exported["alternatives"]
+                         if alt["kind"] == "lexical_segmentation")
+        legacy_fields = {"headword", "gloss", "category", "register",
+                         "taboo", "ipa", "source_line"}
+        self.assertGreater(len(segmented["segmentation"]), 1)
+        for constituent in segmented["segmentation"]:
+            self.assertEqual(set(constituent), legacy_fields)
+            self.assertNotIn("source_candidate_verified", constituent)
+        self.assertIs(exported["qualification_eligible"], False)
+
     def test_true_name_chord_is_not_rendered_as_emit_ready_signal(self):
         source = next(row for row in self.translator.corpus if row["id"] == "E26")
         result = self.export(self.translator, source["english"], "en-nt")

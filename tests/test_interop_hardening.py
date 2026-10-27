@@ -20,8 +20,15 @@ class InteropJsonlRecoveryTests(unittest.TestCase):
     def test_total_budget_counts_every_analysis_across_segmented_tokens(self):
         # The engine's Cartesian expansion may return six distinct analyses
         # for each token. The wire budget applies to their sum, not each token.
-        matches = [{"segmentation": [{"headword": f"synthetic-stem-{s}"},
-                                     {"headword": f"=synthetic-clitic-{c}"}]}
+        # Use complete lexeme records: the public peer wire schema is closed
+        # and omitting gloss/source metadata would produce invalid evidence.
+        def lexeme(headword):
+            return {"headword": headword, "gloss": "synthetic test fixture",
+                    "category": "STATE/ACT", "register": "CF", "taboo": "NONE",
+                    "ipa": "n", "source_line": 1}
+
+        matches = [{"segmentation": [lexeme(f"synthetic-stem-{s}"),
+                                     lexeme(f"=synthetic-clitic-{c}")]}
                    for s in range(2) for c in range(3)]
         lexical_part = {"kind": "lexical", "token": "synthetic", "matches": matches}
         in_budget = {"parts": [lexical_part] * 10}
