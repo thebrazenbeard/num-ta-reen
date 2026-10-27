@@ -10,3 +10,6 @@ research/acoustic_v158/*.py text eol=lf
 # Preserve the independently reviewed factorial probe/test bytes on Windows.
 research/factorial_scope_probe.py text eol=lf
 tests/test_factorial_scope_probe.py text eol=lf
+
+# The V176 research record pins raw bytes of all four archived text artifacts.
+research/acoustic_v176/* text eol=lf
