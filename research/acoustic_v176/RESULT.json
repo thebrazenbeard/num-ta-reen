@@ -1,0 +1,34 @@
+{
+  "duration_ms_each": 480,
+  "evidence": "FROZEN_SYNTHETIC_EQUAL_DURATION_EXPERIMENT",
+  "negative": {
+    "count": 128,
+    "paired": {
+      "repeat_0_v158_0": 127,
+      "repeat_0_v158_1": 1,
+      "repeat_1_v158_0": 0,
+      "repeat_1_v158_1": 0
+    },
+    "seed": 24552705,
+    "v138_twice_accept": 0,
+    "v158_accept": 1
+  },
+  "positive": {
+    "count_each": 96,
+    "seed": 24556802,
+    "v138_twice": {
+      "abstain": 0,
+      "correct": 96,
+      "wrong": 0
+    },
+    "v158": {
+      "abstain": 0,
+      "correct": 96,
+      "wrong": 0
+    }
+  },
+  "public_forgery": {
+    "accepted": 8,
+    "total": 8
+  }
+}
