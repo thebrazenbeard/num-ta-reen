@@ -26,7 +26,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: thebrazenbeard/unvtrslr
-          ref: 77cf2cba601461af164b3473776ed9ff5615757a
+          # Exact reviewed V0 sidecar research peer; not an unpinned main.
+          ref: d113df8b72385300c570ccb9d1c8a36f20ddb738
           path: .unvtrslr_current_peer
           persist-credentials: false
       - name: Set up Python
@@ -40,6 +41,11 @@ jobs:
           NUMTAREEN_ROOT: ${{ github.workspace }}
           UNVTRSLR_ROOT: ${{ format('{0}/.unvtrslr_current_peer', github.workspace) }}
         run: python -m unittest discover -s tests -p test_unvtrslr_interop.py -q
+      - name: Verify opt-in typed semantic research sidecars (not learner input)
+        env:
+          NUMTAREEN_ROOT: ${{ github.workspace }}
+          UNVTRSLR_ROOT: ${{ format('{0}/.unvtrslr_current_peer', github.workspace) }}
+        run: python -m unittest discover -s tests -p peer_typed_reference_sidecar_v0.py -v
       - name: Verify blind waveform interoperability and negative controls
         env:
           NUMTAREEN_ROOT: ${{ github.workspace }}
