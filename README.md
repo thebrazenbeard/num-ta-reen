@@ -150,6 +150,15 @@ The [semantic/acoustic alignment falsification audit](docs/SEMANTIC_ACOUSTIC_ALI
 
 The [typed semantic observation channel](proposals/TYPED_SEMANTIC_CHANNEL_V1.md) addresses that measured loss at the **symbolic research layer**: it preserves all 27 eligible source-observed predicate, ordered role, focus/question and distinct consent arrangements in reversible framed records, verifies provenance on every public decoded-object export, and abstains on unknown/conflicted/protected inputs. Run `py -3 -m unittest discover -s tests -p test_typed_channel.py -v`. It does **not** teach the translator new sentences, establish native frequency assignments, or prove the language's mathematical semantics.
 
+The [cross-lexical morphology evidence audit](research/crosslex_v183/REPORT.md) separates
+attested surface clitics across lexical hosts from dictionary-only definitions and
+illustrative example links. Its source-pinned comparison does not invalidate the
+author's example references or create any new canonical forms. Reproduce its
+bounded evidence checks with
+`py -3 -m unittest discover -s tests -p test_crosslex_v183.py -v`.
+Cross-predicate productivity, consent scope, and evidential swaps remain
+author-elicitation questions.
+
 ## Development
 
 ### Governed Universal Translator reference bridge
