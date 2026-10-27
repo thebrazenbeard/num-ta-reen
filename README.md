@@ -34,6 +34,18 @@ If `py` is unavailable, use `python` instead. The convenience PowerShell wrapper
 
 Interactive commands: `:direction nt-en`, `:direction en-nt`, `:unknown mark|keep|error`, `:help`, `:quit`. Python also supports `--json` for structured, provenance-preserving results. The PowerShell wrapper sends one-shot text using an exact UTF-8 transport to preserve quotes, Unicode, and punctuation on Windows PowerShell 5.1.
 
+### Explore English phrases in the dictionary (experimental)
+
+For an English sentence that is not in the authored corpus, inspect **all overlapping** dictionary phrases without inventing a Num’ta’reen sentence:
+
+```powershell
+.\scripts\Translate-Numtareen.ps1 -Direction en-nt -GlossSpans -Text 'I noticed witnessed alignment yesterday'
+# Equivalent Python entrypoint; returns structured JSON
+py -3 -m numtareen --direction en-nt --gloss-spans --text 'I noticed witnessed alignment yesterday'
+```
+
+The JSON identifies matched source-dictionary candidates and uncovered words; even complete lexical coverage is **not** evidence of a grammatical translation. This is distinct from ordinary bidirectional lookup. See [the gloss-span research contract](docs/ENGLISH_GLOSS_SPAN_EXPLORER_V0.md). `--interactive --json` is explicitly rejected because interactive prompts are not a machine-readable JSON protocol.
+
 ### Search the dictionary (not translation)
 
 Search the existing 500 author-provided entries without asking the translator

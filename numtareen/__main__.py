@@ -73,6 +73,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--direction", choices=("nt-en", "en-nt"), default="nt-en")
     parser.add_argument("--unknown", choices=("mark", "keep", "error"), default="mark")
     parser.add_argument("--json", action="store_true", help="emit machine-readable results")
+    parser.add_argument("--gloss-spans", action="store_true",
+                        help="research-only: enumerate overlapping source English dictionary spans as JSON")
     parser.add_argument("--match", choices=("exact", "contains"), help="lexicon search matching")
     parser.add_argument("--field", choices=("headword", "gloss", "both"), help="lexicon search field")
     parser.add_argument("--category", help="exact lexicon category filter")
@@ -93,6 +95,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.interactive and args.json:
         parser.error("--json cannot be combined with --interactive; use --text --json")
     is_search = args.lexicon_search is not None or args.lexicon_search_base64 is not None
+    if args.gloss_spans and (is_search or args.interactive):
+        parser.error("--gloss-spans requires --text or --text-base64")
+    if args.gloss_spans and args.direction != "en-nt":
+        parser.error("--gloss-spans requires --direction en-nt")
+    if args.gloss_spans and args.unknown != "mark":
+        parser.error("--gloss-spans does not apply --unknown policy; use default mark")
     if not is_search and any(getattr(args, key) is not None
                              for key in ("match", "field", "category", "register", "taboo", "limit")):
         parser.error("lexicon search options require --lexicon-search or --lexicon-search-base64")
@@ -128,6 +136,11 @@ def main(argv: list[str] | None = None) -> int:
                 text = base64.b64decode(args.text_base64.encode("ascii"), validate=True).decode("utf-8")
             except (UnicodeError, ValueError, binascii.Error) as exc:
                 raise ValueError("--text-base64 requires valid standard Base64 of UTF-8 text") from exc
+        if args.gloss_spans:
+            from .gloss_spans import discover_english_gloss_spans
+            result = discover_english_gloss_spans(translator, text)
+            print(json.dumps(result, ensure_ascii=True, indent=2))
+            return 0
         result = translator.translate(text, direction=args.direction, unknown=args.unknown)
     except UnknownTermError as exc:
         print(f"Error: {escape_invisible(str(exc))}", file=sys.stderr)
