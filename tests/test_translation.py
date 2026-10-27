@@ -48,6 +48,33 @@ class TranslationTests(unittest.TestCase):
         self.assertNotEqual(self.translator.translate("qesh")["parts"],
                             self.translator.translate("kesh")["parts"])
 
+    def test_unicode_sentence_punctuation_does_not_hide_known_dictionary_entries(self):
+        # Unicode punctuation is typography at lexical boundaries, not
+        # an unknown headword. Exact attested lookup still runs first.
+        for query in ("nûm！", "“nûm…”", "nûm。", "nûm？"):
+            with self.subTest(query=query):
+                result = self.translator.translate(query, "nt-en")
+                self.assertEqual(result["status"], "lexical")
+                self.assertEqual(result["unknown_count"], 0)
+                self.assertEqual(result["parts"][0]["matches"][0]["headword"], "nûm")
+
+        result = self.translator.translate("align/cohere？", "en-nt")
+        self.assertEqual(result["status"], "lexical")
+        self.assertEqual(result["parts"][0]["matches"][0]["headword"], "nûm")
+
+        result = self.translator.translate("nûm！ ech。", "nt-en")
+        self.assertEqual(result["status"], "lexical")
+        self.assertEqual(result["unknown_count"], 0)
+
+    def test_unicode_punctuation_does_not_change_attestation_or_phonemic_forms(self):
+        # Do not treat a punctuation-modified sentence as source-attested.
+        result = self.translator.translate("Nûm ta=en ech！")
+        self.assertNotEqual(result["status"], "attested")
+        # Keep chord notation and apostrophes meaningful to lookups.
+        self.assertEqual(self.translator.translate("⟦61·113·233⟧=tra vu ech.")["status"],
+                         "attested")
+        self.assertEqual(self.translator.translate("Ta'qesh.")["status"], "attested")
+
     def test_unicode_canonicalization_only_not_semantic_collapse(self):
         result = self.translator.translate("Nu\u0302m ta=en ech.")
         self.assertEqual(result["status"], "attested")
