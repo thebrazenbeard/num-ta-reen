@@ -17,7 +17,10 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 _APOSTROPHE_TRANSLATION = str.maketrans({"'": "’", "‘": "’", "ʼ": "’"})
 _WHITESPACE = re.compile(r"\s+")
-_WORD_EDGES = " \t\r\n.,!?;:\"“”«»()[]{}"
+# Recognize common Unicode sentence punctuation at lexical token boundaries.
+# This affects dictionary fallback only: exact corpus matching still uses
+# normalize(), and phonemic apostrophes / true-name brackets are untouched.
+_WORD_EDGES = " \t\r\n.,!?;:\"“”«»()[]{}…。，！？．；："
 _SIMPLE_ALTERNATIVES = re.compile(r"^[^\s/.,;:()]+(?:/[^\s/.,;:()]+)+\.?$")
 MAX_SEGMENTED_PIECES = 16
 MAX_SEGMENTATION_ANALYSES = 64
