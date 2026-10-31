@@ -1,16 +1,32 @@
 # Nûm’ta’reen
 
-> Fictional language and state-sharing communication system of the Ech’ta’reen, from *The Wreckforge Chronicles*.
+**An offline, source-attested fictional-language reference and lookup toolkit.** Nûm’ta’reen is the Ech’ta’reen language from *The Wreckforge Chronicles*; the authored language is specific to that fictional setting, while the reference-data, provenance, and command-line lookup patterns can inform other language-tooling projects.
 
-This repository turns Patrick A. Sims’s existing worldbuilding documents into a versioned language reference, a 500-entry digital dictionary, a 30-utterance attested bilingual corpus, and a **PowerShell-friendly, offline Num’ta’reen ⇄ English interface**.
+This repository provides a versioned grammar reference, a **500-entry author-supplied dictionary**, a **30-utterance attested bilingual corpus**, and a standard-library Python interface for constrained Nûm’ta’reen ⇄ English lookup. A PowerShell launcher supports Windows users. The tool **does not** invent canonical words, learn language from sound, or produce unrestricted fluent translations.
 
-The original OneDrive folder and documents remain untouched. This repository is **public** and contains text extracts, searchable data, and code—not the manuscript. Public visibility does not grant a license to reuse the fictional language or source documents. The two `UPDATED_lphoneme` sources take precedence over older drafts.
+| Included surface | Practical use | Evidence boundary |
+| --- | --- | --- |
+| `numtareen` Python CLI | Whole-utterance lookup, approximate lexical gloss, interactive mode, structured JSON output | Only authored source-attested sentences and dictionary material |
+| `numtareen --lexicon-search` | Search existing headwords, glosses, IPA and source line numbers | Dictionary search, not translation or semantic grounding |
+| `numtareen.phonetic_bridge` | Read author-attested IPA for known words and complete utterances | No generative pronunciation or native acoustic decoding |
+| `scripts/Translate-Numtareen.ps1` | PowerShell-friendly Unicode input/output and interactive commands | Wrapper around the same offline Python data |
+| `research/` and `proposals/` | Reproducible evidence audits and **noncanonical** experiments | No automatic change to the authored language |
 
-## Translate from PowerShell
+**Rights:** Public source visibility does not grant a license to reuse the original fictional language, texts, or creative setting. Consult the [source provenance](sources/SOURCES.md) and obtain appropriate permission before redistributing or incorporating protected material. This repository contains extracted reference text and code, not the manuscript. The amended `UPDATED_lphoneme` sources take precedence over older drafts.
 
-Requirements: Windows PowerShell or PowerShell 7, and Python 3.10 or newer installed. No API key, paid service, online model, or package installation is required.
+## Use locally (Python or PowerShell)
 
-Open PowerShell in the cloned repository folder, then run:
+Requirements: **Python 3.10+**, with no third-party runtime package, API key, online model, or hosted service needed. From a local checkout, the Python entrypoint works in a standard terminal:
+
+```bash
+python -m numtareen --direction nt-en --text "Nûm ta=en ech."
+python -m numtareen --direction en-nt --text "Stop. Do not proceed."
+python -m numtareen --direction en-nt --interactive
+```
+
+On Windows, use the Python launcher (`py -3`) or the supplied PowerShell wrapper:
+
+
 
 ```powershell
 # Num’ta’reen → English (attested full sentence)
@@ -122,7 +138,7 @@ Unattested phrases return `UNKNOWN` without invented phonetics. The two Windows 
 | `docs/LANGUAGE_OVERVIEW.md` | Grammar summary, linguistic constraints and examples |
 | `docs/LANGUAGE_EVIDENCE_AND_CONTRADICTIONS_20261026.md` | Evidence audit and unresolved phonological, syntactic, and semantic source conflicts |
 | `docs/SOURCE_PARSE_REPORT.md` | Source extraction checks and unresolved internal inconsistencies |
-| `proposals/` | Proposed extensions for Patrick’s editorial approval; **not** canon by default |
+| `proposals/` | Proposed extensions requiring the language creator's editorial approval; **not** canon by default |
 | `tests/` | Offline source, translation and safety regressions |
 
 ## Growing the language
@@ -130,7 +146,7 @@ Unattested phrases return `UNKNOWN` without invented phonetics. The two Windows 
 The supplied dictionary is substantial but does not fully define everyday communication. Additions therefore use a visible two-stage workflow:
 
 1. **Proposal** — identify an unmet semantic domain, describe native state/resonance distinctions, propose forms and example usages, and check against the existing dictionary and phonology.
-2. **Canonization** — Patrick reviews/changes/accepts proposals. Only explicitly accepted entries move into canonical datasets. Proposed meanings remain excluded from default translation.
+2. **Canonization** — the language creator or authorized editor reviews, changes, or accepts proposals. Only explicitly accepted entries move into canonical datasets. Proposed meanings remain excluded from default translation.
 
 The [30-slot everyday communication coverage proposal](proposals/EVERYDAY_SEMANTIC_COVERAGE_V1.md) distinguishes attested utterances, dictionary-only vocabulary, and missing structures. The [source contradiction audit](docs/LANGUAGE_EVIDENCE_AND_CONTRADICTIONS_20261026.md) documents unresolved phoneme inventory, phonotactic, relativizer, restorative/concessive, and echo-operator questions. Neither file is canon; author review and contrastive examples are still required. We do not overwrite or silently reinterpret the supplied documents.
 
